@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block body %}
+  <div class="search">
+    <h1>Search</h1>
+    <form method="post" action="">
+      Query: <input type="text" name="query">
+      <input type="submit" value="Search">
+    </form>
+  </div>
+  {% if results %}
+    <h2>Hits</h2>
+    <div class="results">
+      <table>
+      {% for score, url, title, excerpt in results %}
+        <tr>
+          <td>{{ score }}</td>
+          <td><a href="{{ url }}">{{ title }}: {{ excerpt }}</a></td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  {% endif %}
+{% endblock %}

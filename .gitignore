@@ -1,3 +1,6 @@
+*.pyc
+*.pyo
 GPATH
-GTAGS
 GRTAGS
+GTAGS
+__pycache__
