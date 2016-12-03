@@ -4,12 +4,18 @@
 Creates search indices and performs search.
 """
 
+from whoosh.analysis import StemmingAnalyzer
+from whoosh.fields import Schema, TEXT, KEYWORD, ID, STORED
 import argparse
+import contextlib
 import os
+import shutil
 import sys
+import tempfile
 import whoosh
+import whoosh.index
 
-def main():
+def parse_args():
     p = argparse.ArgumentParser()
 
     p.add_argument("--path", type=str, default=None,
@@ -34,6 +40,43 @@ def main():
         raise FileNotFoundError(options.corpus)
 
     return options
+
+def main():
+    opts = parse_args()
+    with tempdir() as indexdir:
+        #print("Tempdir: %s" % indexdir)
+        index(opts, indexdir)
+
+def index(opts, indexdir):
+    schema = Schema(
+                title=TEXT(stored=True),
+                body=TEXT(analyzer=StemmingAnalyzer()))
+
+    print("Indexing %s" % os.path.relpath(opts.corpus))
+
+    ix = whoosh.index.create_in(indexdir, schema)
+    writer = ix.writer()
+
+    for filename in os.listdir(opts.corpus):
+        print("Indexing %s" % filename)
+        filename = os.path.join(opts.corpus, filename)
+        with open(filename, "rt") as file:
+            writer.add_document(
+                title=os.path.basename(filename),
+                body=file.read(),
+            )
+
+    print("Committing")
+    writer.commit()
+    return ix
+
+@contextlib.contextmanager
+def tempdir():
+    directory = tempfile.mkdtemp()
+    try:
+        yield directory
+    finally:
+        shutil.rmtree(directory)
 
 if __name__ == "__main__":
     if sys.version_info[0] <= 2:
