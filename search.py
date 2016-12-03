@@ -16,6 +16,39 @@ import tempfile
 import whoosh
 import whoosh.index
 
+class SearchEngine():
+    def __init__(self, index_path):
+        self.schema = Schema(
+            title=TEXT(stored=True),
+            body=TEXT(analyzer=StemmingAnalyzer()))
+
+        self.index_path = index_path
+        self.ix = whoosh.index.create_in(self.index_path, self.schema)
+
+    def index(self, root):
+        writer = self.ix.writer()
+
+        for filename in os.listdir(root):
+            print("Indexing %s" % filename)
+            filename = os.path.join(root, filename)
+            try:
+                with open(filename, "rt") as file:
+                    writer.add_document(
+                        title=os.path.basename(filename),
+                        body=file.read(),
+                    )
+            except Exception as e:
+                print(str(e))
+
+        writer.commit()
+
+    def search(self, query, field="body"):
+        qp = QueryParser(field, schema=self.ix.schema)
+        p = qp.parse(query)
+
+        with self.ix.searcher() as s:
+            yield s.search(p)
+
 def parse_args():
     p = argparse.ArgumentParser()
 
@@ -44,46 +77,15 @@ def parse_args():
 
 def main():
     opts = parse_args()
-    with tempdir() as indexdir:
-        #print("Tempdir: %s" % indexdir)
-        ix = index(opts, indexdir)
+    with tempdir() as index_location:
+        s = SearchEngine(index_location)
+        s.index(opts.corpus)
 
         query = "bird"
         print("Performing example search for %s:" % repr(query))
-        results = list(search(ix, field="body", query="bird"))
-        for result in results:
+        for no, result in enumerate(s.search(query)):
             print(result)
-        print("%d results" % len(results))
-
-def search(ix, field, query):
-    qp = QueryParser(field, schema=ix.schema)
-    p = qp.parse(query)
-
-    with ix.searcher() as s:
-        yield s.search(p)
-
-def index(opts, indexdir):
-    schema = Schema(
-                title=TEXT(stored=True),
-                body=TEXT(analyzer=StemmingAnalyzer()))
-
-    print("Indexing %s" % os.path.relpath(opts.corpus))
-
-    ix = whoosh.index.create_in(indexdir, schema)
-    writer = ix.writer()
-
-    for filename in os.listdir(opts.corpus):
-        print("Indexing %s" % filename)
-        filename = os.path.join(opts.corpus, filename)
-        with open(filename, "rt") as file:
-            writer.add_document(
-                title=os.path.basename(filename),
-                body=file.read(),
-            )
-
-    print("Committing")
-    writer.commit()
-    return ix
+        print("%d results" % (1+no))
 
 @contextlib.contextmanager
 def tempdir():
