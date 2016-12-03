@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 """
-Creates search indices and performs search.
+Creates search indexes and performs search.
 """
 
 from whoosh.analysis import StemmingAnalyzer
@@ -17,16 +17,27 @@ import whoosh
 import whoosh.index
 
 class SearchEngine():
-    def __init__(self, index_path):
-        self.schema = Schema(
-            title=TEXT(stored=True),
-            body=TEXT(analyzer=StemmingAnalyzer()))
-
+    def __init__(self, doc_path, index_path):
+        self.doc_path = doc_path
         self.index_path = index_path
-        self.ix = whoosh.index.create_in(self.index_path, self.schema)
 
-    def index(self, root):
-        writer = self.ix.writer()
+
+        if not os.path.isdir(self.index_path):
+            schema = Schema(
+                title=TEXT(stored=True),
+                body=TEXT(analyzer=StemmingAnalyzer()))
+
+            os.mkdir(self.index_path)
+
+            with contextlib.closing(whoosh.index.create_in(self.index_path,
+                schema)) as ix:
+                SearchEngine._index(ix, self.doc_path)
+
+        self.ix = whoosh.index.open_dir(self.index_path)
+
+    @staticmethod
+    def _index(ix, root):
+        writer = ix.writer()
 
         for filename in os.listdir(root):
             print("Indexing %s" % filename)
@@ -42,12 +53,14 @@ class SearchEngine():
 
         writer.commit()
 
-    def search(self, query, field="body"):
+    def search(self, query, field="body", limit=20):
         qp = QueryParser(field, schema=self.ix.schema)
         p = qp.parse(query)
 
         with self.ix.searcher() as s:
-            yield s.search(p)
+            yield s.search(p, limit=limit)
+
+        #return self.searcher.search(p, limit=limit)
 
 def parse_args():
     p = argparse.ArgumentParser()
@@ -58,6 +71,9 @@ def parse_args():
     p.add_argument("--corpus", type=str, default="simple",
         help="Subdirectory to use as a text corpus")
 
+    p.add_argument("--index-path", type=str, default=None,
+        help="Directory to hold search indexes.")
+
     options = p.parse_args()
 
     if options.path is None:
@@ -67,25 +83,26 @@ def parse_args():
     if not os.path.isdir(options.path):
         raise FileNotFoundError(options.path)
 
-    options.corpus = os.path.realpath(os.path.join(options.path,
-        options.corpus))
-
-    if not os.path.isdir(options.corpus):
+    if not os.path.isdir(os.path.join(options.path, options.corpus)):
         raise FileNotFoundError(options.corpus)
 
+    if options.index_path is None:
+        options.index_path = os.path.realpath(
+                os.path.join(os.path.dirname(__file__), "indexes"))
     return options
 
 def main():
     opts = parse_args()
-    with tempdir() as index_location:
-        s = SearchEngine(index_location)
-        s.index(opts.corpus)
 
-        query = "bird"
-        print("Performing example search for %s:" % repr(query))
-        for no, result in enumerate(s.search(query)):
+    s = SearchEngine(doc_path=os.path.join(opts.path, opts.corpus),
+                     index_path=os.path.join(opts.index_path, opts.corpus))
+
+    query = "bird"
+    print("Performing example search for %s:" % repr(query))
+    for results in s.search(query):
+        print(results)
+        for result in results:
             print(result)
-        print("%d results" % (1+no))
 
 @contextlib.contextmanager
 def tempdir():
