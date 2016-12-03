@@ -4,6 +4,7 @@
 Creates search indexes and performs search.
 """
 
+from collections import deque
 from whoosh.analysis import StemmingAnalyzer
 from whoosh.fields import Schema, TEXT, KEYWORD, ID, STORED
 from whoosh.qparser import QueryParser
@@ -24,8 +25,12 @@ class SearchEngine():
 
         if not os.path.isdir(self.index_path):
             schema = Schema(
-                title=TEXT(stored=True),
-                body=TEXT(analyzer=StemmingAnalyzer()))
+                title = TEXT(stored=True),
+                filename = TEXT(stored=True),
+                body = TEXT(analyzer=StemmingAnalyzer()),
+                suggestions = TEXT(),
+                suggestion_phrases = KEYWORD(commas=True, lowercase=True)
+            )
 
             os.mkdir(self.index_path)
 
@@ -37,20 +42,39 @@ class SearchEngine():
 
     @staticmethod
     def _index(ix, root):
+        def index_directory(writer, path, depth_first=False):
+            """A recursive indexer."""
+            subdirs = deque()
+
+            for item in sorted(os.listdir(root)):
+                path = os.path.join(root, item)
+                print("Indexing %s" % path)
+
+                if os.path.isdir(path):
+                    if depth_first:
+                        index_directory(writer, path)
+                    else:
+                        subdirs.add(path)
+                    continue
+
+                try:
+                    with open(path, "rt") as file:
+                        body = file.read()
+                except Exception as e:
+                    print(str(e))
+
+                writer.add_document(
+                    title=os.path.basename(path),
+                    filename=path,
+                    body=body,
+                    suggestions=body,
+                    suggestion_phrases=body)
+
+            for path in subdirs:
+                index_directory(writer, path, depth_first=depth_first)
+
         writer = ix.writer()
-
-        for filename in os.listdir(root):
-            print("Indexing %s" % filename)
-            filename = os.path.join(root, filename)
-            try:
-                with open(filename, "rt") as file:
-                    writer.add_document(
-                        title=os.path.basename(filename),
-                        body=file.read(),
-                    )
-            except Exception as e:
-                print(str(e))
-
+        index_directory(writer, root)
         writer.commit()
 
     def search(self, query, field="body", limit=20):

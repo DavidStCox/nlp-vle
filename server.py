@@ -11,6 +11,7 @@ from flask import (
 )
 
 from flask.views import View
+from search import SearchEngine # local module
 import argparse
 import json
 import os
@@ -33,6 +34,9 @@ def parse_arguments():
     p.add_argument("--static", type=str, default=None,
         help="Path to the /static files diretory")
 
+    p.add_argument("--corpus", type=str, default="simple",
+        help="Which corpus in the corpora/ subdirectory to use")
+
     options = p.parse_args()
 
     if options.templates is None:
@@ -52,32 +56,32 @@ def parse_arguments():
     return options
 
 class SearchApp(Flask):
-    def __init__(self, *args, **kw):
+    def __init__(self, *args, corpus=None, **kw):
         super().__init__(*args, **kw)
         self._setup_routes()
-        self.corpus = os.path.realpath(os.path.join(os.path.dirname(__file__),
-            "corpora", "simple"))
+        self.corpus = corpus
+        self.corpus_path = os.path.realpath(os.path.join(os.path.dirname(__file__),
+            "corpora", self.corpus))
+
+        self.index_path = os.path.realpath( os.path.join(
+            os.path.dirname(__file__), "indexes", self.corpus))
+
+        self.search_engine = SearchEngine(doc_path=self.corpus_path,
+                index_path=self.index_path)
 
     def _setup_routes(self):
-        self.add_url_rule("/", view_func=self.index)
-
-        self.add_url_rule("/search/freetext", view_func=self.search,
-                methods=["GET", "POST"])
-
-        self.add_url_rule("/search/suggestions", view_func=self.search,
-                methods=["GET", "POST"])
-
-        self.add_url_rule("/search/navigation", view_func=self.search,
-                methods=["GET", "POST"])
-
-        self.add_url_rule("/autocomplete", view_func=self.autocomplete)
-        self.add_url_rule("/licenses", view_func=self.licenses)
-
-        self.add_url_rule("/doc/<path:filename>", view_func=self.show_doc)
+        route = lambda *args, **kw: self.add_url_rule(*args, **kw)
+        route("/", view_func=self.index)
+        route("/autocomplete", view_func=self.search_suggestions)
+        route("/doc/<path:filename>", view_func=self.show_doc)
+        route("/licenses", view_func=self.licenses)
+        route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
+        route("/search/navigation", view_func=self.search, methods=["GET", "POST"])
+        route("/search/suggestions", view_func=self.search, methods=["GET", "POST"])
 
     def show_doc(self, filename):
-
-        doc = os.path.relpath(os.path.join(self.corpus, self.corpus, filename))
+        """Renders a document in the current corpus."""
+        doc = os.path.relpath(os.path.join(self.corpus_path, filename))
         if doc.startswith(".."):
             return "Error: Trying to access file outside of corpus path"
 
@@ -92,8 +96,8 @@ class SearchApp(Flask):
             }
             return render_template("doc.html", **context)
 
-    def autocomplete(self):
-        """Returns (real time) queries back to the user."""
+    def search_suggestions(self):
+        """Returns search suggestions for the given query."""
 
         query = request.args.get("query", "")
 
@@ -113,25 +117,25 @@ class SearchApp(Flask):
         query = request.form.get("query", None)
         perform_search = query is not None
 
-        if perform_search:
-            # The user request an actual result
-            self.logger.info("Search: %s" % repr(query))
-
-            # Score, URL, Title, Excerpt
-            results = (
-                (random.uniform(0,1), "?first-hit", "RandomSite1", "blah blah"),
-                (random.uniform(0,1), "?second-hit", "RandomSite2", "blah blah"),
-                (random.uniform(0,1), "?third-hit", "RandomSite2", "blah blah"),
-            )
-        else:
-            results = []
-
         context = {
             "title": "Search",
-            "results": sorted(results, reverse=True),
             "query": query,
             "autocomplete": True,
         }
+
+        if perform_search:
+            self.logger.info("Search: %s" % repr(query))
+
+            results = []
+            for hits in self.search_engine.search(query):
+                for hit in hits:
+                    score = hit.score
+                    url = "/doc/%s" % os.path.basename(hit["filename"])
+                    title = hit["title"]
+                    excerpt = "..."
+                    results.append((score, url, title, excerpt))
+
+            context["results"] = sorted(results, reverse=True)
 
         return render_template("search.html", **context)
 
@@ -148,7 +152,8 @@ class SearchApp(Flask):
 def main():
     options = parse_arguments()
 
-    app = SearchApp(__name__, template_folder=options.templates)
+    app = SearchApp(__name__, corpus=options.corpus,
+            template_folder=options.templates)
     app.run(host=options.host, port=options.port)
 
 if __name__ == "__main__":
