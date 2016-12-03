@@ -1,4 +1,29 @@
 {% extends "base.html" %}
+{% block style %}
+  {% if autocomplete %}
+  .autocomplete-suggestions {
+    border: 1px solid #999; background: #FFF; overflow: auto;
+  }
+
+  .autocomplete-suggestion {
+    padding: 2px 5px; white-space: nowrap; overflow: hidden;
+  }
+
+  .autocomplete-selected {
+    background: #F0F0F0;
+  }
+
+  .autocomplete-suggestions strong {
+    font-weight: normal; color: #3399FF;
+  }
+
+  .autocomplete-group { padding: 2px 5px; }
+
+  .autocomplete-group strong {
+    display: block; border-bottom: 1px solid #000;
+  }
+  {% endif %}
+{% endblock %}
 {% block body %}
   <div class="search">
     <h1>Search</h1>
@@ -6,16 +31,13 @@
       Query: <input id="query" type="text" name="query">
       <input type="submit" value="Search">
     </form>
+    {% if autocomplete %}
     <script type="text/javascript">
-    var tags = [
-      "foo",
-      "bar",
-      "baz"
-    ];
-    $("#query").autocomplete({
-      serviceUrl: "/autocomplete"
-    });
+      $("#query").autocomplete({
+        serviceUrl: "/autocomplete"
+      });
     </script>
+    {% endif %}
   </div>
   {% if results %}
     <h2>Hits</h2>

@@ -90,8 +90,10 @@ class SearchApp(Flask):
     def search(self):
         """Performs the actual search."""
         query = request.form.get("query", None)
+        perform_search = query is not None
 
-        if query is not None:
+        if perform_search:
+            # The user request an actual result
             self.logger.info("Search: %s" % repr(query))
 
             # Score, URL, Title, Excerpt
@@ -107,7 +109,9 @@ class SearchApp(Flask):
             "title": "Search",
             "results": sorted(results, reverse=True),
             "query": query,
+            "autocomplete": True,
         }
+
         return render_template("search.html", **context)
 
     def index(self):
