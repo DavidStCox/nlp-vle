@@ -3,9 +3,19 @@
   <div class="search">
     <h1>Search</h1>
     <form method="post" action="">
-      Query: <input type="text" name="query">
+      Query: <input id="query" type="text" name="query">
       <input type="submit" value="Search">
     </form>
+    <script type="text/javascript">
+    var tags = [
+      "foo",
+      "bar",
+      "baz"
+    ];
+    $("#query").autocomplete({
+      source: tags
+    });
+    </script>
   </div>
   {% if results %}
     <h2>Hits</h2>

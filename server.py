@@ -57,6 +57,17 @@ class SearchApp(Flask):
         self.add_url_rule("/search/navigation", view_func=self.search,
                 methods=["GET", "POST"])
 
+    def get_suggestions(self):
+        """Returns (real time) queries back to the user."""
+
+        results = [
+            "suggestion 1",
+            "suggestion 2",
+            "suggestion 3",
+        ]
+
+        return json.dumps(results)
+
     def search(self):
         """Performs the actual search."""
         query = request.form.get("query", None)
