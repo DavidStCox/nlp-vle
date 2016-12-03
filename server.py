@@ -12,6 +12,7 @@ from flask import (
 
 from flask.views import View
 import argparse
+import json
 import os
 import random
 import sys
@@ -29,14 +30,24 @@ def parse_arguments():
     p.add_argument("--templates", type=str, default=None,
         help="Path to the Jinja2 templates directory")
 
+    p.add_argument("--static", type=str, default=None,
+        help="Path to the /static files diretory")
+
     options = p.parse_args()
 
     if options.templates is None:
         options.templates = os.path.realpath(
                 os.path.join(os.path.dirname(__file__), "templates"))
 
+    if options.static is None:
+        options.static = os.path.realpath(
+                os.path.join(os.path.dirname(__file__), "static"))
+
     if not os.path.isdir(options.templates):
         raise FileNotFoundError(options.templates)
+
+    if not os.path.isdir(options.static):
+        raise FileNotFoundError(options.static)
 
     return options
 
@@ -57,16 +68,24 @@ class SearchApp(Flask):
         self.add_url_rule("/search/navigation", view_func=self.search,
                 methods=["GET", "POST"])
 
-    def get_suggestions(self):
+        self.add_url_rule("/autocomplete", view_func=self.autocomplete)
+        self.add_url_rule("/licenses", view_func=self.licenses)
+
+    def autocomplete(self):
         """Returns (real time) queries back to the user."""
 
-        results = [
-            "suggestion 1",
-            "suggestion 2",
-            "suggestion 3",
-        ]
+        query = request.args.get("query", "")
 
-        return json.dumps(results)
+        result = {
+            "query": query,
+            "suggestions": [
+                "suggestion 1",
+                "suggestion 2",
+                "suggestion 3 - %d" % random.randint(1,100),
+            ],
+        }
+
+        return json.dumps(result)
 
     def search(self):
         """Performs the actual search."""
@@ -94,6 +113,12 @@ class SearchApp(Flask):
     def index(self):
         """The site's landing page."""
         return render_template("index.html", title="NLP-VLE")
+
+    def licenses(self):
+        context = {
+            "title": "Licenses",
+        }
+        return render_template("licenses.html", **context)
 
 def main():
     options = parse_arguments()
