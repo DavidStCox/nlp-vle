@@ -25,6 +25,7 @@ class SearchEngine():
         if not os.path.isdir(self.index_path):
             schema = Schema(
                 title=TEXT(stored=True),
+                filename=TEXT(stored=True),
                 body=TEXT(analyzer=StemmingAnalyzer()))
 
             os.mkdir(self.index_path)
@@ -46,6 +47,7 @@ class SearchEngine():
                 with open(filename, "rt") as file:
                     writer.add_document(
                         title=os.path.basename(filename),
+                        filename=filename,
                         body=file.read(),
                     )
             except Exception as e:
