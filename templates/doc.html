@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block style %}
+.file-content {
+  border: #ccc 2px solid;
+  padding: 1em;
+  margin: 1em 0;
+}
+{% endblock %}
+{% block body %}
+  <div class="search">
+    <h1>Document: {{ title }}</h1>
+    <div class="file-content">
+      {{ content }}
+    </div>
+    Go <a href="javascript:window.history.back();">back</a>.
+{% endblock %}

@@ -55,6 +55,8 @@ class SearchApp(Flask):
     def __init__(self, *args, **kw):
         super().__init__(*args, **kw)
         self._setup_routes()
+        self.corpus = os.path.realpath(os.path.join(os.path.dirname(__file__),
+            "corpora", "simple"))
 
     def _setup_routes(self):
         self.add_url_rule("/", view_func=self.index)
@@ -70,6 +72,25 @@ class SearchApp(Flask):
 
         self.add_url_rule("/autocomplete", view_func=self.autocomplete)
         self.add_url_rule("/licenses", view_func=self.licenses)
+
+        self.add_url_rule("/doc/<path:filename>", view_func=self.show_doc)
+
+    def show_doc(self, filename):
+
+        doc = os.path.relpath(os.path.join(self.corpus, self.corpus, filename))
+        if doc.startswith(".."):
+            return "Error: Trying to access file outside of corpus path"
+
+        if not os.path.exists(doc):
+            return "Error: File not found: %s" % filename
+
+        with open(doc, "rt") as f:
+            content = f.read()
+            context = {
+                "title": "Document: %s" % os.path.basename(doc),
+                "content": content,
+            }
+            return render_template("doc.html", **context)
 
     def autocomplete(self):
         """Returns (real time) queries back to the user."""
