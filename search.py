@@ -6,6 +6,7 @@ Creates search indices and performs search.
 
 from whoosh.analysis import StemmingAnalyzer
 from whoosh.fields import Schema, TEXT, KEYWORD, ID, STORED
+from whoosh.qparser import QueryParser
 import argparse
 import contextlib
 import os
@@ -45,7 +46,21 @@ def main():
     opts = parse_args()
     with tempdir() as indexdir:
         #print("Tempdir: %s" % indexdir)
-        index(opts, indexdir)
+        ix = index(opts, indexdir)
+
+        query = "bird"
+        print("Performing example search for %s:" % repr(query))
+        results = list(search(ix, field="body", query="bird"))
+        for result in results:
+            print(result)
+        print("%d results" % len(results))
+
+def search(ix, field, query):
+    qp = QueryParser(field, schema=ix.schema)
+    p = qp.parse(query)
+
+    with ix.searcher() as s:
+        yield s.search(p)
 
 def index(opts, indexdir):
     schema = Schema(
