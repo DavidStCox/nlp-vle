@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block style %}
+
+{% block css %}
   {% if autocomplete %}
   .autocomplete-suggestions {
     border: 1px solid #999; background: #FFF; overflow: auto;
@@ -24,11 +25,19 @@
   }
   {% endif %}
 {% endblock %}
+
+{% block javascript %}
+  $(document).ready(function() {
+    $("#query").focus();
+    $("#query").val($("#query").val());
+  });
+{% endblock %}
+
 {% block body %}
   <div class="search">
     <h1>Search</h1>
     <form method="post" action="">
-      Query: <input id="query" type="text" name="query" value="{{ query }}">
+      Query: <input id="query" type="text" name="query" value="{{ query or "" }}">
       <input type="submit" value="Search">
     </form>
     {% if autocomplete %}
