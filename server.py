@@ -82,6 +82,13 @@ class SearchApp(Flask):
     def show_doc(self, filename):
         """Renders a document in the current corpus."""
         doc = os.path.relpath(os.path.join(self.corpus_path, filename))
+
+        # Prevent access of documents outside corpora folder
+        if not os.path.realpath(doc).startswith(
+                os.path.realpath(self.corpus_path)):
+            raise RuntimeError("Can only view docs within corpus path: %s" %
+                    doc)
+
         if doc.startswith(".."):
             return "Error: Trying to access file outside of corpus path"
 
@@ -91,7 +98,7 @@ class SearchApp(Flask):
         with open(doc, "rt") as f:
             content = f.read()
             context = {
-                "title": "Document: %s" % os.path.basename(doc),
+                "title": os.path.basename(doc),
                 "content": content,
             }
             return render_template("doc.html", **context)
@@ -130,7 +137,7 @@ class SearchApp(Flask):
             for hits in self.search_engine.search(query):
                 for hit in hits:
                     score = hit.score
-                    url = "/doc/%s" % os.path.basename(hit["filename"])
+                    url = "/doc/%s" % hit["filename"]
                     title = hit["title"]
                     excerpt = "..."
                     results.append((score, url, title, excerpt))

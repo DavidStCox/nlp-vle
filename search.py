@@ -22,7 +22,6 @@ class SearchEngine():
         self.doc_path = doc_path
         self.index_path = index_path
 
-
         if not os.path.isdir(self.index_path):
             schema = Schema(
                 title = TEXT(stored=True),
@@ -34,44 +33,45 @@ class SearchEngine():
 
             os.mkdir(self.index_path)
 
+            print("Creating index %s" % os.path.relpath(self.index_path))
             with contextlib.closing(whoosh.index.create_in(self.index_path,
                 schema)) as ix:
-                SearchEngine._index(ix, self.doc_path)
+                self._index(ix, self.doc_path)
 
+        print("Opening index %s" % self.index_path)
         self.ix = whoosh.index.open_dir(self.index_path)
 
-    @staticmethod
-    def _index(ix, root):
+    def _index(self, ix, root):
         def index_directory(writer, path, depth_first=False):
             """A recursive indexer."""
             subdirs = deque()
 
-            for item in sorted(os.listdir(root)):
-                path = os.path.join(root, item)
-                print("Indexing %s" % path)
+            for item in sorted(os.listdir(path)):
+                filename = os.path.join(path, item)
 
-                if os.path.isdir(path):
+                if os.path.isdir(filename):
                     if depth_first:
-                        index_directory(writer, path)
+                        index_directory(writer, filename)
                     else:
-                        subdirs.add(path)
+                        subdirs.append(filename)
                     continue
 
-                try:
-                    with open(path, "rt") as file:
-                        body = file.read()
-                except Exception as e:
-                    print(str(e))
+                #try:
+                with open(filename, "rt") as file:
+                    body = file.read()
+                #except Exception as e:
+                    #print(str(e))
 
+                print("Indexing %s" % os.path.relpath(filename))
                 writer.add_document(
-                    title=os.path.basename(path),
-                    filename=path,
+                    title=os.path.basename(filename),
+                    filename=os.path.relpath(filename, self.doc_path),
                     body=body,
                     suggestions=body,
                     suggestion_phrases=body)
 
-            for path in subdirs:
-                index_directory(writer, path, depth_first=depth_first)
+            for subdir in subdirs:
+                index_directory(writer, subdir, depth_first=depth_first)
 
         writer = ix.writer()
         index_directory(writer, root)
@@ -122,7 +122,7 @@ def main():
                      index_path=os.path.join(opts.index_path, opts.corpus))
 
     query = "bird"
-    print("Performing example search for %s:" % repr(query))
+    print("\nPerforming example search for %s:" % repr(query))
     for results in s.search(query):
         print(results)
         for result in results:
