@@ -5,9 +5,7 @@ Creates search indexes and performs search.
 """
 
 from collections import deque
-from whoosh.analysis import StemmingAnalyzer
-from whoosh.fields import Schema, TEXT, KEYWORD, ID, STORED
-from whoosh.qparser import QueryParser
+from engine_whoosh import WhooshSearchEngine
 import argparse
 import contextlib
 import os
@@ -17,74 +15,10 @@ import tempfile
 import whoosh
 import whoosh.index
 
-class SearchEngine():
-    def __init__(self, doc_path, index_path):
-        self.doc_path = doc_path
-        self.index_path = index_path
-
-        if not os.path.isdir(self.index_path):
-            schema = Schema(
-                title = TEXT(stored=True),
-                filename = TEXT(stored=True),
-                body = TEXT(analyzer=StemmingAnalyzer()),
-                suggestions = TEXT(),
-                suggestion_phrases = KEYWORD(commas=True, lowercase=True)
-            )
-
-            os.mkdir(self.index_path)
-
-            print("Creating index %s" % os.path.relpath(self.index_path))
-            with contextlib.closing(whoosh.index.create_in(self.index_path,
-                schema)) as ix:
-                self._index(ix, self.doc_path)
-
-        print("Opening index %s" % self.index_path)
-        self.ix = whoosh.index.open_dir(self.index_path)
-
-    def _index(self, ix, root):
-        def index_directory(writer, path, depth_first=False):
-            """A recursive indexer."""
-            subdirs = deque()
-
-            for item in sorted(os.listdir(path)):
-                filename = os.path.join(path, item)
-
-                if os.path.isdir(filename):
-                    if depth_first:
-                        index_directory(writer, filename)
-                    else:
-                        subdirs.append(filename)
-                    continue
-
-                #try:
-                with open(filename, "rt") as file:
-                    body = file.read()
-                #except Exception as e:
-                    #print(str(e))
-
-                print("Indexing %s" % os.path.relpath(filename))
-                writer.add_document(
-                    title=os.path.basename(filename),
-                    filename=os.path.relpath(filename, self.doc_path),
-                    body=body,
-                    suggestions=body,
-                    suggestion_phrases=body)
-
-            for subdir in subdirs:
-                index_directory(writer, subdir, depth_first=depth_first)
-
-        writer = ix.writer()
-        index_directory(writer, root)
-        writer.commit()
-
-    def search(self, query, field="body", limit=20):
-        qp = QueryParser(field, schema=self.ix.schema)
-        p = qp.parse(query)
-
-        with self.ix.searcher() as s:
-            yield s.search(p, limit=limit)
-
-        #return self.searcher.search(p, limit=limit)
+# Each engine must specify (class, init-args, init-keywords)
+ENGINES = {
+    "whoosh": WhooshSearchEngine,
+}
 
 def parse_args():
     p = argparse.ArgumentParser()
@@ -97,6 +31,15 @@ def parse_args():
 
     p.add_argument("--index-path", type=str, default=None,
         help="Directory to hold search indexes.")
+
+    p.add_argument("--engine", type=str, default="whoosh",
+        help="Search engine to use")
+
+    p.add_argument("--query", "-q", type=str, default=None,
+        help="If specified, perform a search query.")
+
+    p.add_argument("--suggestions", default=False, action="store_true",
+        help="If specified alongside --query, show query suggestions")
 
     options = p.parse_args()
 
@@ -118,15 +61,25 @@ def parse_args():
 def main():
     opts = parse_args()
 
-    s = SearchEngine(doc_path=os.path.join(opts.path, opts.corpus),
-                     index_path=os.path.join(opts.index_path, opts.corpus))
+    if opts.engine not in ENGINES:
+        print("Unknown engine %s. Only know of %s" % (repr(opts.engine),
+            sorted(opts.engine.keys())))
+        sys.exit(1)
 
-    query = "bird"
-    print("\nPerforming example search for %s:" % repr(query))
-    for results in s.search(query):
-        print(results)
-        for result in results:
-            print(result)
+    # Get engine class and initialize it
+    Engine = ENGINES[opts.engine]
+    s = Engine(doc_path=os.path.join(opts.path, opts.corpus),
+            index_path=os.path.join(opts.index_path, opts.corpus))
+
+    if opts.query is not None:
+        for results in s.search(opts.query):
+            print(results)
+            for result in results:
+                print(result)
+
+    if opts.suggestions:
+        for suggestion in s.suggest(opts.query):
+            print(suggestion)
 
 @contextlib.contextmanager
 def tempdir():
@@ -140,6 +93,7 @@ if __name__ == "__main__":
     if sys.version_info[0] <= 2:
         print("You need Python 3+ to run this program.")
         sys.exit(1)
+
     try:
         main()
         sys.exit(0)
