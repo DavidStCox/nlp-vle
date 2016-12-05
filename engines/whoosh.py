@@ -25,9 +25,7 @@ class WhooshSearchEngine():
             schema = Schema(
                 title = TEXT(stored=True),
                 filename = TEXT(stored=True),
-                body = TEXT(analyzer=StemmingAnalyzer()),
-                suggestions = TEXT(),
-                suggestion_phrases = KEYWORD(commas=True, lowercase=True)
+                body = TEXT(), # analyzer=StemmingAnalyzer(),
             )
 
             os.mkdir(self.index)
@@ -56,7 +54,7 @@ class WhooshSearchEngine():
                     continue
 
                 #try:
-                with open(filename, "rt") as file:
+                with open(filename, "rt", encoding="utf-8") as file:
                     body = file.read()
                 #except Exception as e:
                     #print(str(e))
@@ -65,9 +63,7 @@ class WhooshSearchEngine():
                 writer.add_document(
                     title=os.path.basename(filename),
                     filename=os.path.relpath(filename, self.path),
-                    body=body,
-                    suggestions=body,
-                    suggestion_phrases=body)
+                    body=body)
 
             for subdir in subdirs:
                 index_directory(writer, subdir, depth_first=depth_first)
@@ -78,10 +74,17 @@ class WhooshSearchEngine():
 
     def search(self, query, field="body", limit=20):
         qp = QueryParser(field, schema=self.ix.schema)
-        p = qp.parse(query)
 
         with self.ix.searcher() as s:
-            yield s.search(p, limit=limit)
+            yield s.search(qp.parse(query), limit=limit)
 
-        #return self.searcher.search(p, limit=limit)
+    def suggest(self, query, field="body", limit=20):
+        """Returns search suggestions for the given query."""
+        qp = QueryParser(field, schema=self.ix.schema)
+        p = qp.parse(query)
 
+        out = []
+        with self.ix.reader() as s:
+            for hit in s.expand_prefix("body", query):
+                out.append(str(hit, encoding="utf-8"))
+        return out

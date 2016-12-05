@@ -119,11 +119,7 @@ class SearchApp(Flask):
 
         result = {
             "query": query,
-            "suggestions": [
-                "suggestion 1",
-                "suggestion 2",
-                "suggestion 3 - %d" % random.randint(1,100),
-            ],
+            "suggestions": self.search_engine.suggest(query),
         }
 
         return json.dumps(result)

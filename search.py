@@ -45,10 +45,10 @@ def parse_args():
         help="List available search engines.")
 
     p.add_argument("--query", "-q", type=str, default=None,
-        help="If specified, perform a search query.")
+        help="Performs a search on the given query.")
 
-    p.add_argument("--suggestions", "-s", default=False, action="store_true",
-        help="If specified alongside --query, show query suggestions")
+    p.add_argument("--suggest", "-s", metavar="QUERY", default=None,
+        help="Print search suggestions for given query.")
 
     opts = p.parse_args()
 
@@ -73,9 +73,9 @@ def main():
             for result in results:
                 print(result)
 
-    if opts.suggestions:
-        for suggestion in engine.suggest(opts.query):
-            print(suggestion)
+    if opts.suggest is not None:
+        for phrase in engine.suggest(opts.suggest):
+            print(phrase)
 
 @contextlib.contextmanager
 def tempdir():
