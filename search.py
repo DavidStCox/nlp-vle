@@ -5,7 +5,7 @@ Creates search indexes and performs search.
 """
 
 from collections import deque
-from engine_whoosh import WhooshSearchEngine
+from engines import WhooshSearchEngine
 import argparse
 import contextlib
 import os
