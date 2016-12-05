@@ -54,7 +54,7 @@
       <table>
       {% for score, url, title, excerpt in results %}
         <tr>
-          <td>{{ score }}</td>
+          <td>{{ "%0.3f" % score }}</td>
           <td><a href="{{ url }}">{{ title }}: {{ excerpt }}</a></td>
         </tr>
       {% endfor %}
