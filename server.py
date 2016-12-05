@@ -10,8 +10,7 @@ from flask import (
     request,
 )
 
-from flask.views import View
-from search import SearchEngine # local module
+import search # local
 import argparse
 import json
 import os
@@ -37,7 +36,17 @@ def parse_arguments():
     p.add_argument("--corpus", type=str, default="simple",
         help="Which corpus in the corpora/ subdirectory to use")
 
+    p.add_argument("--engine", type=str, default="whoosh",
+        help="Which search engine to use")
+
+    p.add_argument("--list-engines", default=False, action="store_true",
+        help="List available search engines")
+
     options = p.parse_args()
+
+    if options.list_engines:
+        print(" ".join(search.get_engines()))
+        sys.exit(0)
 
     if options.templates is None:
         options.templates = os.path.realpath(
@@ -56,7 +65,7 @@ def parse_arguments():
     return options
 
 class SearchApp(Flask):
-    def __init__(self, *args, corpus=None, **kw):
+    def __init__(self, *args, search_engine_name=None, corpus=None, **kw):
         super().__init__(*args, **kw)
         self._setup_routes()
         self.corpus = corpus
@@ -66,8 +75,8 @@ class SearchApp(Flask):
         self.index_path = os.path.realpath( os.path.join(
             os.path.dirname(__file__), "indexes", self.corpus))
 
-        self.search_engine = SearchEngine(doc_path=self.corpus_path,
-                index_path=self.index_path)
+        self.search_engine = search.get_engine(search_engine_name,
+                path=self.corpus_path, index=self.index_path)
 
     def _setup_routes(self):
         route = lambda *args, **kw: self.add_url_rule(*args, **kw)
@@ -159,8 +168,8 @@ class SearchApp(Flask):
 def main():
     options = parse_arguments()
 
-    app = SearchApp(__name__, corpus=options.corpus,
-            template_folder=options.templates)
+    app = SearchApp(__name__, search_engine_name=options.engine,
+            corpus=options.corpus, template_folder=options.templates)
     app.run(host=options.host, port=options.port)
 
 if __name__ == "__main__":

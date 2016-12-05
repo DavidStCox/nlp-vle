@@ -4,81 +4,77 @@
 Creates search indexes and performs search.
 """
 
-from collections import deque
-from engines import WhooshSearchEngine
 import argparse
 import contextlib
-import os
 import shutil
 import sys
 import tempfile
-import whoosh
-import whoosh.index
 
-# Each engine must specify (class, init-args, init-keywords)
-ENGINES = {
-    "whoosh": WhooshSearchEngine,
-}
+def get_engines():
+    """Returns a dictionary of available search engines."""
+    # Import engines here to make normal program startup faster
+    from engines import WhooshSearchEngine
+    return {
+        "whoosh": WhooshSearchEngine,
+    }
+
+def get_engine(name, path, index):
+    """Initializes and returns named search engine.
+
+    Args:
+        path: Path to root of documents to index
+        index: Path to the directory containing the index.
+    """
+    engines = get_engines()
+    Engine = engines[name]
+    return Engine(path=path, index=index)
 
 def parse_args():
     p = argparse.ArgumentParser()
 
-    p.add_argument("--path", type=str, default=None,
-        help="Path to the directory containing text corpora")
+    p.add_argument("--docs", type=str, default="corpora/simple",
+        help="Path to root directory of documents to index.")
 
-    p.add_argument("--corpus", type=str, default="simple",
-        help="Subdirectory to use as a text corpus")
+    p.add_argument("--index", type=str, default="indexes/simple",
+        help="Index directory.")
 
-    p.add_argument("--index-path", type=str, default=None,
-        help="Directory to hold search indexes.")
+    p.add_argument("--engine", "-e", type=str, default="whoosh",
+        help="Search engine to use, one of: %s" % " ".join(get_engines()))
 
-    p.add_argument("--engine", type=str, default="whoosh",
-        help="Search engine to use")
+    p.add_argument("--list-engines", "-l", default=False, action="store_true",
+        help="List available search engines.")
 
     p.add_argument("--query", "-q", type=str, default=None,
         help="If specified, perform a search query.")
 
-    p.add_argument("--suggestions", default=False, action="store_true",
+    p.add_argument("--suggestions", "-s", default=False, action="store_true",
         help="If specified alongside --query, show query suggestions")
 
-    options = p.parse_args()
+    opts = p.parse_args()
 
-    if options.path is None:
-        options.path = os.path.realpath(
-                os.path.join(os.path.dirname(__file__), "corpora"))
+    if opts.list_engines:
+        print(" ".join(get_engines()))
+        sys.exit(0)
 
-    if not os.path.isdir(options.path):
-        raise FileNotFoundError(options.path)
-
-    if not os.path.isdir(os.path.join(options.path, options.corpus)):
-        raise FileNotFoundError(options.corpus)
-
-    if options.index_path is None:
-        options.index_path = os.path.realpath(
-                os.path.join(os.path.dirname(__file__), "indexes"))
-    return options
+    return opts
 
 def main():
     opts = parse_args()
 
-    if opts.engine not in ENGINES:
-        print("Unknown engine %s. Only know of %s" % (repr(opts.engine),
-            sorted(opts.engine.keys())))
+    try:
+        engine = get_engine(opts.engine, opts.docs, opts.index)
+    except KeyError as e:
+        print("Unknown engine: %s" % e)
         sys.exit(1)
 
-    # Get engine class and initialize it
-    Engine = ENGINES[opts.engine]
-    s = Engine(doc_path=os.path.join(opts.path, opts.corpus),
-            index_path=os.path.join(opts.index_path, opts.corpus))
-
     if opts.query is not None:
-        for results in s.search(opts.query):
+        for results in engine.search(opts.query):
             print(results)
             for result in results:
                 print(result)
 
     if opts.suggestions:
-        for suggestion in s.suggest(opts.query):
+        for suggestion in engine.suggest(opts.query):
             print(suggestion)
 
 @contextlib.contextmanager

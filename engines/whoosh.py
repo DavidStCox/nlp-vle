@@ -4,18 +4,24 @@ Defines the Whoosh search engine.
 
 from collections import deque
 from whoosh.analysis import StemmingAnalyzer
-from whoosh.fields import Schema, TEXT, KEYWORD, ID, STORED
+from whoosh.fields import Schema, TEXT, KEYWORD
 from whoosh.qparser import QueryParser
 import contextlib
 import os
 import whoosh
 
 class WhooshSearchEngine():
-    def __init__(self, doc_path, index_path):
-        self.doc_path = doc_path
-        self.index_path = index_path
+    def __init__(self, path, index):
+        """Initializes the search engine.
 
-        if not os.path.isdir(self.index_path):
+        Args:
+            path: Path to document root to index
+            index: Path to where the index will be placed.
+        """
+        self.path = path
+        self.index = index
+
+        if not os.path.isdir(self.index):
             schema = Schema(
                 title = TEXT(stored=True),
                 filename = TEXT(stored=True),
@@ -24,15 +30,15 @@ class WhooshSearchEngine():
                 suggestion_phrases = KEYWORD(commas=True, lowercase=True)
             )
 
-            os.mkdir(self.index_path)
+            os.mkdir(self.index)
 
-            print("Creating index %s" % os.path.relpath(self.index_path))
-            with contextlib.closing(whoosh.index.create_in(self.index_path,
+            print("Creating index %s" % os.path.relpath(self.index))
+            with contextlib.closing(whoosh.index.create_in(self.index,
                 schema)) as ix:
-                self._index(ix, self.doc_path)
+                self._index(ix, self.path)
 
-        print("Opening index %s" % self.index_path)
-        self.ix = whoosh.index.open_dir(self.index_path)
+        print("Opening index %s" % self.index)
+        self.ix = whoosh.index.open_dir(self.index)
 
     def _index(self, ix, root):
         def index_directory(writer, path, depth_first=False):
@@ -58,7 +64,7 @@ class WhooshSearchEngine():
                 print("Indexing %s" % os.path.relpath(filename))
                 writer.add_document(
                     title=os.path.basename(filename),
-                    filename=os.path.relpath(filename, self.doc_path),
+                    filename=os.path.relpath(filename, self.path),
                     body=body,
                     suggestions=body,
                     suggestion_phrases=body)
