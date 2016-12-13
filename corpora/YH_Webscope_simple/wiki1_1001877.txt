@@ -1,0 +1,1010 @@
+%%#DOC  wiki1.1001877	
+%%#PAGE Steve_Stone_(footballer)	
+Steve	NNP	steve	B-PER	B-noun.location	B-E:PERSON	0	2	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	0	ROOT	0
+(	(	(	0	0	0	0	4	P	0
+footballer	NN	footballer	0	B-noun.person	B-E:PER_DESC	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 842 wx1	
+Steve	NNP	steve	B-PER	B-noun.location	B-E:PERSON	0	2	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	0	ROOT	0
+%%#SEN 843 wx4	
+Personal	JJ	personal	0	B-adj.all	0	0	2	NMOD	0
+information	NN	information	0	B-noun.communication	0	0	0	_	0
+%%#SEN 844 wx6	
+Full name	JJ	full name	0	B-adj.all	0	0	0	_	0
+%%#SEN 845 wx8	
+Steven	NNP	steven	B-PER	B-noun.person	B-E:PERSON	0	3	NMOD	0
+Brian	NNP	brian	I-PER	I-noun.person	I-E:PERSON	0	3	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	0
+%%#SEN 846 wx10	
+Date of birth	NN	date of birth	0	0	0	0	0	ROOT	0
+%%#SEN 847 wx12	
+August	NNP	august	0	B-noun.time	B-T:DATE:DATE	0	0	ROOT	B-/wiki/August_20
+20	CD	20	0	B-adj.all	I-T:DATE:DATE	0	1	NMOD	I-/wiki/August_20
+,	,	,	0	0	I-T:DATE:DATE	0	1	P	0
+1971	CD	1971	0	0	I-T:DATE:DATE	0	1	NMOD	B-/wiki/1971
+%%#SEN 848 wx14	
+Place of birth	NN	place of birth	0	0	0	0	0	ROOT	0
+%%#SEN 849 wx18	
+Gateshead	NNP	gateshead	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	0	ROOT	B-/wiki/Gateshead
+,	,	,	0	0	0	0	1	P	0
+England	NNP	england	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	1	NMOD	B-/wiki/England
+%%#SEN 850 wx20	
+Position	NN	position	0	B-noun.location	0	0	0	ROOT	0
+%%#SEN 851 wx24	
+Midfielder	NN	midfielder	0	B-noun.person	0	0	0	ROOT	B-/wiki/Midfielder_%28football%29
+%%#SEN 852 wx26	
+Club	NN	club	0	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	0
+information	NN	information	0	B-noun.communication	0	0	0	ROOT	0
+%%#SEN 853 wx29	
+Current club	NN	current club	0	B-noun.artifact	B-E:PER_DESC	0	0	ROOT	0
+%%#SEN 854 wx31	
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	2	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	0	ROOT	I-/wiki/Leeds_United_A.F.C.
+%%#SEN 855 wx33	
+Number	NN	number	0	B-noun.attribute	0	0	0	ROOT	0
+%%#SEN 856 wx36	
+14	CD	14	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+%%#SEN 857 wx38	
+Youth	NN	youth	0	B-noun.person	0	0	2	NMOD	0
+clubs	NNS	club	0	B-noun.group	B-E:ORG_DESC:OTHER	0	0	ROOT	0
+%%#SEN 858 wx40	
+Nottingham	NNP	nottingham	B-PER	B-noun.group	B-E:PERSON	0	2	NMOD	B-/wiki/Nottingham_Forest_F.C.
+Forest	NNP	forest	I-PER	I-noun.group	I-E:PERSON	0	0	ROOT	I-/wiki/Nottingham_Forest_F.C.
+%%#SEN 859 wx43	
+Professional	JJ	professional	0	B-adj.all	0	0	2	NMOD	0
+clubs*	NN	clubs*	0	B-noun.group	B-E:PER_DESC	0	0	ROOT	0
+%%#SEN 860 wx46	
+Years	NNS	year	0	B-noun.time	B-T:DATE:DURATION	0	0	_	0
+%%#SEN 861 wx48	
+Club	NN	club	0	B-noun.group	B-E:ORG_DESC:OTHER	0	0	ROOT	0
+%%#SEN 862 wx50	
+Apps	NNP	apps	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	0	ROOT	0
+(	(	(	0	0	0	0	3	P	0
+goals	NNS	goal	0	B-noun.cognition	0	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 863 wx52	
+1989-99	CD	1989-99	0	0	0	0	0	_	0
+%%#SEN 864 wx55	
+1999-02	CD	1999-02	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 865 wx56	
+2002	CD	2002	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 866 wx57	
+2002-05	CD	2002-05	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 867 wx58	
+2005-present	JJ	2005-present	0	0	0	0	0	_	0
+%%#SEN 868 wx59	
+Nottingham	NNP	nottingham	B-PER	B-noun.group	B-E:PERSON	0	2	NMOD	B-/wiki/Nottingham_Forest_F.C.
+Forest	NNP	forest	I-PER	I-noun.group	I-E:PERSON	0	0	ROOT	I-/wiki/Nottingham_Forest_F.C.
+%%#SEN 869 wx60	
+Aston	NNP	aston	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Aston_Villa_F.C.
+Villa	NNP	villa	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Aston_Villa_F.C.
+%%#SEN 870 wx62	
+→	NNP	→	0	B-noun.group	B-E:PERSON	0	2	NMOD	0
+Portsmouth	NNP	portsmouth	B-LOC	I-noun.group	I-E:PERSON	0	0	ROOT	B-/wiki/Portsmouth_F.C.
+(	(	(	0	0	0	0	4	P	0
+loan	NN	loan	0	B-noun.possession	0	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 871 wx64	
+Portsmouth	NN	portsmouth	B-LOC	B-noun.location	B-E:GPE:CITY	0	0	ROOT	B-/wiki/Portsmouth_F.C.
+%%#SEN 872 wx66	
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	2	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	0	ROOT	I-/wiki/Leeds_United_A.F.C.
+%%#SEN 873 wx68	
+193	CD	193	0	0	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+23	CD	23	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 874 wx70	
+90	CD	90	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+4	CD	4	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 875 wx71	
+5	CD	5	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+1	CD	1	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 876 wx72	
+68	CD	68	0	0	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+8	CD	8	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 877 wx73	
+11	CD	11	0	B-noun.quantity	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+1	CD	1	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 878 wx74	
+National	JJ	national	0	B-adj.pert	B-E:PER_DESC	0	2	NMOD	0
+team**	NN	team**	0	B-noun.attribute	I-E:PER_DESC	0	0	_	0
+%%#SEN 879 wx76	
+1995–1996	NN	1995–1996	0	0	0	0	0	ROOT	0
+%%#SEN 880 wx78	
+England	NNP	england	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	0	ROOT	B-/wiki/England_national_football_team
+%%#SEN 881 wx79	
+9	CD	9	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+2	CD	2	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 882 wx81	
+*	SYM	*	0	0	0	0	0	_	0
+Professional	JJ	professional	B-ORG	B-adj.all	B-E:ORGANIZATION:CORPORATION	0	4	NMOD	0
+club	NN	club	0	B-noun.group	B-E:ORG_DESC:CORPORATION	0	4	NMOD	0
+appearances	NNS	appearance	0	B-noun.attribute	0	0	5	COORD	0
+and	CC	and	0	0	0	0	1	ROOT	0
+goals	NNS	goal	0	B-noun.cognition	0	0	5	COORD	0
+%%#SEN 883 wx84	
+counted	VBN	count	0	B-verb.communication	0	0	0	_	0
+for	IN	for	0	0	0	0	1	ADV	0
+the	DT	the	0	0	0	0	5	NMOD	0
+domestic	JJ	domestic	0	B-adj.all	0	0	5	NMOD	0
+league	NN	league	0	B-noun.group	B-E:ORG_DESC:OTHER	0	2	PMOD	0
+only and	CD	only and	0	0	I-E:ORG_DESC:OTHER	0	5	NMOD	0
+%%#SEN 884 wx85	
+correct	JJ	correct	0	B-adj.all	0	0	0	ROOT	0
+as	IN	as	0	0	0	0	1	AMOD	0
+of	IN	of	0	0	0	0	2	PMOD	0
+30/08/2006	NNP	30/08/2006	B-ORG	B-noun.person	B-E:PRODUCT:OTHER	0	3	PMOD	0
+.	.	.	0	0	0	0	1	P	0
+%%#SEN 885 wx86	
+**	SYM	**	0	0	0	0	0	_	0
+National	NNP	national	B-ORG	B-adj.pert	B-E:ORGANIZATION:CORPORATION	0	5	NMOD	0
+team	NN	team	0	B-noun.group	B-E:PER_DESC	0	5	NMOD	0
+caps	NNS	cap	0	B-noun.artifact	0	0	5	COORD	0
+and	CC	and	0	0	0	0	7	SBJ	0
+goals	NNS	goal	0	B-noun.cognition	0	0	5	COORD	0
+correct	VBP	correct	0	B-verb.change	0	0	1	ROOT	0
+%%#SEN 886 wx87	
+as	IN	as	0	0	0	0	0	ROOT	0
+of	IN	of	0	0	0	0	1	PMOD	0
+30/08/2006	NNP	30/08/2006	B-ORG	B-noun.person	B-E:PRODUCT:OTHER	0	2	PMOD	0
+.	.	.	0	0	0	0	1	P	0
+%%#SEN 887 wx88	
+Steven	NNP	steven	B-PER	B-noun.person	B-E:PERSON	0	3	NMOD	0
+Brian	NNP	brian	I-PER	I-noun.person	I-E:PERSON	0	3	NMOD	0
+Stone	NNP	stone	I-PER	B-noun.location	I-E:PERSON	0	13	SBJ	0
+(	(	(	0	0	0	0	5	P	0
+born	VBN	bear	0	B-verb.body	0	0	3	PRN	0
+August	NNP	august	0	B-noun.time	B-T:DATE:DATE	0	5	OBJ	B-/wiki/August_20
+20	CD	20	0	B-adj.all	I-T:DATE:DATE	0	6	NMOD	I-/wiki/August_20
+,	,	,	0	0	0	0	6	P	0
+1971	CD	1971	0	0	B-T:DATE:DATE	0	6	NMOD	B-/wiki/1971
+in	IN	in	0	0	0	0	5	ADV	0
+Gateshead	NNP	gateshead	B-LOC	B-noun.location	B-E:GPE:CITY	0	10	PMOD	B-/wiki/Gateshead
+)	)	)	0	0	0	0	5	P	0
+is	VBZ	be	0	B-verb.stative	0	0	0	ROOT	0
+an	DT	an	0	0	0	0	16	NMOD	0
+English	JJ	english	B-MISC	B-adj.pert	B-E:NORP:NATIONALITY	0	16	NMOD	B-/wiki/England
+football	NN	football	0	B-noun.act	B-E:GAME	0	13	VMOD	B-/wiki/Football_%28soccer%29
+(	(	(	0	0	0	0	18	P	I-/wiki/Football_%28soccer%29
+soccer	NN	soccer	0	B-noun.act	0	0	20	PRN	I-/wiki/Football_%28soccer%29
+)	)	)	0	0	0	0	18	P	I-/wiki/Football_%28soccer%29
+player	NN	player	0	B-noun.person	B-E:ORG_DESC:CORPORATION	0	16	NMOD	0
+,	,	,	0	0	0	0	13	P	0
+born	VBN	bear	0	B-verb.body	0	0	13	ADV	0
+.	.	.	0	0	0	0	13	P	0
+%%#SEN 888 wx89	
+He	PRP	he	0	0	0	Steven	Brian	Stone	SBJ
+currently	RB	currently	0	B-adv.all	0	0	3	ADV	0
+plays	VBZ	play	0	B-verb.social	0	0	0	ROOT	0
+for	IN	for	0	0	0	0	3	ADV	0
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	6	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	4	PMOD	I-/wiki/Leeds_United_A.F.C.
+He	PRP	he	I-LOC	0	I-E:GPE:COUNTRY	Steven	Brian	Stone	SBJ
+is	VBZ	be	0	B-verb.stative	0	0	3	OBJ	0
+a	DT	a	0	0	0	0	12	NMOD	0
+right-sided	JJ	right-sided	0	B-adj.all	0	0	12	NMOD	0
+midfield	NN	midfield	0	B-noun.location	0	0	12	NMOD	0
+player	NN	player	0	B-noun.person	B-E:PER_DESC	0	8	VMOD	0
+who	WP	who	0	0	0	0	14	SBJ	0
+can	MD	can	0	0	0	0	12	NMOD	0
+also	RB	also	0	B-adv.all	0	0	14	ADV	0
+play	VB	play	0	B-verb.competition	0	0	14	VC	0
+at	IN	at	0	0	0	0	16	ADV	0
+full	JJ	full	0	B-adj.all	0	0	17	PMOD	0
+back	RB	back	0	B-adv.all	0	0	18	AMOD	0
+.	.	.	0	0	0	0	3	P	0
+%%#SEN 889 wx89	
+Stone	NNP	stone	B-PER	B-noun.substance	B-E:ORGANIZATION:CORPORATION	0	2	SBJ	0
+began	VBD	begin	0	B-verb.change	0	0	0	ROOT	0
+his	PRP$	his	0	0	0	Steven	Brian	Stone	NMOD
+career	NN	career	0	B-noun.act	B-E:PRODUCT_DESC:VEHICLE	0	2	OBJ	0
+at	IN	at	0	0	0	0	4	NMOD	0
+Nottingham	NNP	nottingham	B-ORG	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	8	NMOD	B-/wiki/Nottingham_Forest_F.C.
+Forest	NNP	forest	I-ORG	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	8	NMOD	I-/wiki/Nottingham_Forest_F.C.
+F.C.	NNP	f.c.	I-ORG	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	5	PMOD	I-/wiki/Nottingham_Forest_F.C.
+,	,	,	0	0	0	0	8	P	0
+where	WRB	where	0	0	0	0	28	ADV	0
+despite	IN	despite	0	0	0	0	18	ADV	0
+suffering	VBG	suffer	0	B-verb.perception	0	0	11	PMOD	0
+three	CD	three	0	B-adj.all	B-N:CARDINAL	0	15	NMOD	0
+broken	VBN	break	0	B-adj.all	0	0	15	NMOD	0
+legs	NNS	leg	0	B-noun.body	0	0	12	OBJ	0
+,	,	,	0	0	0	0	18	P	0
+he	PRP	he	0	0	0	Steven	Brian	Stone	SBJ
+managed	VBD	manage	0	B-verb.social	0	0	28	COORD	0
+to	TO	to	0	0	0	0	20	VMOD	0
+establish	VB	establish	0	B-verb.social	0	0	18	OBJ	0
+himself	PRP	himself	0	0	0	0	20	OBJ	0
+as	IN	as	0	0	0	0	20	ADV	0
+a	DT	a	0	0	0	0	26	NMOD	0
+vital	JJ	vital	0	B-adj.all	0	0	26	NMOD	0
+team	NN	team	0	B-noun.group	B-E:ORG_DESC:OTHER	0	26	NMOD	0
+player	NN	player	0	B-noun.person	B-E:PER_DESC	0	22	PMOD	0
+,	,	,	0	0	0	0	28	P	0
+and	CC	and	0	0	0	0	8	NMOD	0
+also	RB	also	0	B-adv.all	0	0	30	ADV	0
+earned	VBD	earn	0	B-verb.possession	0	0	28	COORD	0
+a	DT	a	0	0	0	0	32	NMOD	0
+call	NN	call	0	B-noun.communication	0	0	30	OBJ	0
+up	RP	up	0	I-noun.communication	0	0	30	PRT	0
+to	TO	to	0	0	0	0	30	ADV	0
+the	DT	the	0	0	0	0	37	NMOD	0
+England	NNP	england	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	37	NMOD	B-/wiki/England_national_football_team
+squad	NN	squad	0	B-noun.group	B-E:ORG_DESC:GOVERNMENT	0	34	PMOD	I-/wiki/England_national_football_team
+,	,	,	0	0	0	0	2	P	0
+making	VBG	make	0	B-verb.social	0	0	2	ADV	0
+his	PRP$	his	0	0	0	Steven	Brian	Stone	NMOD
+international	JJ	international	0	B-adj.all	0	0	42	NMOD	0
+debut	NN	debut	0	B-noun.act	0	0	39	OBJ	0
+in	IN	in	0	0	0	0	42	NMOD	0
+1995	CD	1995	0	0	B-T:DATE:DATE	0	43	PMOD	0
+against	IN	against	0	0	0	0	42	NMOD	0
+Norway	NNP	norway	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	45	PMOD	B-/wiki/Norway_national_football_team
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 890 wx97	
+He	PRP	he	0	0	0	Steven	Brian	Stone	_
+went	VBD	go	0	B-verb.communication	0	0	1	ROOT	0
+on	IN	on	0	I-verb.communication	0	0	2	ADV	0
+to	TO	to	0	0	0	0	5	VMOD	0
+earn	VB	earn	0	B-verb.possession	0	0	2	OBJ	0
+9	CD	9	0	B-adj.all	B-N:CARDINAL	0	7	NMOD	0
+caps	NNS	cap	0	B-noun.quantity	0	0	5	OBJ	0
+,	,	,	0	0	0	0	2	P	0
+scoring	VBG	score	0	B-verb.competition	0	0	2	ADV	0
+twice	RB	twice	0	B-adv.all	0	0	9	ADV	0
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 891 wx97	
+However	RB	however	0	B-adv.all	0	0	7	ADV	0
+,	,	,	0	0	0	0	7	P	0
+another	DT	another	0	0	0	0	6	NMOD	0
+serious	JJ	serious	0	B-adj.all	0	0	6	NMOD	0
+leg	NN	leg	0	B-noun.body	0	0	6	NMOD	0
+injury	NN	injury	0	B-noun.event	0	0	7	SBJ	0
+meant	VBD	mean	0	B-verb.communication	0	0	0	ROOT	0
+he	PRP	he	0	0	0	Steven	Brian	Stone	SBJ
+missed	VBD	miss	0	B-verb.emotion	0	0	7	OBJ	0
+the	DT	the	0	0	B-T:DATE:DURATION	0	13	NMOD	0
+entire	JJ	entire	0	B-adj.all	I-T:DATE:DURATION	0	13	NMOD	0
+1996/97	CD	1996/97	0	0	I-T:DATE:DURATION	0	13	NMOD	0
+season	NN	season	0	B-noun.time	I-T:DATE:DURATION	0	9	OBJ	0
+.	.	.	0	0	0	0	7	P	0
+%%#SEN 892 wx101	
+Despite	IN	despite	0	0	0	0	0	ROOT	0
+this	DT	this	0	0	0	0	1	PMOD	0
+he	PRP	he	0	0	0	Steven	Brian	Stone	SBJ
+fought	VBD	fight	0	B-verb.competition	0	0	2	NMOD	0
+his	PRP$	his	0	0	0	Steven	Brian	Stone	NMOD
+way	NN	way	0	B-noun.attribute	0	0	4	OBJ	0
+back	RB	back	0	B-adv.all	0	0	4	ADV	0
+into	IN	into	0	0	0	0	7	AMOD	0
+the	DT	the	0	0	0	0	11	NMOD	0
+Forest	NNP	forest	B-LOC	B-noun.group	B-E:PERSON	0	11	NMOD	0
+team	NN	team	0	I-noun.group	B-E:PER_DESC	0	8	PMOD	0
+.	.	.	0	0	0	0	1	P	0
+%%#SEN 893 wx101	
+Following	VBG	follow	0	0	0	0	13	ADV	0
+the	DT	the	0	0	0	0	3	NMOD	0
+club	NN	club	0	B-noun.group	B-E:ORG_DESC:OTHER	0	5	NMOD	0
+'s	POS	's	0	0	0	0	3	NMOD	0
+relegation	NN	relegation	0	B-noun.act	0	0	1	PMOD	0
+from	IN	from	0	0	0	0	5	NMOD	0
+the	DT	the	0	0	0	0	10	NMOD	0
+FA	NNP	fa	B-PER	B-noun.group	B-E:ORGANIZATION:OTHER	0	10	NMOD	B-/wiki/FA_Premier_League
+Premier	NNP	premier	I-PER	I-noun.group	I-E:ORGANIZATION:OTHER	0	10	NMOD	I-/wiki/FA_Premier_League
+League	NNP	league	I-PER	I-noun.group	I-E:ORGANIZATION:OTHER	0	6	PMOD	I-/wiki/FA_Premier_League
+,	,	,	0	0	0	0	13	P	0
+he	PRP	he	0	0	0	Forest	13	SBJ	0
+moved	VBD	move	0	B-verb.motion	0	0	0	ROOT	0
+to	TO	to	0	0	0	0	13	ADV	0
+Aston	NNP	aston	B-PER	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	17	NMOD	B-/wiki/Aston_Villa_F.C.
+Villa	NNP	villa	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	17	NMOD	I-/wiki/Aston_Villa_F.C.
+F.C.	NNP	f.c.	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	14	PMOD	I-/wiki/Aston_Villa_F.C.
+for	IN	for	0	0	0	0	13	ADV	0
+£5.5	CD	£5.5	0	0	B-N:CARDINAL	0	20	AMOD	0
+million	CD	million	0	B-adj.all	I-N:CARDINAL	0	18	PMOD	0
+in	IN	in	0	0	0	0	13	ADV	0
+1999	CD	1999	0	0	B-T:DATE:DATE	0	21	PMOD	0
+,	,	,	0	0	0	0	13	P	0
+having	VBG	have	0	0	0	0	13	ADV	0
+made	VBN	make	0	B-verb.social	0	0	24	VC	0
+229	CD	229	0	0	B-N:CARDINAL	0	27	NMOD	0
+appearances	NNS	appearance	0	B-noun.attribute	0	0	25	OBJ	0
+for	IN	for	0	0	0	0	25	ADV	0
+Forest	NNP	forest	B-LOC	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	28	PMOD	0
+.	.	.	I-LOC	0	0	0	13	P	0
+%%#SEN 894 wx102	
+He	PRP	he	0	0	0	Forest	3	SBJ	0
+soon	RB	soon	0	B-adv.all	0	0	3	ADV	0
+became	VBD	become	0	B-verb.stative	0	0	0	ROOT	0
+a	DT	a	0	0	0	0	7	NMOD	0
+vital	JJ	vital	0	B-adj.all	0	0	7	NMOD	0
+team	NN	team	0	B-noun.group	B-E:PER_DESC	0	7	NMOD	0
+player	NN	player	0	B-noun.person	I-E:PER_DESC	0	3	VMOD	0
+under	IN	under	0	0	0	0	3	ADV	0
+then	RB	then	0	B-adv.all	0	0	12	NMOD	0
+manager	NN	manager	0	B-noun.person	B-E:PER_DESC	0	12	NMOD	0
+John	NNP	john	B-PER	B-noun.person	B-E:PERSON	0	12	NMOD	B-/wiki/John_Gregory
+Gregory	NNP	gregory	I-PER	I-noun.person	I-E:PERSON	0	8	PMOD	I-/wiki/John_Gregory
+.	.	.	0	0	0	0	3	P	0
+%%#SEN 895 wx102	
+However	RB	however	0	B-adv.all	0	0	9	ADV	0
+,	,	,	0	0	0	0	9	P	0
+following	VBG	follow	0	B-adj.all	0	0	9	ADV	0
+Gregory	NNP	gregory	B-PER	B-noun.person	B-E:PERSON	0	6	NMOD	0
+'s	POS	's	0	0	0	0	4	NMOD	0
+dismissal	NN	dismissal	0	B-noun.act	0	0	3	PMOD	0
+,	,	,	0	0	0	0	9	P	0
+Stone	NNP	stone	B-PER	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	9	SBJ	0
+failed	VBD	fail	0	B-verb.social	0	0	16	COORD	0
+to	TO	to	0	0	0	0	11	VMOD	0
+impress	VB	impress	0	B-verb.emotion	0	0	9	OBJ	0
+new	JJ	new	0	B-adj.all	0	0	15	NMOD	0
+manager	NN	manager	0	B-noun.person	B-E:PER_DESC	0	15	NMOD	0
+Graham	NNP	graham	B-PER	I-noun.person	B-E:PERSON	0	15	NMOD	B-/wiki/Graham_Taylor_%28football_manager%29
+Taylor	NNP	taylor	I-PER	I-noun.person	I-E:PERSON	0	11	OBJ	I-/wiki/Graham_Taylor_%28football_manager%29
+and	CC	and	0	0	0	0	0	ROOT	0
+he	PRP	he	0	0	0	Graham	Taylor	18	0
+was	VBD	be	0	0	0	0	16	COORD	0
+transferred	VBN	transfer	0	B-verb.motion	0	0	18	VC	0
+to	TO	to	0	0	0	0	19	ADV	0
+Portsmouth	NNP	portsmouth	B-LOC	B-noun.location	B-E:GPE:CITY	0	22	NMOD	B-/wiki/Portsmouth_F.C.
+F.C.	NNP	f.c.	I-LOC	I-noun.location	I-E:GPE:CITY	0	20	PMOD	I-/wiki/Portsmouth_F.C.
+for	IN	for	0	0	0	0	19	ADV	0
+the	DT	the	0	0	B-T:DATE:DATE	0	26	NMOD	0
+2002/03	CD	2002/03	0	0	I-T:DATE:DATE	0	26	NMOD	0
+season	NN	season	0	B-noun.time	I-T:DATE:DATE	0	23	PMOD	0
+,	,	,	0	0	0	0	19	P	0
+having	VBG	have	0	0	0	0	19	ADV	0
+played	VBN	play	0	B-verb.social	0	0	28	VC	0
+in	IN	in	0	0	0	0	29	ADV	0
+121	CD	121	0	0	B-N:CARDINAL	0	32	NMOD	0
+games	NNS	game	0	B-noun.act	0	0	30	PMOD	0
+for	IN	for	0	0	0	0	32	NMOD	0
+Villa	NNP	villa	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	33	PMOD	0
+.	.	.	0	0	0	0	16	P	0
+%%#SEN 896 wx102	
+Despite	IN	despite	0	0	0	0	0	ROOT	0
+continued	JJ	continued	0	B-adj.all	0	0	3	NMOD	0
+injuries	NNS	injury	0	B-noun.state	0	0	1	PMOD	0
+he	PRP	he	0	0	0	Graham	Taylor	5	0
+established	VBD	establish	0	B-verb.creation	0	0	3	NMOD	0
+himself	PRP	himself	0	0	0	0	5	OBJ	0
+as	IN	as	0	0	0	0	5	ADV	0
+a	DT	a	0	0	0	0	9	NMOD	0
+regular	JJ	regular	0	B-adj.all	B-E:PER_DESC	0	7	PMOD	0
+in	IN	in	0	0	0	0	9	NMOD	0
+the	DT	the	0	0	0	0	13	NMOD	0
+Portsmouth	NNP	portsmouth	B-LOC	B-noun.location	B-E:GPE:CITY	0	13	NMOD	0
+team	NN	team	0	B-noun.group	B-E:PER_DESC	0	10	PMOD	0
+.	.	.	0	0	0	0	1	P	0
+%%#SEN 897 wx108	
+He	PRP	he	0	0	0	Graham	Taylor	2	0
+was	VBD	be	0	B-verb.stative	0	0	18	COORD	0
+an	DT	an	0	0	0	0	5	NMOD	0
+invaluable	JJ	invaluable	0	B-adj.all	0	0	5	NMOD	0
+part	NN	part	0	B-noun.relation	0	0	2	VMOD	0
+of	IN	of	0	0	0	0	5	NMOD	0
+the	DT	the	0	0	0	0	8	NMOD	0
+team	NN	team	0	B-noun.group	B-E:ORG_DESC:OTHER	0	6	PMOD	0
+that	WDT	that	0	0	0	0	10	SBJ	0
+won	VBD	win	0	B-verb.competition	0	0	8	NMOD	0
+promotion	NN	promotion	0	B-noun.communication	0	0	10	OBJ	0
+to	TO	to	0	0	0	0	11	NMOD	0
+the	DT	the	0	0	0	0	16	NMOD	0
+FA	NNP	fa	B-PER	B-noun.group	B-E:ORGANIZATION:OTHER	0	16	NMOD	0
+Premier	NNP	premier	I-PER	I-noun.group	I-E:ORGANIZATION:OTHER	0	16	NMOD	0
+League	NNP	league	I-PER	I-noun.group	I-E:ORGANIZATION:OTHER	0	12	PMOD	0
+,	,	,	0	0	0	0	18	P	0
+and	CC	and	0	0	0	0	0	ROOT	0
+then	RB	then	0	B-adv.all	0	0	20	ADV	0
+achieved	VBD	achieve	0	B-verb.social	0	0	18	COORD	0
+mid	JJ	mid	0	B-adj.all	0	0	22	NMOD	0
+table	NN	table	0	B-noun.artifact	0	0	23	SBJ	0
+finishes	VBZ	finish	0	B-verb.change	0	0	20	OBJ	0
+the	DT	the	0	0	0	0	27	NMOD	0
+following	VBG	follow	0	B-adj.all	0	0	27	NMOD	0
+two	CD	two	0	B-adj.all	B-T:DATE:DATE	0	27	NMOD	0
+seasons	NNS	season	0	B-noun.time	I-T:DATE:DATE	0	23	OBJ	0
+.	.	.	0	0	0	0	18	P	0
+%%#SEN 898 wx108	
+However	RB	however	0	B-adv.all	0	0	14	ADV	0
+,	,	,	0	0	0	0	14	P	0
+when	WRB	when	0	0	0	0	6	ADV	0
+his	PRP$	his	0	0	0	Graham	Taylor	5	0
+contract	NN	contract	0	B-noun.communication	0	0	6	SBJ	0
+expired	VBD	expire	0	B-verb.change	0	0	14	ADV	0
+in	IN	in	0	0	0	0	6	ADV	0
+June	NNP	june	0	B-noun.time	B-T:DATE:DATE	0	7	PMOD	0
+2005	CD	2005	0	0	I-T:DATE:DATE	0	8	NMOD	0
+new	JJ	new	0	B-adj.all	0	0	13	NMOD	0
+manager	NN	manager	0	B-noun.person	B-E:PER_DESC	0	13	NMOD	0
+Alain	NNP	alain	B-PER	I-noun.person	B-E:PERSON	0	13	NMOD	B-/wiki/Alain_Perrin
+Perrin	NNP	perrin	I-PER	I-noun.person	I-E:PERSON	0	14	SBJ	I-/wiki/Alain_Perrin
+decided	VBD	decide	0	B-verb.cognition	0	0	0	ROOT	0
+to	TO	to	0	0	0	0	16	VMOD	0
+release	VB	release	B-PER	B-verb.contact	0	0	14	OBJ	0
+Stone	NNP	stone	I-PER	B-noun.other	B-E:ORGANIZATION:CORPORATION	0	16	OBJ	0
+,	,	,	0	0	0	0	17	P	0
+who	WP	who	0	0	0	0	20	SBJ	0
+went	VBD	go	0	B-verb.stative	0	0	17	NMOD	0
+on	IN	on	0	I-verb.stative	0	0	20	ADV	0
+to	TO	to	0	0	0	0	23	VMOD	0
+sign	VB	sign	0	B-verb.communication	0	0	21	PMOD	0
+for	IN	for	0	0	0	0	23	ADV	0
+Leeds	NNS	leeds	B-LOC	B-noun.location	B-E:GPE:STATE_PROVINCE	0	24	PMOD	0
+.	.	.	0	0	0	0	14	P	0
+%%#SEN 899 wx108	
+A	DT	a	0	0	0	0	4	NMOD	0
+famous	JJ	famous	0	B-adj.all	0	0	4	NMOD	0
+crowd	NN	crowd	0	B-noun.group	B-E:PER_DESC	0	4	NMOD	0
+chant	NN	chant	0	B-noun.communication	0	0	8	SBJ	0
+dedicated	VBN	dedicate	0	B-adj.all	0	0	4	NMOD	0
+to	TO	to	0	0	0	0	5	ADV	0
+him	PRP	him	0	0	0	0	6	PMOD	0
+went	VBD	go	0	B-verb.motion	0	0	0	ROOT	0
+:	:	:	0	0	0	0	8	P	0
+``	``	``	0	0	0	0	8	P	0
+Stevie	NNP	stevie	B-PER	B-noun.location	B-E:PERSON	0	12	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	8	OBJ	0
+.	.	.	0	0	0	0	8	P	0
+%%#SEN 900 wx110	
+Stevie	NNP	stevie	B-PER	B-noun.location	B-E:PERSON	0	2	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	0	ROOT	0
+,	,	,	0	0	0	0	2	P	0
+Stevie	NNP	stevie	B-PER	B-noun.location	B-E:PERSON	0	6	NMOD	0
+Stevie	NNP	stevie	I-PER	I-noun.location	I-E:PERSON	0	6	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	2	NMOD	0
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 901 wx110	
+He	PRP	he	0	0	0	Stevie	Stevie	Stone	SBJ
+'s	VBZ	's	0	0	0	0	6	COORD	0
+got	VBN	get	0	B-verb.possession	0	0	2	VC	0
+no	DT	no	0	0	0	0	5	NMOD	0
+hair	NN	hair	0	B-noun.body	0	0	3	OBJ	0
+but	CC	but	0	0	0	0	0	ROOT	0
+we	PRP	we	0	0	0	0	8	SBJ	0
+do	VBP	do	0	0	0	0	6	COORD	0
+n't	RB	n't	0	B-adv.all	0	0	8	VMOD	0
+care	VB	care	0	B-verb.emotion	0	0	8	VC	0
+.	.	.	0	0	0	0	6	P	0
+%%#SEN 902 wx110	
+Stevie	NNP	stevie	B-PER	B-noun.location	B-E:PERSON	0	3	NMOD	0
+Stevie	NNP	stevie	I-PER	I-noun.location	I-E:PERSON	0	3	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:PERSON	0	0	ROOT	0
+''	''	''	0	0	0	0	3	P	0
+.	.	.	0	0	0	0	3	P	0
+%%#SEN 903 wx110	
+Unfortunately	RB	unfortunately	0	B-adv.all	0	0	2	NMOD	0
+Steve	NNP	steve	B-PER	B-noun.person	B-E:PERSON	0	3	SBJ	0
+suffered	VBD	suffer	0	B-verb.body	0	0	11	COORD	0
+a	DT	a	0	0	0	0	7	NMOD	0
+serious	JJ	serious	0	B-adj.all	0	0	7	NMOD	0
+Achilles	NNP	achilles	B-PER	B-noun.person	B-E:PERSON	0	7	NMOD	0
+injury	NN	injury	0	B-noun.state	0	0	3	OBJ	0
+in	IN	in	0	0	0	0	7	NMOD	0
+pre-season	JJ	pre-season	0	B-adj.all	0	0	10	NMOD	0
+training	NN	training	0	B-noun.act	0	0	8	PMOD	0
+but	CC	but	0	0	0	0	0	ROOT	0
+after	IN	after	0	0	0	0	11	COORD	0
+initially	RB	initially	0	B-adv.all	0	0	14	ADV	0
+recovering	VBG	recover	0	B-verb.perception	0	0	12	PMOD	0
+from	IN	from	0	0	0	0	28	VMOD	0
+it	PRP	it	0	0	0	0	28	SBJ	0
+he	PRP	he	0	0	0	Achilles	18	SBJ	0
+contracted	VBD	contract	0	B-verb.social	0	0	28	COORD	0
+a	DT	a	0	0	0	0	21	NMOD	0
+serious	JJ	serious	0	B-adj.all	0	0	21	NMOD	0
+infection	NN	infection	0	B-noun.state	0	0	18	OBJ	0
+on	IN	on	0	0	0	0	21	NMOD	0
+the	DT	the	0	0	0	0	24	NMOD	0
+wound	NN	wound	0	B-noun.state	0	0	22	PMOD	0
+from	IN	from	0	0	0	0	24	NMOD	0
+the	DT	the	0	0	0	0	27	NMOD	0
+surgery	NN	surgery	0	B-noun.cognition	0	0	25	PMOD	0
+and	CC	and	0	0	0	0	14	OBJ	0
+it	PRP	it	0	0	0	0	30	SBJ	0
+was	VBD	be	0	0	0	0	28	COORD	0
+thought	VBN	think	0	B-verb.cognition	0	0	30	VC	0
+that	IN	that	0	0	0	0	34	VMOD	0
+he	PRP	he	0	0	0	Achilles	34	SBJ	0
+would	MD	would	0	0	0	0	31	OBJ	0
+be	VB	be	0	B-verb.stative	0	0	34	VC	0
+out	RP	out	0	0	0	0	35	PRT	0
+indefinitely	RB	indefinitely	0	B-adv.all	0	0	35	ADV	0
+.	.	.	0	0	0	0	11	P	0
+%%#SEN 904 wx111	
+However	RB	however	0	B-adv.all	0	0	11	VMOD	0
+on	IN	on	0	0	0	0	1	ADV	0
+April	NNP	april	B-PER	B-noun.time	B-T:DATE:DURATION	0	8	NMOD	0
+22nd	CD	22nd	I-PER	0	I-T:DATE:DURATION	0	3	NMOD	0
+,	,	,	0	0	I-T:DATE:DURATION	0	3	P	0
+eight	CD	eight	0	B-adj.all	I-T:DATE:DURATION	0	3	NMOD	0
+long	JJ	long	0	B-adj.all	I-T:DATE:DURATION	0	8	NMOD	0
+months	NNS	month	0	B-noun.time	I-T:DATE:DURATION	0	2	PMOD	0
+after	IN	after	0	0	0	0	11	VMOD	0
+he	PRP	he	0	0	0	Achilles	11	SBJ	0
+signed	VBD	sign	0	B-verb.communication	0	0	21	COORD	0
+for	IN	for	0	0	0	0	11	ADV	0
+the	DT	the	0	0	0	0	14	NMOD	0
+club	NN	club	0	B-noun.group	B-E:ORG_DESC:CORPORATION	0	12	PMOD	0
+he	PRP	he	0	0	0	Achilles	16	SBJ	0
+had	VBD	have	0	0	0	0	14	NMOD	0
+returned	VBN	return	0	B-verb.motion	0	0	16	VC	0
+to	TO	to	0	0	0	0	17	ADV	0
+full	JJ	full	0	B-adj.all	0	0	20	NMOD	0
+fitness	NN	fitness	0	B-noun.attribute	0	0	18	PMOD	0
+and	CC	and	0	0	0	0	0	ROOT	0
+made	VBD	make	0	B-verb.social	0	0	21	COORD	0
+his	PRP$	his	0	0	0	Achilles	24	NMOD	0
+debut	NN	debut	0	B-noun.act	0	0	22	OBJ	0
+for	IN	for	0	0	0	0	24	NMOD	0
+Leeds	NNS	leeds	B-LOC	B-noun.location	B-E:PLANT	0	25	PMOD	0
+having	VBG	have	0	B-verb.possession	0	0	26	NMOD	0
+a	DT	a	0	0	0	0	29	NMOD	0
+hand	NN	hand	0	B-noun.body	B-E:PER_DESC	0	27	OBJ	0
+in	IN	in	0	0	0	0	27	ADV	0
+the	DT	the	0	0	0	0	32	NMOD	0
+goal	NN	goal	0	B-noun.cognition	0	0	30	PMOD	0
+scored	VBN	score	0	B-verb.competition	0	0	32	NMOD	0
+by	IN	by	0	0	0	0	33	LGS	0
+David	NNP	david	B-PER	B-noun.person	B-E:PERSON	0	36	NMOD	B-/wiki/David_Healy
+Healy	NNP	healy	I-PER	I-noun.person	I-E:PERSON	0	34	PMOD	I-/wiki/David_Healy
+in	IN	in	0	0	0	0	36	NMOD	0
+the	DT	the	0	0	0	0	39	NMOD	0
+victory	NN	victory	0	B-noun.event	0	0	37	PMOD	0
+against	IN	against	0	0	0	0	39	NMOD	0
+Crewe	NNP	crewe	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	40	PMOD	B-/wiki/Crewe
+.	.	.	0	0	0	0	21	P	0
+%%#SEN 905 wx112	
+Steve	NNP	steve	B-PER	B-noun.person	B-E:PERSON	0	3	SBJ	0
+also	RB	also	0	B-adv.all	0	0	3	ADV	0
+featured	VBN	feature	0	B-verb.stative	0	0	12	COORD	0
+in	IN	in	0	0	0	0	3	ADV	0
+the	DT	the	0	0	0	0	8	NMOD	0
+play-off	NN	play-off	0	B-noun.plant	0	0	8	NMOD	0
+semi	NN	semi	0	B-noun.event	0	0	8	NMOD	0
+finals	NNS	final	0	B-noun.event	0	0	4	PMOD	0
+for	IN	for	0	0	0	0	8	NMOD	0
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	11	NMOD	B-/wiki/Leeds_United
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	9	PMOD	I-/wiki/Leeds_United
+but	CC	but	0	0	0	0	0	ROOT	0
+did	VBD	do	0	0	0	0	12	COORD	0
+not	RB	not	0	B-adv.all	0	0	13	VMOD	0
+feature	NN	feature	0	B-verb.stative	0	0	13	VC	0
+in	IN	in	0	0	0	0	15	NMOD	0
+the	DT	the	0	0	0	0	18	NMOD	0
+final	JJ	final	0	B-adj.all	0	0	16	PMOD	0
+where	WRB	where	0	0	0	0	21	ADV	0
+they	PRP	they	0	0	0	Steve	21	SBJ	0
+lost	VBD	lose	0	B-verb.possession	0	0	18	NMOD	0
+out	RP	out	0	0	0	0	21	PRT	0
+to	TO	to	0	0	0	0	21	ADV	0
+Watford	NNP	watford	B-ORG	B-noun.location	B-E:ORGANIZATION:CORPORATION	0	23	PMOD	0
+.	.	.	0	0	0	0	12	P	0
+%%#SEN 906 wx112	
+Stone	NNP	stone	B-ORG	B-noun.substance	B-E:ORGANIZATION:CORPORATION	0	2	SBJ	0
+has	VBZ	have	0	0	0	0	0	ROOT	0
+played	VBN	play	0	B-verb.creation	0	0	14	COORD	0
+in	IN	in	0	0	0	0	3	ADV	0
+several	JJ	several	0	B-adj.all	0	0	6	NMOD	0
+matches	NNS	match	0	B-noun.artifact	0	0	4	PMOD	0
+since	IN	since	0	0	0	0	6	NMOD	0
+the	DT	the	0	0	B-T:DATE:DATE	0	9	NMOD	0
+start	NN	start	0	B-noun.event	I-T:DATE:DATE	0	7	PMOD	0
+of	IN	of	0	0	I-T:DATE:DATE	0	9	NMOD	0
+the	DT	the	0	0	I-T:DATE:DATE	0	13	NMOD	0
+2006-07	CD	2006-07	0	0	I-T:DATE:DATE	0	13	NMOD	0
+season	NN	season	0	B-noun.time	I-T:DATE:DATE	0	10	PMOD	0
+and	CC	and	0	0	0	0	2	VC	0
+was	VBD	be	0	B-verb.stative	0	0	14	COORD	0
+due	JJ	due	0	I-verb.stative	0	0	15	VMOD	0
+to	TO	to	0	0	0	0	18	VMOD	0
+undergo	VB	undergo	0	B-verb.perception	0	0	16	AMOD	0
+a	DT	a	0	0	0	0	21	NMOD	0
+hernia	NN	hernia	B-MISC	B-noun.state	B-E:DISEASE	0	21	NMOD	B-/wiki/Hernia
+operation	NN	operation	0	B-noun.act	B-E:ORG_DESC:CORPORATION	0	18	OBJ	0
+at	IN	at	0	B-adv.all	0	0	18	ADV	0
+the	DT	the	0	I-adv.all	B-T:DATE:DATE	0	24	NMOD	0
+start	NN	start	0	I-adv.all	I-T:DATE:DATE	0	22	PMOD	0
+of	IN	of	0	0	I-T:DATE:DATE	0	24	NMOD	0
+October	NNP	october	0	B-noun.time	I-T:DATE:DATE	0	25	PMOD	0
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 907 wx112	
+He	PRP	he	0	0	0	Steve	2	SBJ	0
+planned	VBD	plan	0	B-verb.cognition	0	0	0	ROOT	0
+to	TO	to	0	0	0	0	4	VMOD	0
+continue	VB	continue	0	B-verb.stative	0	0	2	OBJ	0
+to	TO	to	0	0	0	0	6	VMOD	0
+play	VB	play	0	B-verb.competition	0	0	4	OBJ	0
+up	RP	up	0	I-verb.competition	0	0	6	PRT	0
+until	IN	until	0	0	0	0	11	VMOD	0
+the	DT	the	0	0	0	0	10	NMOD	0
+operation	NN	operation	0	B-noun.act	B-E:ORG_DESC:CORPORATION	0	11	SBJ	0
+took	VBD	take	0	B-verb.change	0	0	6	OBJ	0
+place	NN	place	0	I-verb.change	0	0	11	OBJ	0
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 908 wx112	
+He	PRP	he	0	0	0	Steve	2	SBJ	0
+now	RB	now	0	B-adv.all	0	0	6	ADV	0
+,	,	,	0	0	0	0	6	P	0
+however	RB	however	0	B-adv.all	0	0	6	ADV	0
+,	,	,	0	0	0	0	6	P	0
+plans	VBZ	plan	0	B-verb.cognition	0	0	0	ROOT	0
+to	TO	to	0	0	0	0	8	VMOD	0
+leave	VB	leave	0	B-verb.motion	0	0	6	OBJ	0
+the	DT	the	0	0	0	0	10	NMOD	0
+operation	NN	operation	0	B-noun.act	B-E:ORG_DESC:CORPORATION	0	8	OBJ	0
+until	IN	until	0	0	0	0	8	ADV	0
+the	DT	the	0	0	B-T:DATE:DATE	0	13	NMOD	0
+end	NN	end	0	B-noun.location	I-T:DATE:DATE	0	11	PMOD	0
+of	IN	of	0	0	I-T:DATE:DATE	0	13	NMOD	0
+the	DT	the	0	0	I-T:DATE:DATE	0	16	NMOD	0
+season	NN	season	0	B-noun.time	I-T:DATE:DATE	0	14	PMOD	0
+when	WRB	when	0	0	0	0	19	ADV	0
+he	PRP	he	0	0	0	Steve	19	SBJ	0
+retires	VBZ	retire	0	B-verb.social	0	0	8	OBJ	0
+from	IN	from	0	0	0	0	19	ADV	0
+playing	VBG	play	0	B-verb.competition	0	0	20	PMOD	0
+football	NN	football	0	B-noun.act	B-E:GAME	0	21	OBJ	0
+.	.	.	0	0	0	0	6	P	0
+%%#SEN 909 wx112	
+Appearance	NN	appearance	0	B-noun.attribute	0	0	0	_	0
+%%#SEN 910 wx120	
+Steve	NNP	steve	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.person	I-E:PERSON	0	3	SBJ	0
+is	VBZ	be	0	B-verb.stative	0	0	0	ROOT	0
+bald	JJ	bald	0	B-adj.all	0	0	3	VMOD	0
+(	(	(	0	0	0	0	7	P	0
+as	IN	as	0	0	0	0	7	VMOD	0
+implied	VBN	imply	0	B-verb.communication	0	0	4	PRN	0
+in	IN	in	0	0	0	0	7	ADV	0
+the	DT	the	0	0	B-T:DATE:DATE	0	11	NMOD	0
+above	JJ	above	0	B-adj.all	I-T:DATE:DATE	0	11	NMOD	0
+song	NN	song	0	B-noun.communication	I-T:DATE:DATE	0	8	PMOD	0
+)	)	)	0	0	0	0	7	P	0
+.	.	.	0	0	0	0	3	P	0
+%%#SEN 911 wx121	
+Notes	NNS	note	0	B-noun.communication	0	0	0	_	0
+%%#SEN 912 wx123	
+^	SYM	^	0	0	0	0	0	_	B-#_ref-LUFC1_0
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	3	NMOD	0
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	1	ROOT	0
+(	(	(	0	0	0	0	5	P	0
+11/09/2006	JJ	11/09/2006	0	0	0	0	3	PRN	0
+)	)	)	0	0	0	0	5	P	0
+.	.	.	0	0	0	0	3	P	0
+%%#SEN 913 _note-LUFC1	
+``	``	``	0	0	0	0	6	P	B-http://www.leedsunited.com/page/NewsroomDetail/0,,10273~895716,00.html
+Stone	NNP	stone	B-PER	B-noun.other	B-E:PERSON	0	4	NMOD	I-http://www.leedsunited.com/page/NewsroomDetail/0,,10273~895716,00.html
+Faces	NNP	face	I-PER	I-noun.other	I-E:PERSON	0	4	NMOD	I-http://www.leedsunited.com/page/NewsroomDetail/0,,10273~895716,00.html
+Op	NNP	op	I-PER	I-noun.other	I-E:PERSON	0	6	SBJ	I-http://www.leedsunited.com/page/NewsroomDetail/0,,10273~895716,00.html
+''	''	''	I-PER	0	I-E:PERSON	0	6	P	I-http://www.leedsunited.com/page/NewsroomDetail/0,,10273~895716,00.html
+LeedsUnited.com	JJ	leedsunited.com	I-PER	0	I-E:PERSON	0	0	_	0
+(	(	(	0	0	0	0	8	P	0
+accessed	VBN	accessed	0	B-verb.communication	0	0	6	PRN	0
+13th	NNP	13th	0	B-noun.other	B-T:DATE:DATE	0	10	NMOD	0
+Sept	NNP	sept	0	I-noun.other	I-T:DATE:DATE	0	8	OBJ	0
+2006	CD	2006	0	I-noun.other	I-T:DATE:DATE	0	10	NMOD	0
+)	)	)	0	0	0	0	8	P	0
+%%#SEN 914 _note-LUFC1	
+^	IN	^	0	0	0	0	0	ROOT	B-#_ref-BBC1_0
+BBC	NNP	bbc	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	1	PMOD	0
+Sport	NNP	sport	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	2	NMOD	0
+(	(	(	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	5	P	0
+05/10/2006	NNP	05/10/2006	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	3	PRN	0
+)	)	)	0	0	0	0	5	P	0
+.	.	.	0	0	0	0	1	P	0
+%%#SEN 915 _note-BBC1	
+Carlisle	NNP	carlisle	B-ORG	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	2	SBJ	B-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+snap	VBP	snap	0	B-verb.possession	0	0	0	ROOT	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+up	RP	up	0	I-verb.possession	0	0	2	PRT	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+Beckford	NNP	beckford	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	8	NMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+on	IN	on	0	0	0	0	4	ADV	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+loan	NN	loan	0	B-noun.possession	0	0	5	PMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+(	(	(	0	0	0	0	8	P	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+Info	NNP	info	B-MISC	B-noun.communication	B-E:ORGANIZATION:CORPORATION	0	2	OBJ	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+in	IN	in	0	0	0	0	8	NMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+2nd	JJ	2nd	0	B-adj.all	B-N:CARDINAL	0	11	NMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+half	NN	half	0	B-noun.quantity	I-N:CARDINAL	0	9	PMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+of	IN	of	0	0	0	0	11	NMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+article	NN	article	0	B-noun.communication	0	0	12	PMOD	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+)	)	)	0	0	0	0	8	P	I-http://news.bbc.co.uk/sport1/hi/football/teams/c/carlisle_united/5410490.stm
+LeedsUnited.com	FW	leedsunited.com	0	0	B-E:SUBSTANCE:FOOD	0	8	NMOD	0
+(	(	(	0	0	0	0	17	P	0
+accessed	VBN	accessed	0	B-verb.change	0	0	15	PRN	0
+5th	JJ	5th	0	B-adj.all	B-T:DATE:DATE	0	19	NMOD	0
+October	NNP	october	0	B-noun.time	I-T:DATE:DATE	0	17	OBJ	0
+2006	CD	2006	0	0	I-T:DATE:DATE	0	19	NMOD	0
+)	)	)	0	0	0	0	17	P	0
+%%#SEN 916 _note-BBC1	
+External	JJ	external	0	B-adj.all	0	0	2	NMOD	0
+links	NNS	link	0	B-noun.artifact	0	0	0	_	0
+%%#SEN 917 wx132	
+England	NNP	england	B-ORG	B-noun.location	B-E:ORGANIZATION:CORPORATION	0	4	NMOD	B-http://www.englandstats.com
+National	NNP	national	I-ORG	B-noun.other	I-E:ORGANIZATION:CORPORATION	0	4	NMOD	I-http://www.englandstats.com
+Team	NNP	team	I-ORG	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	4	NMOD	I-http://www.englandstats.com
+Statistics	NNPS	statistic	I-ORG	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	I-http://www.englandstats.com
+%%#SEN 918 wx134	
+Great	NNP	great	B-LOC	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	4	NMOD	B-http://www.portsmouthfcyears.com/years/2002-2006starplayers.htm
+Portsmouth	NNP	portsmouth	I-LOC	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	4	NMOD	I-http://www.portsmouthfcyears.com/years/2002-2006starplayers.htm
+football	NN	football	0	B-noun.person	B-E:GAME	0	4	NMOD	I-http://www.portsmouthfcyears.com/years/2002-2006starplayers.htm
+player	NN	player	0	I-noun.person	B-E:PER_DESC	0	0	ROOT	I-http://www.portsmouthfcyears.com/years/2002-2006starplayers.htm
+%%#SEN 919 wx136	
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	3	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	3	NMOD	I-/wiki/Leeds_United_A.F.C.
+A.F.C.	NNP	a.f.c.	I-LOC	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	I-/wiki/Leeds_United_A.F.C.
+-	:	-	0	0	0	0	3	P	0
+Current	JJ	current	B-PER	B-adj.all	0	0	6	NMOD	0
+Squad	NN	squad	B-ORG	B-noun.group	B-E:ORG_DESC:EDUCATIONAL	0	3	NMOD	0
+%%#SEN 920 wx140	
+1	CD	1	0	B-adj.all	B-N:CARDINAL	0	2	AMOD	0
+ 	CD	 	0	0	I-E:CONTACT_INFO:ADDRESS	0	4	NMOD	0
+Sullivan	NNP	sullivan	B-PER	B-noun.person	B-E:PERSON	0	4	NMOD	B-/wiki/Neil_Sullivan
+ |	NNP	 |	I-PER	I-noun.person	I-E:PERSON	0	0	_	0
+2	CD	2	I-PER	B-adj.all	I-E:PERSON	0	4	NMOD	0
+ 	``	 	I-PER	0	I-E:PERSON	0	0	_	0
+Kelly	RB	kelly	I-PER	B-noun.person	I-E:PERSON	0	8	AMOD	B-/wiki/Gary_Kelly
+ |	JJ	 |	0	0	B-N:CARDINAL	0	87	NMOD	0
+3	CD	3	0	B-adj.all	I-N:CARDINAL	0	8	AMOD	0
+ 	``	 	0	0	0	0	87	P	0
+Crainey	NNP	crainey	0	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	20	NMOD	B-/wiki/Stephen_Crainey
+ |	CD	 |	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	13	AMOD	0
+4	CD	4	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	0
+ 	NNP	 	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	0
+Douglas	NNP	douglas	B-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	B-/wiki/Jonathan_Douglas
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	0
+5	CD	5	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	0
+ 	NNP	 	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	0
+Wright	NNP	wright	B-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	20	NMOD	B-/wiki/Alan_Wright
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+6	CD	6	0	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	22	AMOD	0
+ 	CD	 	0	0	I-E:ORGANIZATION:CORPORATION	0	27	NMOD	0
+Butler	NNP	butler	B-PER	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	27	NMOD	B-/wiki/Paul_Butler_%28footballer%29
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	27	NMOD	0
+7	CD	7	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	27	NMOD	0
+ 	NNP	 	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	27	NMOD	0
+Westlake	NNP	westlake	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	44	NMOD	B-/wiki/Ian_Westlake
+ |	CD	 |	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	29	AMOD	0
+8	CD	8	0	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+ 	NNP	 	B-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+Gregan	NNP	gregan	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	B-/wiki/Sean_Gregan
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+9	CD	9	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+Healy	NNP	healy	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	B-/wiki/David_Healy_%28footballer%29
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+10	CD	10	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	0
+Horsfield	NNP	horsfield	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	40	NMOD	B-/wiki/Geoff_Horsfield
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	44	NMOD	0
+11	CD	11	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	42	AMOD	0
+ 	CD	 	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	44	NMOD	0
+Lewis	NNP	lewis	B-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	44	NMOD	B-/wiki/Eddie_Lewis_%28soccer%29
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	71	NMOD	0
+12	CD	12	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	46	AMOD	0
+ 	CD	 	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+Johnson	NNP	johnson	B-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	B-/wiki/Adam_Johnson
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+14	CD	14	I-PER	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+ 	NNP	 	I-PER	B-noun.location	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.location	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	B-/wiki/Steve_Stone_%28footballer%29
+ |	NNP	 |	I-PER	I-noun.location	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+15	CD	15	I-PER	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+ 	NNP	 	I-PER	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	0
+Richardson	NNP	richardson	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	56	NMOD	B-/wiki/Frazer_Richardson
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	71	NMOD	0
+16	CD	16	0	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	58	AMOD	0
+ 	CD	 	0	0	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+Einarsson	NNP	einarsson	B-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	B-/wiki/Gylfi_Einarsson
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+17	CD	17	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+Carole	NNP	carole	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	B-/wiki/Sebastian_Carole
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+18	CD	18	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	0
+Nicholls	NNP	nicholls	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	68	NMOD	B-/wiki/Kevin_Nicholls
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	71	NMOD	0
+20	CD	20	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	71	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	71	NMOD	0
+Foxe	NNP	foxe	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	B-/wiki/Hayden_Foxe
+ |	CD	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	73	AMOD	0
+21	CD	21	I-ORG	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+ 	NNP	 	I-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+Derry	NNP	derry	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	B-/wiki/Shaun_Derry
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+22	CD	22	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+Moore	NNP	moore	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	B-/wiki/Ian_Moore
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+23	CD	23	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	80	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+Stack	NNP	stack	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	B-/wiki/Graham_Stack
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+24	CD	24	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+ 	NNP	 	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	87	NMOD	0
+Marques	NNPS	marques	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	88	SBJ	B-/wiki/Rui_Marques
+ |	VBP	 |	0	B-verb.stative	I-E:ORGANIZATION:CORPORATION	0	0	_	0
+25	CD	25	0	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	90	AMOD	0
+ 	CD	 	0	0	I-E:ORGANIZATION:CORPORATION	0	92	NMOD	0
+Cresswell	NNP	cresswell	B-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	92	NMOD	B-/wiki/Richard_Cresswell
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+26	CD	26	I-ORG	B-adj.all	I-E:ORGANIZATION:CORPORATION	0	92	NMOD	0
+ 	CD	 	I-ORG	0	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+Kilgallon	NNP	kilgallon	I-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	B-/wiki/Matthew_Kilgallon
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+28	CD	28	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+ 	NNP	 	0	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+Blake	NNP	blake	B-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	B-/wiki/Robbie_Blake
+ |	NNP	 |	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	108	NMOD	0
+31	CD	31	0	0	I-E:ORGANIZATION:CORPORATION	0	100	NMOD	0
+ 	CD	 	0	0	I-E:ORGANIZATION:CORPORATION	0	104	NMOD	0
+Warner	NNP	warner	B-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	104	NMOD	B-/wiki/Tony_Warner
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	108	NMOD	0
+33	CD	33	I-ORG	0	I-E:ORGANIZATION:CORPORATION	0	106	AMOD	0
+ 	CD	 	I-ORG	0	I-E:ORGANIZATION:CORPORATION	0	108	NMOD	0
+Howson	NNP	howson	I-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	108	NMOD	B-/wiki/Jonathan_Howson
+ |	NNP	 |	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	88	OBJ	0
+34	CD	34	0	0	I-E:ORGANIZATION:CORPORATION	0	108	NMOD	0
+ 	``	 	0	0	I-E:ORGANIZATION:CORPORATION	0	0	_	0
+Bayly	RB	bayly	0	B-adv.all	I-E:ORGANIZATION:CORPORATION	0	112	AMOD	B-/wiki/Robert_Bayly
+ |	JJ	 |	0	0	I-E:ORGANIZATION:CORPORATION	0	116	NMOD	0
+35	CD	35	0	0	I-E:ORGANIZATION:CORPORATION	0	116	NMOD	0
+ 	NNP	 	B-PER	0	I-E:ORGANIZATION:CORPORATION	0	116	NMOD	0
+Madden	NNP	madden	I-PER	B-noun.other	I-E:ORGANIZATION:CORPORATION	0	116	NMOD	B-/wiki/Simon_Madden_%28footballer%29
+ |	NNP	 |	I-PER	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	0	_	0
+36	CD	36	0	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	118	AMOD	0
+ 	CD	 	0	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	0
+Lund	NNP	lund	B-LOC	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	B-/wiki/Jonathan_Lund
+ |	NNP	 |	I-LOC	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	0
+42	CD	42	0	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	0
+ 	NNP	 	B-PER	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	0
+Rose	NNP	rose	I-PER	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	124	NMOD	B-/wiki/Danny_Rose
+ |	NNP	 |	I-PER	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	116	NMOD	0
+--	:	--	0	I-noun.other	0	0	126	P	0
+ 	IN	 	0	I-noun.other	0	0	116	PRN	0
+Hird	NNP	hird	B-PER	I-noun.other	B-E:PERSON	0	128	NMOD	B-/wiki/Sam_Hird
+ |	NNP	 |	I-PER	I-noun.other	I-E:PERSON	0	126	PMOD	0
+--	:	--	0	I-noun.other	0	0	126	P	0
+ 	IN	 	0	I-noun.other	0	0	116	NMOD	0
+Rothery	NNP	rothery	B-PER	I-noun.other	B-E:PERSON	0	133	NMOD	B-/wiki/Gavin_Rothery
+ |	NNP	 |	I-PER	I-noun.other	I-E:PERSON	0	133	NMOD	0
+Manager	NNP	manager	I-PER	B-noun.person	I-E:PERSON	0	130	PMOD	0
+:	:	:	0	0	0	0	116	P	0
+ 	``	 	0	0	0	0	0	_	0
+Wise	JJ	wise	B-PER	B-adj.all	B-E:PERSON	0	0	_	B-/wiki/Dennis_Wise
+%%#SEN 921 wx146	
+Categories	NNS	category	0	B-noun.group	0	0	0	ROOT	B-/w/index.php?title=Special:Categories&article=Steve_Stone_%28footballer%29
+:	:	:	0	0	0	0	1	P	0
+1971	CD	1971	0	0	B-T:DATE:DURATION	0	4	NMOD	B-/wiki/Category:1971_births
+births	NNS	birth	0	B-noun.event	I-T:DATE:DURATION	0	1	NMOD	I-/wiki/Category:1971_births
+|	:	|	0	0	0	0	4	P	0
+Living	VBG	live	0	B-adj.all	0	0	4	NMOD	B-/wiki/Category:Living_people
+people	NNS	people	0	B-noun.group	B-E:PER_DESC	0	33	NMOD	I-/wiki/Category:Living_people
+|	``	|	0	0	0	0	33	P	0
+English	JJ	english	B-MISC	B-adj.pert	B-E:NORP:NATIONALITY	0	10	NMOD	B-/wiki/Category:English_footballers
+footballers	NNS	footballers	0	B-noun.person	B-E:PER_DESC	0	33	NMOD	I-/wiki/Category:English_footballers
+|	POS	|	0	0	0	0	33	NMOD	0
+England	NNP	england	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	14	NMOD	B-/wiki/Category:England_international_footballers
+international	JJ	international	0	B-adj.all	0	0	14	NMOD	I-/wiki/Category:England_international_footballers
+footballers	NNS	footballers	0	B-noun.group	B-E:ORG_DESC:CORPORATION	0	19	NMOD	I-/wiki/Category:England_international_footballers
+|	POS	|	0	0	0	0	14	NMOD	0
+Nottingham	NNP	nottingham	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	19	NMOD	B-/wiki/Category:Nottingham_Forest_F.C._players
+Forest	NNP	forest	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	19	NMOD	I-/wiki/Category:Nottingham_Forest_F.C._players
+F.C.	NNP	f.c.	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	19	NMOD	I-/wiki/Category:Nottingham_Forest_F.C._players
+players	NNS	player	0	I-noun.person	B-E:PER_DESC	0	24	NMOD	I-/wiki/Category:Nottingham_Forest_F.C._players
+|	POS	|	0	0	0	0	19	NMOD	0
+Aston	NNP	aston	B-PER	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	24	NMOD	B-/wiki/Category:Aston_Villa_F.C._players
+Villa	NNP	villa	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	24	NMOD	I-/wiki/Category:Aston_Villa_F.C._players
+F.C.	NNP	f.c.	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	24	NMOD	I-/wiki/Category:Aston_Villa_F.C._players
+players	NNS	player	0	I-noun.person	B-E:PER_DESC	0	28	NMOD	I-/wiki/Category:Aston_Villa_F.C._players
+|	POS	|	0	0	0	0	24	NMOD	0
+Portsmouth	NNP	portsmouth	B-LOC	B-noun.person	B-E:GPE:CITY	0	28	NMOD	B-/wiki/Category:Portsmouth_F.C._players
+F.C.	NNP	f.c.	I-LOC	I-noun.person	I-E:GPE:CITY	0	28	NMOD	I-/wiki/Category:Portsmouth_F.C._players
+players	NNS	player	0	I-noun.person	B-E:ORG_DESC:CORPORATION	0	33	NMOD	I-/wiki/Category:Portsmouth_F.C._players
+|	POS	|	0	0	0	0	28	NMOD	0
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:ORGANIZATION:EDUCATIONAL	0	33	NMOD	B-/wiki/Category:Leeds_United_AFC_players
+United	NNP	united	I-LOC	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	33	NMOD	I-/wiki/Category:Leeds_United_AFC_players
+AFC	NNP	afc	I-LOC	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	33	NMOD	I-/wiki/Category:Leeds_United_AFC_players
+players	NNS	player	0	B-noun.person	B-E:PER_DESC	0	6	OBJ	I-/wiki/Category:Leeds_United_AFC_players
+|	.	|	0	0	0	0	1	P	0
+FA	NNP	fa	B-PER	B-noun.group	0	0	38	NMOD	B-/wiki/Category:FA_Premier_League_players
+Premier	NNP	premier	I-PER	I-noun.group	B-E:PER_DESC	0	38	NMOD	I-/wiki/Category:FA_Premier_League_players
+League	NNP	league	I-PER	I-noun.group	B-E:PERSON	0	38	NMOD	I-/wiki/Category:FA_Premier_League_players
+players	NNS	player	0	B-noun.person	B-E:PER_DESC	0	1	NMOD	I-/wiki/Category:FA_Premier_League_players
+|	IN	|	0	0	0	0	38	NMOD	0
+UEFA	NNP	uefa	B-ORG	B-noun.group	B-E:ORGANIZATION:OTHER	0	41	NMOD	B-/wiki/Category:UEFA_Euro_1996_players
+Euro	NNP	euro	I-ORG	I-noun.group	I-E:ORGANIZATION:OTHER	0	43	NMOD	I-/wiki/Category:UEFA_Euro_1996_players
+1996	CD	1996	0	0	B-T:DATE:DATE	0	43	NMOD	I-/wiki/Category:UEFA_Euro_1996_players
+players	NNS	player	0	B-noun.person	B-E:PER_DESC	0	39	PMOD	I-/wiki/Category:UEFA_Euro_1996_players
+%%#SEN 922 wx_categorylinks	
+Steve	NNP	steve	B-PER	B-noun.person	B-E:PERSON	0	6	NMOD	0
+Stone	NNP	stone	I-PER	I-noun.person	I-E:PERSON	0	6	NMOD	0
+Steven	NNP	steven	I-PER	I-noun.person	I-E:PERSON	0	6	NMOD	0
+Brian	NNP	brian	I-PER	I-noun.person	I-E:PERSON	0	6	NMOD	0
+Stone	NNP	stone	I-PER	0	I-E:PERSON	0	6	NMOD	0
+August	NNP	august	I-PER	B-noun.time	I-E:PERSON	0	0	ROOT	B-/wiki/August_20
+20	CD	20	0	B-adj.all	I-E:PERSON	0	6	NMOD	I-/wiki/August_20
+,	,	,	0	0	0	0	6	P	0
+1971	CD	1971	0	0	B-T:DATE:DATE	0	6	NMOD	B-/wiki/1971
+Gateshead	NNP	gateshead	B-PER	B-noun.other	B-E:ORGANIZATION:CORPORATION	0	13	NMOD	B-/wiki/Gateshead
+England	NNP	england	I-PER	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	13	NMOD	B-/wiki/England
+Leeds	NNP	leeds	B-LOC	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	13	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	17	NMOD	I-/wiki/Leeds_United_A.F.C.
+14	CD	14	0	I-noun.other	B-E:PRODUCT:VEHICLE	0	17	NMOD	0
+Midfielder	NNP	midfielder	0	I-noun.other	I-E:PRODUCT:VEHICLE	0	17	NMOD	B-/wiki/Midfielder_%28football%29
+Nottingham	NNP	nottingham	B-PER	I-noun.other	B-E:PERSON	0	17	NMOD	B-/wiki/Nottingham_Forest_F.C.
+Forest	NNP	forest	I-PER	I-noun.other	I-E:PERSON	0	6	NMOD	I-/wiki/Nottingham_Forest_F.C.
+1989-99	CD	1989-99	0	I-noun.other	B-T:DATE:DATE	0	17	NMOD	0
+%%#SEN 923 wx_languagelinks	
+1999-02	CD	1999-02	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 924 wx243	
+2002	CD	2002	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 925 wx244	
+2002-05	CD	2002-05	0	0	B-N:CARDINAL	0	0	_	0
+%%#SEN 926 wx245	
+2005-present	JJ	2005-present	0	B-noun.person	B-E:PER_DESC	0	3	NMOD	0
+Nottingham	NNP	nottingham	B-PER	I-noun.person	B-E:PERSON	0	3	NMOD	B-/wiki/Nottingham_Forest_F.C.
+Forest	NNP	forest	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Nottingham_Forest_F.C.
+%%#SEN 927 wx246	
+Aston	NNP	aston	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Aston_Villa_F.C.
+Villa	NNP	villa	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Aston_Villa_F.C.
+%%#SEN 928 wx248	
+→	NNP	→	0	B-noun.group	B-E:PERSON	0	2	NMOD	0
+Portsmouth	NNP	portsmouth	B-LOC	I-noun.group	I-E:PERSON	0	0	ROOT	B-/wiki/Portsmouth_F.C.
+(	(	(	0	0	0	0	4	P	0
+loan	NN	loan	0	B-noun.possession	0	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 929 wx250	
+Portsmouth	NN	portsmouth	B-LOC	B-noun.location	B-E:GPE:CITY	0	0	ROOT	B-/wiki/Portsmouth_F.C.
+%%#SEN 930 wx252	
+Leeds	NNP	leeds	B-LOC	B-noun.group	B-E:GPE:COUNTRY	0	2	NMOD	B-/wiki/Leeds_United_A.F.C.
+United	NNP	united	I-LOC	I-noun.group	I-E:GPE:COUNTRY	0	0	ROOT	I-/wiki/Leeds_United_A.F.C.
+193	CD	193	0	0	I-E:GPE:COUNTRY	0	2	NMOD	0
+(	(	(	0	0	0	0	5	P	0
+23	CD	23	0	0	B-N:CARDINAL	0	3	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 931 wx254	
+90	CD	90	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+4	CD	4	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 932 wx256	
+5	CD	5	0	B-adj.all	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+1	CD	1	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 933 wx257	
+68	CD	68	0	0	B-N:CARDINAL	0	0	_	0
+(	(	(	0	0	0	0	3	P	0
+8	CD	8	0	0	B-N:CARDINAL	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 934 wx258	
+11	CD	11	0	B-noun.quantity	B-N:CARDINAL	0	5	AMOD	0
+(	(	(	0	0	0	0	3	P	0
+1	CD	1	0	0	B-N:MONEY	0	1	PRN	0
+)	)	)	0	0	I-N:MONEY	0	3	P	0
+1995–1996	CD	1995–1996	0	0	I-N:MONEY	0	14	NMOD	0
+England	NNP	england	B-LOC	B-noun.location	I-N:MONEY	0	14	NMOD	B-/wiki/England_national_football_team
+9	CD	9	I-LOC	0	I-N:MONEY	0	6	NMOD	0
+(	(	(	0	0	0	0	9	P	0
+2	CD	2	0	0	B-N:CARDINAL	0	14	PRN	0
+)	)	)	0	0	0	0	9	P	0
+30/08/2006	NNP	30/08/2006	B-PER	B-noun.group	B-E:ORGANIZATION:EDUCATIONAL	0	14	NMOD	0
+30/08/2006	NNP	30/08/2006	I-PER	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	14	NMOD	0
+Leeds	NNP	leeds	B-LOC	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	14	NMOD	0
+United	NNP	united	I-LOC	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	0	ROOT	0
+%%#SEN 935 wx259	
