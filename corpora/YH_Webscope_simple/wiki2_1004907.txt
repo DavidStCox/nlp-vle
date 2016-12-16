@@ -1,0 +1,147 @@
+%%#DOC  wiki2.1004907	
+%%#PAGE Field_hockey_at_the_1956_Summer_Olympics	
+Field	NN	field	0	B-noun.act	0	0	2	NMOD	0
+hockey	NN	hockey	0	I-noun.act	0	0	0	ROOT	0
+at	IN	at	0	0	0	0	2	NMOD	0
+the	DT	the	0	0	0	0	7	NMOD	0
+1956	CD	1956	0	0	B-T:DATE:DATE	0	7	NMOD	0
+Summer	NNP	summer	B-MISC	B-noun.time	B-E:EVENT:OTHER	0	7	NMOD	0
+Olympics	NNPS	olympics	I-MISC	B-noun.event	I-E:EVENT:OTHER	0	3	PMOD	0
+%%#SEN 26424 wx1	
+These	DT	these	0	0	0	0	2	SBJ	0
+are	VBP	be	0	B-verb.stative	0	0	0	ROOT	0
+the	DT	the	0	0	0	0	4	NMOD	0
+results	NNS	result	0	B-noun.phenomenon	0	0	2	VMOD	0
+for	IN	for	0	0	0	0	4	NMOD	0
+the	DT	the	0	0	0	0	9	NMOD	0
+field	NN	field	0	B-noun.act	0	0	9	NMOD	B-/wiki/Field_hockey
+hockey	NN	hockey	0	I-noun.act	0	0	9	NMOD	I-/wiki/Field_hockey
+competition	NN	competition	0	B-noun.relation	0	0	5	PMOD	0
+at	IN	at	0	0	0	0	9	NMOD	0
+the	DT	the	0	0	0	0	14	NMOD	0
+1956	CD	1956	0	0	B-T:DATE:DATE	0	14	NMOD	B-/wiki/1956_Summer_Olympics
+Summer	NNP	summer	B-MISC	B-noun.time	B-E:EVENT:OTHER	0	14	NMOD	I-/wiki/1956_Summer_Olympics
+Olympics	NNPS	olympics	I-MISC	B-noun.event	I-E:EVENT:OTHER	0	10	PMOD	I-/wiki/1956_Summer_Olympics
+.	.	.	0	0	0	0	2	P	0
+%%#SEN 26425 wx2	
+Only	RB	only	0	B-adv.all	0	0	5	NMOD	0
+a	DT	a	0	0	0	0	5	NMOD	0
+men	NNS	men	0	B-noun.person	B-E:PER_DESC	0	5	NMOD	0
+'s	POS	's	0	0	0	0	3	NMOD	0
+competition	NN	competition	0	B-noun.event	0	0	6	SBJ	0
+occurred	VBD	occur	0	B-verb.change	0	0	0	ROOT	0
+that	DT	that	0	0	B-T:DATE:DATE	0	8	NMOD	0
+year	NN	year	0	B-noun.time	I-T:DATE:DATE	0	6	OBJ	0
+.	.	.	0	0	0	0	6	P	0
+%%#SEN 26426 wx2	
+Gold	NN	gold	0	B-noun.possession	B-E:SUBSTANCE:CHEMICAL	0	0	ROOT	0
+%%#SEN 26427 wx9	
+Silver	NN	silver	0	B-noun.possession	B-E:SUBSTANCE:CHEMICAL	0	0	ROOT	0
+%%#SEN 26428 wx11	
+Bronze	NN	bronze	0	B-noun.substance	B-E:SUBSTANCE:OTHER	0	0	ROOT	0
+%%#SEN 26429 wx13	
+India	NNP	india	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	0	ROOT	B-/wiki/India_at_the_1956_Summer_Olympics
+ 	.	 	0	0	0	0	1	NMOD	0
+(	(	(	0	0	0	0	4	P	0
+IND	NNP	ind	0	0	0	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 26430 wx16	
+Pakistan	NNP	pakistan	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	2	NMOD	B-/wiki/Pakistan_at_the_1956_Summer_Olympics
+ 	NNP	 	I-LOC	I-noun.location	I-E:GPE:COUNTRY	0	0	ROOT	0
+(	(	(	0	0	0	0	4	P	0
+PAK	NNP	pak	B-ORG	0	B-E:ORGANIZATION:CORPORATION	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 26431 wx21	
+United	NNP	united	B-PER	B-adj.all	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	B-/wiki/United_Team_of_Germany_at_the_1956_Summer_Olympics
+Team	NNP	team	I-PER	B-noun.group	B-E:PER_DESC	0	0	ROOT	I-/wiki/United_Team_of_Germany_at_the_1956_Summer_Olympics
+of	IN	of	0	0	0	0	2	NMOD	I-/wiki/United_Team_of_Germany_at_the_1956_Summer_Olympics
+Germany	NNP	germany	B-LOC	B-noun.location	B-E:GPE:COUNTRY	0	3	PMOD	I-/wiki/United_Team_of_Germany_at_the_1956_Summer_Olympics
+ 	.	 	0	0	0	0	2	NMOD	0
+(	(	(	0	0	0	0	7	P	0
+EUA	NNP	eua	0	0	0	0	5	PRN	0
+)	)	)	0	0	0	0	7	P	0
+%%#SEN 26432 wx26	
+Field	NN	field	0	B-noun.act	0	0	2	NMOD	B-/wiki/Field_hockey_at_the_Summer_Olympics
+hockey	NN	hockey	0	I-noun.act	0	0	0	ROOT	I-/wiki/Field_hockey_at_the_Summer_Olympics
+at	IN	at	0	0	0	0	2	NMOD	I-/wiki/Field_hockey_at_the_Summer_Olympics
+the	DT	the	0	0	0	0	6	NMOD	I-/wiki/Field_hockey_at_the_Summer_Olympics
+Summer	NNP	summer	B-MISC	B-noun.time	B-E:EVENT:OTHER	0	6	NMOD	I-/wiki/Field_hockey_at_the_Summer_Olympics
+Olympics	NNPS	olympics	I-MISC	B-noun.event	I-E:EVENT:OTHER	0	3	PMOD	I-/wiki/Field_hockey_at_the_Summer_Olympics
+%%#SEN 26433 wx33	
+1908	CD	1908	0	0	B-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1908_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1912	CD	1912	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	0
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1920	CD	1920	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1920_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1924	CD	1924	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	0
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1928	CD	1928	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1928_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1932	CD	1932	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1932_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1936	CD	1936	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1936_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1948	CD	1948	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1948_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1952	CD	1952	0	0	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1952_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1956	CD	1956	0	0	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1956_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1960	CD	1960	0	0	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1960_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1964	CD	1964	0	0	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1964_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1968	CD	1968	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1968_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1972	CD	1972	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1972_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1976	CD	1976	0	B-noun.quantity	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1976_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1980	CD	1980	0	0	I-T:DATE:DATE	0	33	AMOD	B-/wiki/Field_hockey_at_the_1980_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	33	AMOD	0
+1984	CD	1984	0	0	I-T:DATE:DATE	0	37	AMOD	B-/wiki/Field_hockey_at_the_1984_Summer_Olympics
+|	IN	|	0	0	I-T:DATE:DATE	0	33	NMOD	0
+1988	CD	1988	0	B-noun.quantity	I-T:DATE:DATE	0	34	PMOD	B-/wiki/Field_hockey_at_the_1988_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	37	AMOD	0
+1992	CD	1992	0	B-noun.quantity	I-T:DATE:DATE	0	43	AMOD	B-/wiki/Field_hockey_at_the_1992_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	43	AMOD	0
+1996	CD	1996	0	B-noun.quantity	I-T:DATE:DATE	0	43	AMOD	B-/wiki/Field_hockey_at_the_1996_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	43	AMOD	0
+2000	CD	2000	0	0	I-T:DATE:DATE	0	43	AMOD	B-/wiki/Field_hockey_at_the_2000_Summer_Olympics
+|	SYM	|	0	0	I-T:DATE:DATE	0	43	AMOD	0
+2004	CD	2004	0	0	I-T:DATE:DATE	0	0	_	B-/wiki/Field_hockey_at_the_2004_Summer_Olympics
+%%#SEN 26434 wx37	
+Categories	NNS	category	0	B-noun.group	0	0	0	ROOT	B-/w/index.php?title=Special:Categories&article=Field_hockey_at_the_1956_Summer_Olympics
+:	:	:	0	0	0	0	1	P	0
+Field	NN	field	B-PER	B-noun.act	0	0	4	NMOD	B-/wiki/Category:Field_hockey_at_the_Olympics
+hockey	NN	hockey	0	I-noun.act	0	0	1	NMOD	I-/wiki/Category:Field_hockey_at_the_Olympics
+at	IN	at	0	0	0	0	4	NMOD	I-/wiki/Category:Field_hockey_at_the_Olympics
+the	DT	the	0	0	0	0	7	NMOD	I-/wiki/Category:Field_hockey_at_the_Olympics
+Olympics	NNPS	olympics	B-MISC	B-noun.event	B-E:EVENT:OTHER	0	5	PMOD	I-/wiki/Category:Field_hockey_at_the_Olympics
+|	$	|	0	0	I-E:EVENT:OTHER	0	12	NMOD	0
+1956	CD	1956	0	0	B-T:DATE:DATE	0	12	NMOD	B-/wiki/Category:1956_Summer_Olympics_events
+Summer	NNP	summer	B-MISC	B-noun.time	I-T:DATE:DATE	0	12	NMOD	I-/wiki/Category:1956_Summer_Olympics_events
+Olympics	NNPS	olympics	I-MISC	B-noun.event	0	0	12	NMOD	I-/wiki/Category:1956_Summer_Olympics_events
+events	NNS	event	0	B-noun.event	0	0	4	NMOD	I-/wiki/Category:1956_Summer_Olympics_events
+%%#SEN 26435 wx_categorylinks	
+In	IN	in	0	0	0	0	0	_	0
+other	JJ	other	0	B-adj.all	0	0	3	NMOD	0
+languages	NNS	language	0	B-noun.communication	0	0	1	PMOD	0
+:	:	:	0	0	0	0	1	P	0
+Deutsch	NNP	deutsch	B-PER	B-noun.person	B-E:WORK_OF_ART:OTHER	0	7	NMOD	B-http://de.wikipedia.org/wiki/Olympische_Sommerspiele_1956/Feldhockey
+|	POS	|	0	0	I-E:WORK_OF_ART:OTHER	0	5	NMOD	0
+Español	NN	español	0	B-noun.quantity	I-E:WORK_OF_ART:OTHER	0	1	PMOD	B-http://es.wikipedia.org/wiki/Hockey_en_los_Juegos_Ol%C3%ADmpicos_de_Melbourne_1956
+|	''	|	0	0	I-E:WORK_OF_ART:OTHER	0	7	P	0
+Nederlands	NNS	nederlands	0	B-noun.person	I-E:WORK_OF_ART:OTHER	0	7	NMOD	B-http://nl.wikipedia.org/wiki/Olympische_Zomerspelen_1956/Hockey
+%%#SEN 26436 wx_languagelinks	
+IND	NNP	ind	0	0	0	0	7	NMOD	0
+1956	CD	1956	0	0	B-T:DATE:DATE	0	7	NMOD	0
+Summer	NNP	summer	B-PER	B-noun.time	I-T:DATE:DATE	0	7	NMOD	0
+PAK	NNP	pak	I-PER	0	I-T:DATE:DATE	0	7	NMOD	0
+1956	CD	1956	0	0	I-T:DATE:DATE	0	7	NMOD	0
+Summer	NNP	summer	0	B-noun.time	I-T:DATE:DATE	0	7	NMOD	0
+EUA	NNP	eua	0	0	I-T:DATE:DATE	0	9	TMP	0
+1956	CD	1956	0	0	I-T:DATE:DATE	0	7	NMOD	0
+Summer	NN	summer	0	B-noun.time	I-T:DATE:DATE	0	0	_	0
+%%#SEN 26437 wx_languagelinks	

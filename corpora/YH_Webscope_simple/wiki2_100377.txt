@@ -1,0 +1,346 @@
+%%#DOC  wiki2.100377	
+%%#PAGE Ringo_Lam	
+Ringo	NNP	ringo	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	0
+Lam	NNP	lam	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	0
+%%#SEN 4902 wx1	
+Ringo	NNP	ringo	B-PER	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	0
+Lam	NNP	lam	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	0
+(	(	(	0	0	0	0	5	P	0
+Traditional	NNP	traditional	B-ORG	B-noun.other	B-E:WORK_OF_ART:BOOK	0	5	NMOD	B-/wiki/Traditional_Chinese_character
+Chinese	NNPS	chinese	B-MISC	I-noun.other	I-E:WORK_OF_ART:BOOK	0	2	ROOT	I-/wiki/Traditional_Chinese_character
+:	:	:	0	0	I-E:WORK_OF_ART:BOOK	0	5	P	0
+林嶺東	LS	林嶺東	0	0	I-E:WORK_OF_ART:BOOK	0	10	NMOD	0
+,	,	,	0	0	I-E:WORK_OF_ART:BOOK	0	10	P	0
+Simplified	NNP	simplified	B-MISC	B-adj.all	I-E:WORK_OF_ART:BOOK	0	10	NMOD	B-/wiki/Simplified_Chinese_character
+Chinese	NNPS	chinese	I-MISC	B-noun.communication	I-E:WORK_OF_ART:BOOK	0	5	NMOD	I-/wiki/Simplified_Chinese_character
+:	:	:	0	0	I-E:WORK_OF_ART:BOOK	0	5	P	0
+林岭东	LS	林岭东	0	0	I-E:WORK_OF_ART:BOOK	0	27	ADV	0
+,	,	,	0	0	I-E:WORK_OF_ART:BOOK	0	27	P	0
+pinyin	NN	pinyin	0	B-noun.person	I-E:WORK_OF_ART:BOOK	0	27	SBJ	B-/wiki/Pinyin
+:	:	:	0	0	I-E:WORK_OF_ART:BOOK	0	17	P	0
+Lín	JJ	lín	0	B-noun.artifact	I-E:WORK_OF_ART:BOOK	0	17	NMOD	0
+Lǐngdōng	NN	lǐngdōng	0	I-noun.artifact	I-E:WORK_OF_ART:BOOK	0	14	PRN	0
+,	,	,	0	0	I-E:WORK_OF_ART:BOOK	0	17	P	0
+Cantonese	NNP	cantonese	B-PER	B-noun.communication	I-E:WORK_OF_ART:BOOK	0	17	DEP	B-/wiki/Cantonese_%28linguistics%29
+:	:	:	0	0	I-E:WORK_OF_ART:BOOK	0	17	P	0
+Lam	NNP	lam	B-PER	B-noun.person	I-E:WORK_OF_ART:BOOK	0	22	NMOD	0
+Leng-tung	NNP	leng-tung	I-PER	I-noun.person	I-E:WORK_OF_ART:BOOK	0	17	NMOD	0
+;	:	;	0	0	0	0	17	P	0
+born	VBN	bear	0	B-verb.body	0	0	17	NMOD	0
+1955	CD	1955	0	0	B-T:DATE:DATE	0	24	OBJ	B-/wiki/1955
+)	)	)	0	0	0	0	17	P	0
+is	VBZ	be	0	B-verb.stative	0	0	5	NMOD	0
+a	DT	a	0	0	0	0	30	NMOD	0
+film	NN	film	0	B-noun.person	0	0	30	NMOD	B-/wiki/Film_director
+director	NN	director	0	I-noun.person	B-E:PER_DESC	0	27	VMOD	I-/wiki/Film_director
+known	VBN	know	0	B-verb.cognition	0	0	30	NMOD	0
+for	IN	for	0	0	0	0	31	ADV	0
+stylish	JJ	stylish	0	B-adj.all	0	0	35	NMOD	0
+action	NN	action	0	B-noun.act	0	0	35	NMOD	0
+thrillers	NNS	thriller	0	B-noun.communication	B-E:ORG_DESC:CORPORATION	0	32	PMOD	0
+.	.	.	0	0	0	0	5	P	0
+%%#SEN 4903 wx2	
+He	PRP	he	0	0	0	Ringo	Lam	2	0
+was	VBD	be	0	B-verb.change	0	0	8	COORD	0
+born	VBN	bear	0	I-verb.change	0	0	2	VC	0
+in	IN	in	0	0	0	0	3	ADV	0
+Hong	NNP	hong	B-LOC	B-noun.location	B-E:GPE:CITY	0	6	NMOD	B-/wiki/Hong_Kong
+Kong	NNP	kong	I-LOC	I-noun.location	I-E:GPE:CITY	0	4	PMOD	I-/wiki/Hong_Kong
+,	,	,	0	0	0	0	8	P	0
+and	CC	and	0	0	0	0	0	ROOT	0
+studied	VBN	study	0	B-verb.cognition	0	0	10	NMOD	0
+film	NN	film	0	B-noun.communication	0	0	8	COORD	0
+at	IN	at	0	0	0	0	10	NMOD	0
+the	DT	the	0	0	0	0	17	NMOD	0
+legendary	JJ	legendary	0	B-adj.all	0	0	17	NMOD	0
+York	NNP	york	B-ORG	B-noun.group	B-E:ORGANIZATION:EDUCATIONAL	0	17	NMOD	B-/wiki/York_University
+University	NNP	university	I-ORG	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	17	NMOD	I-/wiki/York_University
+film	NN	film	0	B-noun.communication	I-E:ORGANIZATION:EDUCATIONAL	0	17	NMOD	0
+school	NN	school	0	B-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	11	PMOD	0
+in	IN	in	0	0	0	0	17	NMOD	0
+Toronto	NNP	toronto	B-LOC	B-noun.location	B-E:GPE:CITY	0	18	PMOD	B-/wiki/Toronto
+.	.	.	0	0	0	0	8	P	0
+%%#SEN 4904 wx2	
+Quentin	NNP	quentin	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Quentin_Tarantino
+Tarantino	NNP	tarantino	I-PER	I-noun.person	I-E:PERSON	0	5	NMOD	I-/wiki/Quentin_Tarantino
+'s	POS	's	0	0	0	0	2	NMOD	0
+Reservoir	NNP	reservoir	B-PER	B-noun.person	B-E:ORGANIZATION:GOVERNMENT	0	5	NMOD	B-/wiki/Reservoir_Dogs
+Dogs	NNP	dog	I-PER	I-noun.person	B-E:ANIMAL	0	9	SBJ	I-/wiki/Reservoir_Dogs
+(	(	(	0	0	0	0	7	P	0
+1992	CD	1992	0	0	B-T:DATE:DATE	0	5	PRN	0
+)	)	)	0	0	0	0	7	P	0
+was	VBD	be	0	0	0	0	21	COORD	0
+reworked	VBN	rework	0	B-verb.creation	0	0	9	VC	0
+from	IN	from	0	0	0	0	10	ADV	0
+Lam	NNP	lam	B-ORG	B-noun.act	B-E:ORGANIZATION:CORPORATION	0	14	NMOD	0
+'s	POS	's	0	0	0	0	12	NMOD	0
+City	NNP	city	B-LOC	B-noun.location	B-E:GPE_DESC:CITY	0	11	PMOD	B-/wiki/City_on_Fire_%281987_film%29
+on	IN	on	0	0	0	0	14	NMOD	I-/wiki/City_on_Fire_%281987_film%29
+Fire	NNP	fire	B-PER	B-noun.process	B-E:PERSON	0	15	PMOD	I-/wiki/City_on_Fire_%281987_film%29
+(	(	(	0	0	0	0	18	P	0
+1987	CD	1987	0	0	B-T:DATE:DATE	0	14	PRN	0
+)	)	)	0	0	0	0	18	P	0
+,	,	,	0	0	0	0	21	P	0
+and	CC	and	0	0	0	0	0	ROOT	0
+critics	NNS	critic	0	B-noun.person	B-E:PER_DESC	0	23	SBJ	0
+have	VBP	have	0	0	0	0	21	COORD	0
+indicated	VBN	indicate	0	B-verb.communication	0	0	23	VC	0
+that	IN	that	0	0	0	0	27	VMOD	0
+there	EX	there	0	0	0	0	27	SBJ	0
+are	VBP	be	0	B-verb.stative	0	0	24	OBJ	0
+shot-by-shot	JJ	shot-by-shot	0	0	0	0	29	NMOD	0
+copies	NNS	copy	0	B-noun.communication	0	0	27	VMOD	0
+of	IN	of	0	0	0	0	29	NMOD	0
+certain	JJ	certain	0	B-adj.all	0	0	33	NMOD	0
+action	NN	action	0	B-noun.act	0	0	33	NMOD	0
+sequences	NNS	sequence	0	B-noun.group	B-E:PER_DESC	0	30	PMOD	0
+.	.	.	0	0	0	0	21	P	0
+%%#SEN 4905 wx2	
+His	PRP$	his	0	0	0	Fire	4	NMOD	0
+most	RBS	most	0	B-adv.all	0	0	3	AMOD	0
+recent	JJ	recent	0	B-adj.all	0	0	4	NMOD	0
+films	NNS	film	0	B-noun.communication	0	0	5	SBJ	0
+include	VBP	include	0	B-verb.stative	0	0	0	ROOT	0
+a	DT	a	0	0	0	0	7	NMOD	0
+collaboration	NN	collaboration	0	B-noun.act	0	0	5	OBJ	0
+with	IN	with	0	0	0	0	7	NMOD	0
+Jean	NNP	jean	B-PER	B-noun.person	B-E:PERSON	0	12	NMOD	B-/wiki/Jean_Claude_Van_Damme
+Claude	NNP	claude	I-PER	I-noun.person	I-E:PERSON	0	12	NMOD	I-/wiki/Jean_Claude_Van_Damme
+Van	NNP	van	I-PER	I-noun.person	I-E:PERSON	0	12	NMOD	I-/wiki/Jean_Claude_Van_Damme
+Damme	NNP	damme	I-PER	I-noun.person	I-E:PERSON	0	8	PMOD	I-/wiki/Jean_Claude_Van_Damme
+:	:	:	0	0	0	0	7	P	0
+Maximum	NNP	maximum	B-PER	B-noun.person	B-E:PERSON	0	15	NMOD	0
+Risk	NNP	risk	I-PER	I-noun.person	I-E:PERSON	0	25	COORD	0
+(	(	(	0	0	0	0	17	P	0
+1996	CD	1996	0	0	B-T:DATE:DATE	0	15	PRN	0
+)	)	)	0	0	0	0	17	P	0
+,	,	,	0	0	0	0	15	P	0
+Replicant	NNP	replicant	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	15	NMOD	B-/wiki/Replicant_%28film%29
+(	(	(	0	0	0	0	22	P	0
+2001	CD	2001	0	0	B-T:DATE:DATE	0	20	PRN	0
+)	)	)	0	0	0	0	22	P	0
+,	,	,	0	0	0	0	25	P	0
+and	CC	and	0	0	0	0	7	NMOD	0
+The	NNP	the	B-PER	B-noun.person	B-E:PERSON	0	27	NMOD	0
+Savage	NNP	savage	I-PER	I-noun.person	I-E:PERSON	0	25	COORD	0
+(	(	(	0	0	0	0	29	P	0
+2003	CD	2003	0	0	B-T:DATE:DATE	0	27	PRN	0
+)	)	)	0	0	0	0	29	P	0
+(	(	(	0	0	0	0	32	P	0
+better	RBR	better	0	B-adv.all	0	0	25	PRN	0
+known	VBN	know	0	B-adj.all	0	0	32	AMOD	0
+as	IN	as	0	I-adj.all	0	0	33	ADV	0
+In	NNP	in	B-PER	0	B-E:PERSON	0	36	NMOD	0
+Hell	NNP	hell	I-PER	0	I-E:PERSON	0	34	PMOD	0
+)	)	)	0	0	0	0	32	P	0
+.	.	.	0	0	0	0	5	P	0
+%%#SEN 4906 wx2	
+Filmography	NNP	filmography	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	0	ROOT	0
+as	IN	as	0	0	0	0	1	NMOD	0
+director	NN	director	0	B-noun.person	B-E:PER_DESC	0	2	PMOD	0
+%%#SEN 4907 wx27	
+In	IN	in	0	0	0	0	0	_	B-/wiki/In_Hell
+Hell	NNP	hell	B-LOC	0	B-E:GPE:CITY	0	1	PMOD	I-/wiki/In_Hell
+(	(	(	0	0	0	0	4	P	0
+2003	CD	2003	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4908 wx29	
+Looking	VBG	look	0	B-verb.contact	0	0	0	_	B-/wiki/Looking_for_Mr._Perfect
+for	IN	for	0	I-verb.contact	0	0	1	ADV	I-/wiki/Looking_for_Mr._Perfect
+Mr.	NNP	mr.	0	B-noun.person	0	0	4	NMOD	I-/wiki/Looking_for_Mr._Perfect
+Perfect	NNP	perfect	B-PER	I-noun.person	B-E:PERSON	0	2	PMOD	I-/wiki/Looking_for_Mr._Perfect
+(	(	(	0	0	0	0	6	P	0
+2003	CD	2003	0	0	B-T:DATE:DATE	0	4	PRN	0
+)	)	)	0	0	0	0	6	P	0
+%%#SEN 4909 wx32	
+Replicant	NNP	replicant	0	B-noun.person	B-E:PER_DESC	0	0	ROOT	B-/wiki/Replicant_%28film%29
+(	(	(	0	0	0	0	3	P	0
+2001	CD	2001	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	3	P	0
+%%#SEN 4910 wx35	
+The	DT	the	0	0	0	0	2	NMOD	B-/wiki/The_Victim
+Victim	NNP	victim	B-PER	B-noun.person	B-E:PER_DESC	0	0	_	I-/wiki/The_Victim
+(	(	(	0	0	0	0	4	P	0
+1999	CD	1999	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4911 wx38	
+The	DT	the	0	0	0	0	2	NMOD	B-/wiki/The_Suspect
+Suspect	NNP	suspect	B-PER	B-noun.person	B-E:PER_DESC	0	0	_	I-/wiki/The_Suspect
+(	(	(	0	0	0	0	4	P	0
+1998	CD	1998	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4912 wx41	
+Full	NNP	full	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Full_Alert
+Alert	NNP	alert	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Full_Alert
+(	(	(	0	0	0	0	4	P	0
+1997	CD	1997	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4913 wx44	
+Maximum	NNP	maximum	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Maximum_Risk
+Risk	NNP	risk	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Maximum_Risk
+(	(	(	0	0	0	0	4	P	0
+1996	CD	1996	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4914 wx47	
+Great	NNP	great	B-ORG	B-adj.all	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	B-/wiki/Great_Adventurers
+Adventurers	NNPS	adventurer	I-ORG	B-noun.person	I-E:ORGANIZATION:CORPORATION	0	0	_	I-/wiki/Great_Adventurers
+(	(	(	0	0	0	0	4	P	0
+1995	CD	1995	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4915 wx50	
+Burning	VBG	burn	0	B-adj.all	0	0	0	_	B-/wiki/Burning_Paradise_in_Hell
+Paradise	NNP	paradise	B-LOC	B-noun.location	B-E:LOCATION:OTHER	0	1	OBJ	I-/wiki/Burning_Paradise_in_Hell
+in	IN	in	0	0	0	0	1	ADV	I-/wiki/Burning_Paradise_in_Hell
+Hell	NNP	hell	B-LOC	B-noun.location	B-E:GPE:CITY	0	3	PMOD	I-/wiki/Burning_Paradise_in_Hell
+(	(	(	0	0	0	0	6	P	0
+1994	CD	1994	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	6	P	0
+%%#SEN 4916 wx53	
+Full	NNP	full	B-ORG	B-adj.all	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	B-/wiki/Full_Contact
+Contact	NNP	contact	I-ORG	B-noun.act	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	I-/wiki/Full_Contact
+(	(	(	0	0	0	0	4	P	0
+1993	CD	1993	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4917 wx56	
+The	DT	the	0	0	0	0	3	NMOD	B-/wiki/The_Twin_Dragons
+Twin	NNP	twin	B-PER	B-noun.person	B-E:PERSON	0	3	NMOD	I-/wiki/The_Twin_Dragons
+Dragons	NNPS	dragon	I-PER	I-noun.person	I-E:PERSON	0	0	_	I-/wiki/The_Twin_Dragons
+(	(	(	0	0	0	0	5	P	0
+1992	CD	1992	0	0	B-T:DATE:DATE	0	3	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 4918 wx59	
+Prison	NN	prison	0	B-noun.artifact	B-E:FAC_DESC:BUILDING	0	0	ROOT	B-/wiki/Prison_on_Fire_II
+on	IN	on	0	0	0	0	1	NMOD	I-/wiki/Prison_on_Fire_II
+Fire	NNP	fire	B-PER	0	B-E:PERSON	0	4	NMOD	I-/wiki/Prison_on_Fire_II
+II	NNP	ii	I-PER	0	I-E:PERSON	0	2	PMOD	I-/wiki/Prison_on_Fire_II
+(	(	(	0	0	0	0	6	P	0
+1991	CD	1991	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	6	P	0
+%%#SEN 4919 wx62	
+Touch	NN	touch	0	B-noun.event	0	0	2	COORD	B-/wiki/Touch_and_Go_%281991_film%29
+and	CC	and	0	0	0	0	0	_	I-/wiki/Touch_and_Go_%281991_film%29
+Go	NNP	go	B-PER	B-noun.person	B-E:PERSON	0	2	COORD	I-/wiki/Touch_and_Go_%281991_film%29
+(	(	(	0	0	0	0	5	P	0
+1991	CD	1991	0	0	B-T:DATE:DATE	0	3	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 4920 wx65	
+Undeclared	NNP	undeclared	B-PER	B-adj.all	B-E:PERSON	0	2	NMOD	B-/wiki/Undeclared_War
+War	NNP	war	I-PER	B-noun.act	I-E:PERSON	0	0	ROOT	I-/wiki/Undeclared_War
+(	(	(	0	0	0	0	4	P	0
+1990	CD	1990	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4921 wx68	
+Wild	NNP	wild	B-PER	B-noun.person	B-E:PERSON	0	2	NMOD	B-/wiki/Wild_Search
+Search	NNP	search	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	I-/wiki/Wild_Search
+(	(	(	0	0	0	0	4	P	0
+1989	CD	1989	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4922 wx71	
+School	NN	school	B-ORG	B-noun.group	B-E:ORG_DESC:EDUCATIONAL	0	0	ROOT	B-/wiki/School_on_Fire
+on	IN	on	0	0	0	0	1	NMOD	I-/wiki/School_on_Fire
+Fire	NNP	fire	B-PER	B-noun.process	B-E:PERSON	0	2	PMOD	I-/wiki/School_on_Fire
+(	(	(	0	0	0	0	5	P	0
+1988	CD	1988	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 4923 wx74	
+Prison	NN	prison	0	B-noun.artifact	B-E:FAC_DESC:BUILDING	0	0	ROOT	B-/wiki/Prison_on_Fire
+on	IN	on	0	0	0	0	1	NMOD	I-/wiki/Prison_on_Fire
+Fire	NNP	fire	B-PER	B-noun.process	B-E:PERSON	0	2	PMOD	I-/wiki/Prison_on_Fire
+(	(	(	0	0	0	0	5	P	0
+1987	CD	1987	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 4924 wx77	
+City	NN	city	B-LOC	B-noun.location	B-E:GPE_DESC:CITY	0	0	ROOT	B-/wiki/City_on_Fire_%281987_film%29
+on	IN	on	0	0	0	0	1	NMOD	I-/wiki/City_on_Fire_%281987_film%29
+Fire	NNP	fire	B-PER	B-noun.process	B-E:PERSON	0	2	PMOD	I-/wiki/City_on_Fire_%281987_film%29
+(	(	(	0	0	0	0	5	P	0
+1987	CD	1987	0	0	B-T:DATE:DATE	0	1	PRN	0
+)	)	)	0	0	0	0	5	P	0
+%%#SEN 4925 wx80	
+Aces	NNP	aces	B-ORG	B-noun.group	B-E:ORGANIZATION:CORPORATION	0	4	NMOD	B-/wiki/Aces_Go_Places_IV
+Go	NNP	go	I-ORG	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	4	NMOD	I-/wiki/Aces_Go_Places_IV
+Places	NNPS	place	I-ORG	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	4	NMOD	I-/wiki/Aces_Go_Places_IV
+IV	NNP	iv	I-ORG	I-noun.group	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	I-/wiki/Aces_Go_Places_IV
+(	(	(	0	0	0	0	6	P	0
+1986	CD	1986	0	0	B-T:DATE:DATE	0	4	PRN	0
+)	)	)	0	0	0	0	6	P	0
+%%#SEN 4926 wx83	
+Cupid	NNP	cupid	B-PER	B-noun.person	B-E:PERSON	0	0	ROOT	B-/wiki/Cupid_One
+One	CD	one	I-PER	0	I-E:PERSON	0	1	NMOD	I-/wiki/Cupid_One
+(	(	(	0	0	0	0	4	P	0
+1985	CD	1985	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4927 wx86	
+The	DT	the	0	0	0	0	3	NMOD	B-/wiki/The_Other_Side_of_Gentleman
+Other	JJ	other	B-PER	B-adj.all	B-E:PERSON	0	3	NMOD	I-/wiki/The_Other_Side_of_Gentleman
+Side	NNP	side	I-PER	B-noun.location	I-E:PERSON	0	0	_	I-/wiki/The_Other_Side_of_Gentleman
+of	IN	of	0	0	0	0	3	NMOD	I-/wiki/The_Other_Side_of_Gentleman
+Gentleman	NNP	gentleman	B-PER	B-noun.person	B-E:PER_DESC	0	4	PMOD	I-/wiki/The_Other_Side_of_Gentleman
+(	(	(	0	0	0	0	7	P	0
+1984	CD	1984	0	0	B-T:DATE:DATE	0	3	PRN	0
+)	)	)	0	0	0	0	7	P	0
+%%#SEN 4928 wx89	
+Esprit	FW	esprit	0	0	B-E:ORGANIZATION:GOVERNMENT	0	0	_	B-/wiki/Esprit_d%27amour
+d'amour	FW	d'amour	0	0	I-E:ORGANIZATION:GOVERNMENT	0	1	ROOT	I-/wiki/Esprit_d%27amour
+(	(	(	0	0	I-E:ORGANIZATION:GOVERNMENT	0	4	P	0
+1983	CD	1983	0	0	B-T:DATE:DATE	0	2	PRN	0
+)	)	)	0	0	0	0	4	P	0
+%%#SEN 4929 wx92	
+See	VB	see	0	B-adv.all	0	0	0	_	0
+also	RB	also	0	I-adv.all	0	0	1	ADV	0
+%%#SEN 4930 wx96	
+Cinema	NNP	cinema	B-ORG	B-noun.communication	B-E:ORGANIZATION:CORPORATION	0	0	ROOT	B-/wiki/Cinema_of_Hong_Kong
+of	IN	of	0	0	0	0	1	NMOD	I-/wiki/Cinema_of_Hong_Kong
+Hong	NNP	hong	B-LOC	B-noun.location	B-E:GPE:CITY	0	4	NMOD	I-/wiki/Cinema_of_Hong_Kong
+Kong	NNP	kong	I-LOC	I-noun.location	I-E:GPE:CITY	0	2	PMOD	I-/wiki/Cinema_of_Hong_Kong
+%%#SEN 4931 wx98	
+External	JJ	external	0	B-adj.all	0	0	2	NMOD	0
+links	NNS	link	0	B-noun.artifact	0	0	0	_	0
+%%#SEN 4932 wx101	
+Ringo	NNP	ringo	B-PER	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	2	NMOD	B-http://www.imdb.com/name/nm0482681/
+Lam	NNP	lam	I-PER	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	0	ROOT	I-http://www.imdb.com/name/nm0482681/
+at	IN	at	0	0	0	0	2	NMOD	0
+the	DT	the	0	0	0	0	7	NMOD	0
+Internet	NNP	internet	B-ORG	B-noun.other	B-E:ORGANIZATION:CORPORATION	0	7	NMOD	B-/wiki/Internet_Movie_Database
+Movie	NNP	movie	I-ORG	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	7	NMOD	I-/wiki/Internet_Movie_Database
+Database	NNP	database	I-ORG	I-noun.other	I-E:ORGANIZATION:CORPORATION	0	3	PMOD	I-/wiki/Internet_Movie_Database
+%%#SEN 4933 wx103	
+Categories	NNS	category	0	B-noun.group	0	0	0	_	B-/w/index.php?title=Special:Categories&article=Ringo_Lam
+:	:	:	0	0	0	0	1	P	0
+1955	CD	1955	0	0	B-T:DATE:DATE	0	4	NMOD	B-/wiki/Category:1955_births
+births	NNS	birth	0	B-noun.event	I-T:DATE:DATE	0	0	_	I-/wiki/Category:1955_births
+|	:	|	0	0	0	0	0	_	0
+Living	VBG	live	0	B-adj.all	0	0	0	_	B-/wiki/Category:Living_people
+people	NNS	people	0	B-noun.group	B-E:PER_DESC	0	6	OBJ	I-/wiki/Category:Living_people
+|	IN	|	0	0	0	0	7	NMOD	0
+Hong	NNP	hong	B-LOC	B-noun.location	B-E:GPE:CITY	0	12	NMOD	B-/wiki/Category:Hong_Kong_film_directors
+Kong	NNP	kong	I-LOC	I-noun.location	I-E:GPE:CITY	0	12	NMOD	I-/wiki/Category:Hong_Kong_film_directors
+film	NN	film	0	B-noun.person	0	0	12	NMOD	I-/wiki/Category:Hong_Kong_film_directors
+directors	NNS	director	0	I-noun.person	B-E:PER_DESC	0	16	NMOD	I-/wiki/Category:Hong_Kong_film_directors
+|	POS	|	0	0	0	0	12	NMOD	0
+York	NNP	york	B-ORG	B-noun.group	B-E:ORGANIZATION:EDUCATIONAL	0	16	NMOD	B-/wiki/Category:York_University_alumni
+University	NNP	university	I-ORG	I-noun.group	I-E:ORGANIZATION:EDUCATIONAL	0	16	NMOD	I-/wiki/Category:York_University_alumni
+alumni	NNS	alumnus	0	B-noun.person	B-E:PER_DESC	0	8	PMOD	I-/wiki/Category:York_University_alumni
+%%#SEN 4934 wx_categorylinks	
+In	IN	in	0	0	0	0	0	_	0
+other	JJ	other	0	B-adj.all	0	0	3	NMOD	0
+languages	NNS	language	0	B-noun.communication	0	0	1	PMOD	0
+:	:	:	0	0	0	0	1	P	0
+Deutsch	NNP	deutsch	B-ORG	B-noun.person	B-E:ORGANIZATION:CORPORATION	0	9	NMOD	B-http://de.wikipedia.org/wiki/Ringo_Lam
+|	NNP	|	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	9	NMOD	0
+Galego	NNP	galego	I-ORG	I-noun.person	I-E:ORGANIZATION:CORPORATION	0	9	NMOD	B-http://gl.wikipedia.org/wiki/Ringo_Lam
+|	NNP	|	I-ORG	0	I-E:ORGANIZATION:CORPORATION	0	9	NMOD	0
+Suomi	NNP	suomi	I-ORG	B-noun.location	I-E:ORGANIZATION:CORPORATION	0	1	PMOD	B-http://fi.wikipedia.org/wiki/Ringo_Lam
+|	.	|	0	0	I-E:ORGANIZATION:CORPORATION	0	11	NMOD	0
+Français	NNS	français	0	B-noun.artifact	I-E:ORGANIZATION:CORPORATION	0	13	NMOD	B-http://fr.wikipedia.org/wiki/Ringo_Lam
+|	POS	|	0	0	0	0	11	NMOD	0
+中文	NN	中文	0	B-noun.quantity	B-E:PER_DESC	0	0	_	B-http://zh.wikipedia.org/wiki/%E6%9E%97%E5%B6%BA%E6%9D%B1
+%%#SEN 4935 wx_languagelinks	
+林嶺東	RB	林嶺東	0	B-adj.all	B-T:DATE:DATE	0	7	NMOD	0
+林岭东	JJ	林岭东	0	B-noun.person	I-T:DATE:DATE	0	7	NMOD	0
+Lín	JJ	lín	0	I-noun.person	I-T:DATE:DATE	0	7	NMOD	0
+Lǐngdōng	JJ	lǐngdōng	0	I-noun.person	I-T:DATE:DATE	0	7	NMOD	0
+0482681	CD	0482681	0	I-noun.person	I-T:DATE:DATE	0	7	NMOD	0
+Ringo	NNP	ringo	B-PER	I-noun.person	B-E:PERSON	0	7	NMOD	0
+Lam	NNP	lam	I-PER	I-noun.person	I-E:PERSON	0	0	ROOT	0
+%%#SEN 4936 wx_languagelinks	
