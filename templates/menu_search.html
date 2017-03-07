@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block css %}
+  {% if autocomplete %}
+  .autocomplete-suggestions {
+    border: 1px solid #999; background: #FFF; overflow: auto;
+  }
+
+  .autocomplete-suggestion {
+    padding: 2px 5px; white-space: nowrap; overflow: hidden;
+  }
+
+  .autocomplete-selected {
+    background: #F0F0F0;
+  }
+
+  .autocomplete-suggestions strong {
+    font-weight: normal; color: #3399FF;
+  }
+
+  .autocomplete-group { padding: 2px 5px; }
+
+  .autocomplete-group strong {
+    display: block; border-bottom: 1px solid #000;
+  }
+
+  .ui-menu {
+    width: 150px;
+  
+  }
+  {% endif %}
+{% endblock %}
+
+{% block javascript %}
+  $(document).ready(function() {
+    $("#navigation-menu").menu()
+
+    $("#navigation-menu").on("menufocus", function(event, ui) {
+      var el = $(ui.item[0])
+
+      console.log(event)
+      if (el.is("li") && !el.hasClass("ajax-expanded")) {
+        var category = el.attr('data-category')
+        var ul = $("<ul>").appendTo(el)
+        el.addClass("ajax-expanded")
+        $.getJSON("/search/navigation_menu",
+          { 
+            "query" : category,
+          },
+          function(data)  {
+            console.time("update")
+              $.each(data.menu_items, function(idx, item) {
+                 $("<li>").attr("data-category", category + " " + item)
+                         .append($("<div>").html(item))
+                         .appendTo(ul)
+              })
+
+              $("#navigation-menu").menu("refresh", false)
+              console.timeEnd("update")
+        })
+      }
+      event.preventDefault();
+    });
+
+    $("#navigation-menu").on("menuselect", function(event, ui) {
+      console.log(event, ui);
+      var el = $(ui.item[0])
+      var form = $("form")
+      $("#query").val(el.attr('data-category'))
+      form.submit()
+    });
+
+  });
+{% endblock %}
+
+{% block body %}
+  <div class="search">
+    <h1>Search-navigation</h1>
+      <div class="">
+        <ul id="navigation-menu" class="">
+        {% for category in categories %}
+        <li class="" data-category="{{ category }}">
+          <div>{{ category }}</div>
+        </li>
+        {% endfor %}
+        </ul>
+      </div>
+  </div>
+  <form method="post" action="" style="display:none;">
+    Query: <input id="query" type="text" name="query" value="{{ query or "" }}">
+    <input type="submit" value="Search">
+  </form>
+  {% if results %}
+    <h2>Hits</h2>
+    <div class="results">
+      <table>
+      {% for score, url, title, excerpt in results %}
+        <tr>
+          <td>{{ "%0.3f" % score }}</td>
+          <td><a href="{{ url }}">{{ title }}: {{ excerpt }}</a></td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+  {% endif %}
+{% endblock %}
