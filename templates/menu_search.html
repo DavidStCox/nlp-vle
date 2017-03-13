@@ -34,62 +34,59 @@
 {% block javascript %}
   $(document).ready(function() {
     $("#navigation-menu").menu()
-
-    $("#navigation-menu").on("menufocus", function(event, ui) {
-      var el = $(ui.item[0])
-
-      console.log(event)
-      if (el.is("li") && !el.hasClass("ajax-expanded")) {
-        var category = el.attr('data-category')
-        var ul = $("<ul>").appendTo(el)
-        el.addClass("ajax-expanded")
-        $.getJSON("/search/navigation_menu",
-          { 
-            "query" : category,
-          },
-          function(data)  {
-            console.time("update")
-              $.each(data.menu_items, function(idx, item) {
-                 $("<li>").attr("data-category", category + " " + item)
-                         .append($("<div>").html(item))
-                         .appendTo(ul)
-              })
-
-              $("#navigation-menu").menu("refresh", false)
-              console.timeEnd("update")
-        })
-      }
-      event.preventDefault();
-    });
-
-    $("#navigation-menu").on("menuselect", function(event, ui) {
-      console.log(event, ui);
-      var el = $(ui.item[0])
-      var form = $("form")
-      $("#query").val(el.attr('data-category'))
-      form.submit()
-    });
-
   });
+
+  var register_click = function(link) {
+    console.log(link)
+    $("#surveyform #link").val(link)
+    $("#surveyform #stats").val("somestats")
+    $("#surveyform").submit()
+  };
 {% endblock %}
 
 {% block body %}
+  <form id="surveyform" method="post" action="results">
+    <input type="hidden" name="userid" value="{{ }}"/>
+    <input type="hidden" name="desired" value="{{ }}">
+    <input type="hidden" name="task_type" value="{{ }}"/>
+    <input type="hidden" name="iteration" value="{{  }}"/>
+    <input type="hidden" id="link" name="link"/>
+    <input type="hidden" id="stats" name="stats"/>
+  </form>
   <div class="search">
     <h1>Search-navigation</h1>
       <div class="">
-        <ul id="navigation-menu" class="">
-        {% for category in categories %}
-        <li class="" data-category="{{ category }}">
-          <div>{{ category }}</div>
+        <ul id="navigation-menu">
+        {% for key in categories recursive %}
+        <li class="">
+          <div>{{ key }}</div>
+            <ul class="">
+              {% for a in categories[key] %}
+              <li><div>{{ a }}</div>
+                <ul class="">
+                  {% for b in categories[key][a] %}
+                    <li><div>{{ b }}</div>
+                    <ul class="">
+                      {% for c in categories[key][a][b] %}
+                      <li><div><a onclick="register_click('{{ categories[key][a][b][c] }}')">{{ c }}</a></div>
+                      </li>
+                      {% endfor %}
+                    </ul>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endfor %}
+            </ul>
         </li>
         {% endfor %}
         </ul>
       </div>
   </div>
-  <form method="post" action="" style="display:none;">
+  <!--form method="post" action="" style="display:none;">
     Query: <input id="query" type="text" name="query" value="{{ query or "" }}">
     <input type="submit" value="Search">
-  </form>
+  </form-->
   {% if results %}
     <h2>Hits</h2>
     <div class="results">

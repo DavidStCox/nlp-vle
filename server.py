@@ -84,9 +84,9 @@ class SearchApp(Flask):
         route("/autocomplete", view_func=self.search_suggestions)
         route("/doc/<path:filename>", view_func=self.show_doc)
         route("/licenses", view_func=self.licenses)
+        route("/search/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
         route("/search/navigation", view_func=self.navigation_main, methods=["GET", "POST"])
-        route("/search/navigation_menu", view_func=self.navigation_menu, methods=["GET", "POST"])
         route("/search/suggestions", view_func=self.search, methods=["GET", "POST"])
 
     def show_doc(self, filename):
@@ -125,17 +125,22 @@ class SearchApp(Flask):
 
         return json.dumps(result)
 
-    def navigation_menu(self):
-        """Returns the submenu for the given query."""
 
-        query = request.args.get("query", "")
+    def results_view(self):
+        """Performs the actual search."""
+        link = request.form.get("link", None)
+        desired = request.form.get("desired", None)
+        stats = request.form.get("stats", None)
 
-        result = {
-            "query": query,
-            "menu_items": ["Zebra", "Cat"], #self.search_engine.suggest(query),
+        context = {
+            "title": "Task results",
         }
 
-        return json.dumps(result)
+        t = ""
+        try:
+            t = render_template("results.html", **context)
+        except Exception as e:
+            print(e)
 
     def navigation_main(self):
         """Performs the actual search."""
@@ -146,24 +151,21 @@ class SearchApp(Flask):
             "title": "Search-navigation",
             "query": query,
             "autocomplete": True,
-            "categories": [ "Animals", "People" ]
+            "categories": {}
         }
 
-        if perform_search:
-            self.logger.info("Search: %s" % repr(query))
+        try:
+            context["categories"] = self.search_engine.category_tree()
+        except Exception as e:
+            print(e)
 
-            results = []
-            for hits in self.search_engine.search(query):
-                for hit in hits:
-                    score = hit.score
-                    url = "/doc/%s" % hit["filename"]
-                    title = hit["title"]
-                    excerpt = "..."
-                    results.append((score, url, title, excerpt))
-
-            context["results"] = sorted(results, reverse=True)
-
-        return render_template("menu_search.html", **context)
+        
+        t = ""
+        try:
+            t = render_template("menu_search.html", **context)
+        except Exception as e:
+            print(e)
+        return t
 
     def search(self):
         """Performs the actual search."""

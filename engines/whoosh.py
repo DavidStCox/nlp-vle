@@ -25,7 +25,7 @@ class WhooshSearchEngine():
             schema = Schema(
                 name = TEXT(stored=True),
                 link = TEXT(stored=True),
-                category = KEYWORD(stored=True),
+                category = KEYWORD(stored=True, scorable=True, commas=True),
                 description = TEXT(stored=True),
             )
 
@@ -49,9 +49,8 @@ class WhooshSearchEngine():
                         continue
 
                     fields = line.split(",")
-                    print(fields)
 
-                    category = fields[0]
+                    category = ",".join(fields[0].split(";"))
                     link = fields[1]
                     name = fields[2]
                     description = fields[3]
@@ -68,11 +67,26 @@ class WhooshSearchEngine():
 
 
     def category_tree(self):
+        out = dict()
+        with self.ix.reader() as s:
+            for r in s.all_stored_fields():
+                cats = r["category"].split(",")
+                cats.append(r["name"])
+                cats.append(r["link"])
 
-        pass
+                # todo make this pretty
+                if cats[0] not in out:
+                    out[cats[0]] = {}
+                if cats[1] not in out[cats[0]]:
+                    out[cats[0]][cats[1]] = {}
+                if cats[2] not in out[cats[0]][cats[1]]:
+                    out[cats[0]][cats[1]][cats[2]] = {}
+                if cats[3] not in out[cats[0]][cats[1]][cats[2]]:
+                    out[cats[0]][cats[1]][cats[2]][cats[3]] = cats[4]
+
+        return out
 
     def search(self, query, field="name", limit=200):
-#        qp = QueryParser(field, schema=self.ix.schema)
         qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
 
         with self.ix.searcher() as s:
@@ -80,8 +94,6 @@ class WhooshSearchEngine():
 
     def suggest(self, query, field="name", limit=20):
         """Returns search suggestions for the given query."""
-        #qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
-
         out = []
         with self.ix.reader() as s:
             for hit in s.expand_prefix("name", query):
@@ -90,13 +102,11 @@ class WhooshSearchEngine():
                 out.append(str(hit, encoding="utf-8"))
 
         qp = QueryParser("name", schema=self.ix.schema)
-        p = qp.parse(query)
         with self.ix.searcher() as s:
             for r in s.search(qp.parse(query), limit=limit):
                 out.append(r["name"])
 
         qp = QueryParser("category", schema=self.ix.schema)
-        p = qp.parse(query)
         with self.ix.searcher() as s:
             for r in s.search(qp.parse(query), limit=limit):
                 out.append(r["category"])
