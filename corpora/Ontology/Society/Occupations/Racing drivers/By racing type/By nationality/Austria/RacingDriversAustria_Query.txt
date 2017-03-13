@@ -1,0 +1,18 @@
+#US presidents and spouses
+#added before 2016-10
+#TEMPLATE={"template":"Presidents of ?country and their spouses","variables":{"?country":{"query":" SELECT ?id WHERE { ?id wdt:P31 wd:Q6256 . }"} } }
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?p ?pLabel ?pAlias ?pContent ?pNationality ?pPicture WHERE {
+  ?p wdt:P106 wd:Q15958185.
+  ?p wdt:P27 wd:Q40.
+  ?p wdt:P21 wd:Q6581097.
+  OPTIONAL { ?p wdt:P18 ?pPicture. }
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?p rdfs:label ?pLabel.
+    ?p schema:description ?pContent.
+    ?p skos:altLabel ?pAlias.
+  }
+}

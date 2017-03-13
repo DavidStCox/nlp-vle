@@ -1,0 +1,27 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <http://schema.org/>
+PREFIX pq: <http://www.wikidata.org/prop/qualifier/>
+
+SELECT ?p ?date ?pLabel ?pAlias ?Nationality ?pContent ?pWikilink ?pPicture WHERE {
+  ?p wdt:P31 wd:Q5.	   
+  ?p wdt:P39 wd:Q116.
+
+	?p wdt:P569 ?date .
+	OPTIONAL {?p wdt:P570 ?d } 
+	FILTER (?date > "1880-01-01T00:00:00Z"^^xsd:dateTime)
+	FILTER (!bound(?d))
+
+      OPTIONAl { ?p wdt:P18 ?pPicture. }
+  
+  SERVICE wikibase:label { 
+    bd:serviceParam wikibase:language "en". 
+    ?p schema:description ?pContent.
+    ?p rdfs:label ?pLabel .
+    ?p skos:altLabel ?pAlias.
+    }
+  ?pWikilink schema:about ?p .
+  ?pWikilink schema:isPartOf <https://en.wikipedia.org/> .
+
+}
+ORDER BY ?pLabel
+LIMIT 100

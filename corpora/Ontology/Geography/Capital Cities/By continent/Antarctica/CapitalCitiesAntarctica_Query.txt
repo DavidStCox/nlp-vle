@@ -1,0 +1,28 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <http://schema.org/>
+
+SELECT DISTINCT ?country ?countryLabel ?countryContent ?countryAlias ?countryWikilink ?capital ?capitalLabel ?capitalContent ?capitalAlias ?capitalWikilink WHERE {  
+  ?country wdt:P31 wd:Q3624078.
+  ?country wdt:P30 wd:Q51.
+    
+  OPTIONAL { ?country wdt:P36 ?capital }.
+
+  FILTER NOT EXISTS { ?country wdt:P31 wd:Q3024240. }
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?country schema:description ?countryContent.
+    ?country rdfs:label ?countryLabel .
+    ?country skos:altLabel ?countryAlias.
+    ?capital schema:description ?capitalContent.
+    ?capital rdfs:label ?capitalLabel .
+    ?capital skos:altLabel ?capitalAlias.
+    
+  }
+  ?countryWikilink schema:about ?country .
+  ?countryWikilink schema:isPartOf <https://en.wikipedia.org/> .
+  #?capitalWikilink schema:about ?capital .
+  #?capitalWikilink schema:isPartOf <https://en.wikipedia.org/> .
+}
+ORDER BY ?countryLabel
+LIMIT 100

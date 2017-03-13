@@ -1,0 +1,19 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?p ?pLabel ?pAlias ?pContent ?pNationality ?pWikilink ?pPicture WHERE {
+  ?p wdt:P106 wd:Q214917.
+  ?p wdt:P21 wd:Q6581097.
+    ?p wdt:P27 wd:Q145.
+  ?pWikilink schema:about ?p .
+  ?pWikilink schema:isPartOf <https://en.wikipedia.org/> .
+  OPTIONAL { ?p wdt:P18 ?pPicture. }
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?p rdfs:label ?pLabel.
+    ?p schema:description ?pContent.
+    ?p skos:altLabel ?pAlias.
+     
+  }
+}
+LIMIT 100
