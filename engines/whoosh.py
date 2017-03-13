@@ -5,7 +5,7 @@ Defines the Whoosh search engine.
 from collections import deque
 from whoosh.analysis import StemmingAnalyzer
 from whoosh.fields import Schema, TEXT, KEYWORD
-from whoosh.qparser import QueryParser
+from whoosh.qparser import QueryParser, MultifieldParser
 import contextlib
 import os
 import whoosh
@@ -23,9 +23,10 @@ class WhooshSearchEngine():
 
         if not os.path.isdir(self.index):
             schema = Schema(
-                title = TEXT(stored=True),
-                filename = TEXT(stored=True),
-                body = TEXT(), # analyzer=StemmingAnalyzer(),
+                name = TEXT(stored=True),
+                link = TEXT(stored=True),
+                category = KEYWORD(stored=True),
+                description = TEXT(stored=True),
             )
 
             os.mkdir(self.index)
@@ -42,49 +43,61 @@ class WhooshSearchEngine():
         def index_directory(writer, path, depth_first=False):
             """A recursive indexer."""
             subdirs = deque()
+            with open(self.path + ".csv") as file:
+                for line in file:
+                    if line.startswith("#"):
+                        continue
 
-            for item in sorted(os.listdir(path)):
-                filename = os.path.join(path, item)
+                    fields = line.split(",")
+                    print(fields)
 
-                if os.path.isdir(filename):
-                    if depth_first:
-                        index_directory(writer, filename)
-                    else:
-                        subdirs.append(filename)
-                    continue
+                    category = fields[0]
+                    link = fields[1]
+                    name = fields[2]
+                    description = fields[3]
 
-                #try:
-                with open(filename, "rt", encoding="utf-8") as file:
-                    body = file.read()
-                #except Exception as e:
-                    #print(str(e))
-
-                print("Indexing %s" % os.path.relpath(filename))
-                writer.add_document(
-                    title=os.path.basename(filename),
-                    filename=os.path.relpath(filename, self.path),
-                    body=body)
-
-            for subdir in subdirs:
-                index_directory(writer, subdir, depth_first=depth_first)
+                    writer.add_document(
+                        name=name,
+                        link=link,
+                        category=category,
+                        description=description)
 
         writer = ix.writer()
         index_directory(writer, root)
         writer.commit()
 
-    def search(self, query, field="body", limit=20):
-        qp = QueryParser(field, schema=self.ix.schema)
+
+    def category_tree(self):
+
+        pass
+
+    def search(self, query, field="name", limit=200):
+#        qp = QueryParser(field, schema=self.ix.schema)
+        qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
 
         with self.ix.searcher() as s:
             yield s.search(qp.parse(query), limit=limit)
 
-    def suggest(self, query, field="body", limit=20):
+    def suggest(self, query, field="name", limit=20):
         """Returns search suggestions for the given query."""
-        qp = QueryParser(field, schema=self.ix.schema)
-        p = qp.parse(query)
+        #qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
 
         out = []
         with self.ix.reader() as s:
-            for hit in s.expand_prefix("body", query):
+            for hit in s.expand_prefix("name", query):
                 out.append(str(hit, encoding="utf-8"))
+            for hit in s.expand_prefix("category", query):
+                out.append(str(hit, encoding="utf-8"))
+
+        qp = QueryParser("name", schema=self.ix.schema)
+        p = qp.parse(query)
+        with self.ix.searcher() as s:
+            for r in s.search(qp.parse(query), limit=limit):
+                out.append(r["name"])
+
+        qp = QueryParser("category", schema=self.ix.schema)
+        p = qp.parse(query)
+        with self.ix.searcher() as s:
+            for r in s.search(qp.parse(query), limit=limit):
+                out.append(r["category"])
         return out

@@ -32,10 +32,10 @@ def get_engine(name, path, index):
 def parse_args():
     p = argparse.ArgumentParser()
 
-    p.add_argument("--docs", type=str, default="corpora/simple",
+    p.add_argument("--docs", type=str, default="corpora/ontology",
         help="Path to root directory of documents to index.")
 
-    p.add_argument("--index", type=str, default="indexes/simple",
+    p.add_argument("--index", type=str, default="indexes/ontology",
         help="Index directory.")
 
     p.add_argument("--engine", "-e", type=str, default="whoosh",

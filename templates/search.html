@@ -23,6 +23,9 @@
   .autocomplete-group strong {
     display: block; border-bottom: 1px solid #000;
   }
+  #query {
+    width: 500px;
+  }
   {% endif %}
 {% endblock %}
 
@@ -43,7 +46,8 @@
     {% if autocomplete %}
     <script type="text/javascript">
       $("#query").autocomplete({
-        serviceUrl: "/autocomplete"
+        serviceUrl: "/autocomplete",
+        noCache: true,
       });
     </script>
     {% endif %}
@@ -52,10 +56,10 @@
     <h2>Hits</h2>
     <div class="results">
       <table>
-      {% for score, url, title, excerpt in results %}
+      {% for score, url, title, description, category in results %}
         <tr>
           <td>{{ "%0.3f" % score }}</td>
-          <td><a href="{{ url }}">{{ title }}: {{ excerpt }}</a></td>
+          <td><a href="{{ url }}">{{ title }}: {{ description }} {{category}}</a></td>
         </tr>
       {% endfor %}
       </table>

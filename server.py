@@ -33,7 +33,7 @@ def parse_arguments():
     p.add_argument("--static", type=str, default=None,
         help="Path to the /static files diretory")
 
-    p.add_argument("--corpus", type=str, default="simple",
+    p.add_argument("--corpus", type=str, default="ontology",
         help="Which corpus in the corpora/ subdirectory to use")
 
     p.add_argument("--engine", type=str, default="whoosh",
@@ -183,10 +183,11 @@ class SearchApp(Flask):
             for hits in self.search_engine.search(query):
                 for hit in hits:
                     score = hit.score
-                    url = "/doc/%s" % hit["filename"]
-                    title = hit["title"]
-                    excerpt = "..."
-                    results.append((score, url, title, excerpt))
+                    url = "/doc/%s" % hit["link"]
+                    title = hit["name"]
+                    description = hit["description"]
+                    category = hit["category"]
+                    results.append((score, url, title, description, category))
 
             context["results"] = sorted(results, reverse=True)
 
