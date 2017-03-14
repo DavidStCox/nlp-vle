@@ -70,19 +70,15 @@ class WhooshSearchEngine():
         out = dict()
         with self.ix.reader() as s:
             for r in s.all_stored_fields():
-                cats = r["category"].split(",")
-                cats.append(r["name"])
-                cats.append(r["link"])
+                categories = r["category"].split(",")
 
-                # todo make this pretty
-                if cats[0] not in out:
-                    out[cats[0]] = {}
-                if cats[1] not in out[cats[0]]:
-                    out[cats[0]][cats[1]] = {}
-                if cats[2] not in out[cats[0]][cats[1]]:
-                    out[cats[0]][cats[1]][cats[2]] = {}
-                if cats[3] not in out[cats[0]][cats[1]][cats[2]]:
-                    out[cats[0]][cats[1]][cats[2]][cats[3]] = cats[4]
+                current = out
+                for cat in categories:
+                    if cat not in current:
+                        current[cat] = {}
+                    current = current[cat]
+
+                current[r["name"]] = r["link"]
 
         return out
 

@@ -46,10 +46,10 @@
 
 {% block body %}
   <form id="surveyform" method="post" action="results">
-    <input type="hidden" name="userid" value="{{ }}"/>
-    <input type="hidden" name="desired" value="{{ }}">
-    <input type="hidden" name="task_type" value="{{ }}"/>
-    <input type="hidden" name="iteration" value="{{  }}"/>
+    <input type="hidden" name="userid" value=""/>
+    <input type="hidden" name="desired" value="">
+    <input type="hidden" name="task_type" value=""/>
+    <input type="hidden" name="iteration" value=""/>
     <input type="hidden" id="link" name="link"/>
     <input type="hidden" id="stats" name="stats"/>
   </form>
@@ -57,36 +57,21 @@
     <h1>Search-navigation</h1>
       <div class="">
         <ul id="navigation-menu">
-        {% for key in categories recursive %}
+        {% for key, value in categories.items() recursive %}
         <li class="">
+          {% if value is string %}
+          <div><a onclick="register_click('{{ value }}')">{{ key }}</a></div>
+          {% else %}
           <div>{{ key }}</div>
             <ul class="">
-              {% for a in categories[key] %}
-              <li><div>{{ a }}</div>
-                <ul class="">
-                  {% for b in categories[key][a] %}
-                    <li><div>{{ b }}</div>
-                    <ul class="">
-                      {% for c in categories[key][a][b] %}
-                      <li><div><a onclick="register_click('{{ categories[key][a][b][c] }}')">{{ c }}</a></div>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </li>
-                  {% endfor %}
-                </ul>
-              </li>
-              {% endfor %}
+              {{ loop(value.items()) }}
             </ul>
+          {% endif %}
         </li>
         {% endfor %}
         </ul>
       </div>
   </div>
-  <!--form method="post" action="" style="display:none;">
-    Query: <input id="query" type="text" name="query" value="{{ query or "" }}">
-    <input type="submit" value="Search">
-  </form-->
   {% if results %}
     <h2>Hits</h2>
     <div class="results">

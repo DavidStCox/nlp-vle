@@ -86,7 +86,7 @@ class SearchApp(Flask):
         route("/licenses", view_func=self.licenses)
         route("/search/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
-        route("/search/navigation", view_func=self.navigation_main, methods=["GET", "POST"])
+        route("/search/navigation", view_func=self.navigation, methods=["GET", "POST"])
         route("/search/suggestions", view_func=self.search, methods=["GET", "POST"])
 
     def show_doc(self, filename):
@@ -142,7 +142,7 @@ class SearchApp(Flask):
         except Exception as e:
             print(e)
 
-    def navigation_main(self):
+    def navigation(self):
         """Performs the actual search."""
         query = request.form.get("query", None)
         perform_search = query is not None
@@ -157,13 +157,15 @@ class SearchApp(Flask):
         try:
             context["categories"] = self.search_engine.category_tree()
         except Exception as e:
+            print("A")
             print(e)
 
         
         t = ""
         try:
-            t = render_template("menu_search.html", **context)
+            t = render_template("navigation.html", **context)
         except Exception as e:
+            print("B")
             print(e)
         return t
 
