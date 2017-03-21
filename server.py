@@ -97,7 +97,7 @@ class SearchApp(Flask):
         route("/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
         route("/search/navigation", view_func=self.navigation, methods=["GET", "POST"])
-        route("/search/suggestions", view_func=self.search, methods=["GET", "POST"])
+        route("/search/suggestions", view_func=self.search_suggest, methods=["GET", "POST"])
 
     def show_doc(self, filename):
         """Renders a document in the current corpus."""
@@ -143,6 +143,7 @@ class SearchApp(Flask):
         """Performs the actual search."""
         if "userid" not in session:
            return redirect(url_for('login'))
+
         userid = session.get("userid")
         link = request.form.get("link", None)
         desired = request.form.get("desired", None)
@@ -191,7 +192,7 @@ class SearchApp(Flask):
         context["categories"] = self.search_engine.category_tree()
         return make_response(render_template("navigation.html", **context))
 
-    def search(self):
+    def search_suggest(self):
         """Performs the actual search."""
         if "userid" not in session:
            return redirect(url_for('login'))
@@ -201,7 +202,38 @@ class SearchApp(Flask):
         context = {
             "title": "Search",
             "query": query,
+            "results_view": url_for("results_view"),
             "autocomplete": True,
+        }
+
+        if perform_search:
+            self.logger.info("Search: %s" % repr(query))
+
+            results = []
+            for hits in self.search_engine.search(query):
+                for hit in hits:
+                    score = hit.score
+                    url = "/doc/%s" % hit["link"]
+                    title = hit["name"]
+                    description = hit["description"]
+                    category = hit["category"]
+                    results.append((score, url, title, description, category))
+
+            context["results"] = sorted(results, reverse=True)
+
+        return make_response(render_template("search.html", **context))
+
+    def search(self):
+        """Performs the actual search."""
+        if "userid" not in session:
+           return redirect(url_for('login'))
+        query = request.form.get("query", None)
+        perform_search = query is not None
+        context = {
+            "title": "Search",
+            "query": query,
+            "results_view": url_for("results_view"),
+            "autocomplete": False,
         }
 
         if perform_search:
@@ -276,20 +308,142 @@ class SearchApp(Flask):
         test_data['current_task'] = 0
         test_data['tasks'] = [
             {
-                "name": "Task 1",
-                "text": "Please, would you find Nobel price winner Adolf von Baeyer (ASAP)?", 
-                "desired": "http://www.wikidata.org/entity/Q57078",
+                "name": "Task 1 - Navigation",
+                "text": "Cambodia has what World Heritage Site?",
+                "desired": "http://www.wikidata.org/entity/Q45949",
                 "method": url_for("navigation"),
                 "clicks": None,
                 "aborted": None,
                 "finished": False,
             },
-            {"name": "Task 2", "text": "Find President Kennedy", "desired": "Q43911", "method": url_for("navigation"), "finished": False, },
-            {"name": "Task 3", "text": "Find President Kennedy", "desired": "Q43912", "method": url_for("navigation"), "finished": False, },
-            {"name": "Task 4", "text": "Find President Kennedy", "desired": "Q43913", "method": url_for("navigation"), "finished": False, },
-            {"name": "Task 5", "text": "Find President Kennedy", "desired": "Q43914", "method": url_for("navigation"), "finished": False, },
-            {"name": "Task 6", "text": "Find President Kennedy", "desired": "Q43915", "method": url_for("navigation"), "finished": False, },
+            {
+                "name": "Task 2 - Navigation",
+                "text": "The Great Wall of China is in which country's World Heritage Sites list?",
+                "desired": "http://www.wikidata.org/entity/Q12501",
+                "method": url_for("navigation"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 3 - Navigation",
+                "text": "Which American President won the Nobel Peace Prize in 2009?",
+                "desired": "http://www.wikidata.org/entity/Q76",
+                "method": url_for("navigation"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 4 - Navigation",
+                "text": "Who was the 3rd Pope of the Catholic Church?",
+                "desired": "http://www.wikidata.org/entity/Q80450",
+                "method": url_for("navigation"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 5 - Navigation",
+                "text": "Where is the Stave Church in Norway's list of World Heritage Sites?",
+                "desired": "http://www.wikidata.org/entity/Q210678",
+                "method": url_for("navigation"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 1 - Free text search",
+                "text": "Does Poland have a salt mine as a World Heritage site?",
+                "desired": "http://www.wikidata.org/entity/Q454019",
+                "method": url_for("search"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 2 - Free text search",
+                "text": "What U.S. state has the capital of Annapolis?",
+                "desired": "http://www.wikidata.org/entity/Q28271",
+                "method": url_for("search"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 3 - Free text search",
+                "text": "Who was the 43rd Prime Minister of the United Kingdom?",
+                "desired": "http://www.wikidata.org/entity/Q134982",
+                "method": url_for("search"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 4 - Free text search",
+                "text": "Kublai Khan was the Emperor of which Chinese Dynasty?",
+                "desired": "http://www.wikidata.org/entity/Q7523",
+                "method": url_for("search"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 5 - Free text search",
+                "text": "Was Hjalmar Branting a winner of the Nobel Peace Prize?",
+                "desired": "http://www.wikidata.org/entity/Q53620",
+                "method": url_for("search"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 1 - Suggestions for you!",
+                "text": "Who was the last Pople of the 20th century?",
+                "desired": "http://www.wikidata.org/entity/Q989",
+                "method": url_for("search_suggest"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 2 - Suggestions for you!",
+                "text": "Which Nobel Prize did Sully Prudhomme win?",
+                "desired": "http://www.wikidata.org/entity/Q42247",
+                "method": url_for("search_suggest"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 3 - Suggestions for you!",
+                "text": "What is the capital of Swaziland?",
+                "desired": "http://www.wikidata.org/entity/Q101418",
+                "method": url_for("search_suggest"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 4 - Suggestions for you!",
+                "text": "In which country is Ha Long Bay?",
+                "desired": "http://www.wikidata.org/entity/Q190128",
+                "method": url_for("search_suggest"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            },
+            {
+                "name": "Task 5 - Suggestions for you!",
+                "text": "Which President had 'Teddy' as his nickname?",
+                "desired": "http://www.wikidata.org/entity/Q33866",
+                "method": url_for("search_suggest"),
+                "clicks": None,
+                "aborted": None,
+                "finished": False,
+            }
         ]
+
         with open(filename, "wb+") as f:
             pickle.dump(test_data, f)
 

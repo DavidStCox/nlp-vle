@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block javascript %}
+  var search_events = []
+  $("html").mousedown(function(ev) {
+    event = {
+      type: "mousedown",
+      link: ev.target.textContent,
+      x_pos: ev.pageX,
+      y_pos: ev.pageY,
+      timestamp: ev.timeStamp,
+      key: "",
+    }
+    search_events.push(event);
+  });
+
+  $("html").keypress(function(ev) {
+    event = {
+      type: "keypress",
+      link: ev.target.textContent,
+      x_pos: ev.pageX,
+      y_pos: ev.pageY,
+      timestamp: ev.timeStamp,
+      key: ev.key,
+    }
+    search_events.push(event);
+  });
+
+  var register_click = function(link) {
+    $("#surveyform #link").val(link)
+    $("#surveyform #stats").val(JSON.stringify(search_events))
+    $("#surveyform").submit()
+  };
+  {% block test_javascript %}
+  {% endblock %}
+{% endblock %}
+
+{% block body %}
+  <form id="surveyform" method="post" action="{{ results_view }}">
+    <input type="hidden" id="link" name="link"/>
+    <input type="hidden" id="stats" name="stats"/>
+  </form>
+  <div class="pure-g">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">
+  {% block test_block %}
+  {% endblock %}
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">
+    {% if results %}
+      <h2>Hits</h2>
+      <div class="results">
+        <ul class="fa-ul">
+        {% for score, url, title, description, category in results %}
+          <li>
+            <a onclick="register_click('{{ url }}');">
+              <em>{{title}} <span class="fa fa-external-link"></span></em>
+            </a>
+            <span style="display: none;">{{ "%0.3f" % score }}</span>
+            <p>{{ description }}</p>
+            <p>{{category}}</p>
+          </li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    </div>
+  </div>
+  <div class="pure-g">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">
+      <div class="">
+        <a onclick="register_click('abort')" class="pure-button pure-button-primary button-error">Abort test</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

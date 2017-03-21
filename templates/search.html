@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "test_base.html" %}
 
 {% block css %}
   {% if autocomplete %}
@@ -36,7 +36,7 @@
   });
 {% endblock %}
 
-{% block body %}
+{% block test_block %}
   <div class="search">
     <h1>Search</h1>
     <form method="post" action="">
@@ -52,17 +52,4 @@
     </script>
     {% endif %}
   </div>
-  {% if results %}
-    <h2>Hits</h2>
-    <div class="results">
-      <table>
-      {% for score, url, title, description, category in results %}
-        <tr>
-          <td>{{ "%0.3f" % score }}</td>
-          <td><a href="{{ url }}">{{ title }}: {{ description }} {{category}}</a></td>
-        </tr>
-      {% endfor %}
-      </table>
-    </div>
-  {% endif %}
 {% endblock %}

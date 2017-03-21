@@ -1,23 +1,31 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>NLP-VLE</h1>
-<p>
-Welcome to this project {{ userid }}.
-<ul>
-  {% for value in tasks %}
-  <li class="">
-    <div>
-      {% if value["finished"] %}
-        {{ value["name"] }} <span class="fa fa-check-square"></span>
-      {% else %}
-      <a href="{{ value["method"]  }}">
-        {{ value["name"] }} <span class="fa fa-check"></span>
-      </a>
-      {% endif %}
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-</p>
-<a href="{{ logout_view }}">Logout</a>
+<div class="pure-g">
+  <div class="pure-u-1-5"></div>
+  <div class="pure-u-3-5">
+    <h1>NLP-VLE</h1>
+    <p>
+    Welcome to this project {{ userid }}.
+    <ul class="fa-ul">
+      {% for value in tasks %}
+      <li class="">
+          {% if value["finished"] %}
+            <span class="fa fa-li fa-check-square"></span> {{ value["name"] }} 
+          {% else %}
+          <a href="{{ value["method"]  }}">
+            <span class="fa fa-li fa-square"></span> {{ value["name"] }} 
+          </a>
+          {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    </p>
+  </div>
+</div>
+<div class="pure-g">
+  <div class="pure-u-1-5"></div>
+  <div class="pure-u-3-5">
+    <a href="{{ logout_view }}" class="pure-button pure-button-primary">Logout</a>
+  </div>
+</div>
 {% endblock %}

@@ -1,11 +1,21 @@
 {% extends "base.html" %}
 
 {% block body %}
+<div class="pure-g">
+  <div class="pure-u-1-5"></div>
+  <div class="pure-u-3-5">
   <h1>{{ title }}</h1>
   <ul>
     <li>{{ number_of_clicks }}</li>
     <li>{{ time_spent }}</li>
     <li>{{ link }}</li>
   </ul>
-  <a href="{{ index_view }}">Return</a>
+  </div>
+</div>
+<div class="pure-g">
+  <div class="pure-u-1-5"></div>
+  <div class="pure-u-3-5">
+  <a href="{{ index_view }}" class="pure-button pure-button-primary">Return</a>
+  </div>
+</div>
 {% endblock %}

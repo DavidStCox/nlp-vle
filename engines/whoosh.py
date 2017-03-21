@@ -68,11 +68,12 @@ class WhooshSearchEngine():
 
     def category_tree(self):
         from collections import OrderedDict
+        from natsort import natsorted
         out = dict()
 
         def sortOD(od):
             res = OrderedDict()
-            for k, v in sorted(od.items()):
+            for k, v in natsorted(od.items()):
                 if isinstance(v, dict):
                     res[k] = sortOD(v)
                 else:
