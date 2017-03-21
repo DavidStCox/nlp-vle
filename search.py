@@ -30,6 +30,7 @@ def get_engine(name, path, index):
     return Engine(path=path, index=index)
 
 def parse_args():
+    """Parses the command line arguments."""
     p = argparse.ArgumentParser()
 
     p.add_argument("--docs", type=str, default="corpora/ontology",
