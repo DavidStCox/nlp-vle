@@ -2,12 +2,22 @@
 {% block body %}
 <h1>NLP-VLE</h1>
 <p>
-  Welcome to this project. From here you can access
-  <ul>
-    <li><a href="/search/freetext">Search: Free Text</a></li>
-    <li><a href="/search/suggestions">Search: Free Text and Suggestions</a></li>
-    <li><a href="/search/navigation">Search: Navigation</a></li>
-    <li><a href="/licenses">Licenses</a></li>
-  </ul>
+Welcome to this project {{ userid }}.
+<ul>
+  {% for value in tasks %}
+  <li class="">
+    <div>
+      {% if value["finished"] %}
+        {{ value["name"] }} <span class="fa fa-check-square"></span>
+      {% else %}
+      <a href="{{ value["method"]  }}">
+        {{ value["name"] }} <span class="fa fa-check"></span>
+      </a>
+      {% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 </p>
+<a href="{{ logout_view }}">Logout</a>
 {% endblock %}

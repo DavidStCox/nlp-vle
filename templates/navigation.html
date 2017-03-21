@@ -1,34 +1,9 @@
 {% extends "base.html" %}
 
 {% block css %}
-  {% if autocomplete %}
-  .autocomplete-suggestions {
-    border: 1px solid #999; background: #FFF; overflow: auto;
-  }
-
-  .autocomplete-suggestion {
-    padding: 2px 5px; white-space: nowrap; overflow: hidden;
-  }
-
-  .autocomplete-selected {
-    background: #F0F0F0;
-  }
-
-  .autocomplete-suggestions strong {
-    font-weight: normal; color: #3399FF;
-  }
-
-  .autocomplete-group { padding: 2px 5px; }
-
-  .autocomplete-group strong {
-    display: block; border-bottom: 1px solid #000;
-  }
-
   .ui-menu {
-    width: 150px;
-  
+    width: 250px;
   }
-  {% endif %}
 {% endblock %}
 
 {% block javascript %}
@@ -36,31 +11,41 @@
     $("#navigation-menu").menu()
   });
 
+  var search_events = []
+  $("html").mousedown(function(ev) {
+    event = {
+      link: ev.target.textContent,
+      x_pos: ev.pageX,
+      y_pos: ev.pageY,
+      timestamp: ev.timeStamp,
+    }
+    console.log(ev)
+    search_events.push(event);
+  });
   var register_click = function(link) {
-    console.log(link)
     $("#surveyform #link").val(link)
-    $("#surveyform #stats").val("somestats")
+    $("#surveyform #stats").val(JSON.stringify(search_events))
     $("#surveyform").submit()
   };
 {% endblock %}
 
 {% block body %}
-  <form id="surveyform" method="post" action="results">
-    <input type="hidden" name="userid" value=""/>
-    <input type="hidden" name="desired" value="">
-    <input type="hidden" name="task_type" value=""/>
-    <input type="hidden" name="iteration" value=""/>
+<form id="surveyform" method="post" action="{{ results_view }}">
     <input type="hidden" id="link" name="link"/>
     <input type="hidden" id="stats" name="stats"/>
   </form>
   <div class="search">
-    <h1>Search-navigation</h1>
+    <h1>{{ title }}</h1>
+    <h3>{{ task["text"] }}</h3>
       <div class="">
         <ul id="navigation-menu">
         {% for key, value in categories.items() recursive %}
         <li class="">
           {% if value is string %}
-          <div><a onclick="register_click('{{ value }}')">{{ key }}</a></div>
+          <div><a onclick="register_click('{{ value }}')">{{ key }}
+              <span class="fa fa-external-link"></span>
+            </a>
+          </div>
           {% else %}
           <div>{{ key }}</div>
             <ul class="">

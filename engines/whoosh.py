@@ -67,7 +67,18 @@ class WhooshSearchEngine():
 
 
     def category_tree(self):
+        from collections import OrderedDict
         out = dict()
+
+        def sortOD(od):
+            res = OrderedDict()
+            for k, v in sorted(od.items()):
+                if isinstance(v, dict):
+                    res[k] = sortOD(v)
+                else:
+                    res[k] = v
+            return res
+
         with self.ix.reader() as s:
             for r in s.all_stored_fields():
                 categories = r["category"].split(",")
@@ -80,7 +91,7 @@ class WhooshSearchEngine():
 
                 current[r["name"]] = r["link"]
 
-        return out
+        return sortOD(out)
 
     def search(self, query, field="name", limit=200):
         qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)

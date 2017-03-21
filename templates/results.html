@@ -2,4 +2,10 @@
 
 {% block body %}
   <h1>{{ title }}</h1>
+  <ul>
+    <li>{{ number_of_clicks }}</li>
+    <li>{{ time_spent }}</li>
+    <li>{{ link }}</li>
+  </ul>
+  <a href="{{ index_view }}">Return</a>
 {% endblock %}
