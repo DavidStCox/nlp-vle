@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 {% block body %}
-<h1>NLP-VLE LOGIN</h1>
-<p>
-  Welcome to this project. From here you can access
-  <form id="loginform" method="post">
-    <input type="text" name="userid" value=""/>
-     <input type="submit" value="Log in">
-  </form>
-</p>
+  <div class="pure-g">
+    <div class="pure-u-1-5"></div>
+    <div class="pure-u-3-5">
+      <h1>NLP-VLE LOGIN</h1>
+      <p>
+        Welcome to this project. Log in using your assigned userid.
+        <form id="loginform" method="post">
+          <input type="text" name="userid" value=""/>
+           <input type="submit" value="Log in">
+        </form>
+      </p>
+    </div>
+  </div>
 {% endblock %}
