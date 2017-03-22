@@ -58,12 +58,12 @@
       <div class="results">
         <ul class="fa-ul">
         {% for score, url, title, description, category in results %}
-          <li>
+          <li><i class="fa fa-li fa-external-link"></i>
             <a onclick="register_click('{{ url }}');">
-              <em>{{title}} <span class="fa fa-external-link"></span></em>
+              <strong>{{title}}</strong>
             </a>
             <span style="display: none;">{{ "%0.3f" % score }}</span>
-            <p>{{ description }}</p>
+            <p><em>{{ description }}</em></p>
             <p>{{category}}</p>
           </li>
         {% endfor %}
