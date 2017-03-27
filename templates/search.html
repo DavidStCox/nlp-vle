@@ -38,10 +38,12 @@
 
 {% block test_block %}
   <div class="search">
-    <h1>Search</h1>
+    <h1>{{ title }}</h1>
+    <h3>{{ task.text }}</h3>
     <form method="post" action="">
       Query: <input id="query" type="text" name="query" value="{{ query or "" }}">
-      <input type="submit" value="Search">
+      <input type="hidden" id="stats2" class="test_stats" name="stats"/>
+      <input type="submit" value="Search" onclick="fill_form()">
     </form>
     {% if autocomplete %}
     <script type="text/javascript">

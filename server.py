@@ -23,6 +23,11 @@ import sys
 # replace with something more robust if necessary
 import pickle
 
+from user_data import (
+        get_user_data,
+        save_user_data,
+        get_all_users)
+
 def parse_arguments():
     """Fetches and verifies command line arguments."""
     p = argparse.ArgumentParser()
@@ -92,9 +97,11 @@ class SearchApp(Flask):
         route("/autocomplete", view_func=self.search_suggestions)
         route("/doc/<path:filename>", view_func=self.show_doc)
         route("/licenses", view_func=self.licenses)
+        route("/test_results_dump", view_func=self.test_results_dump_view, methods=["GET", "POST"])
         route("/logout", view_func=self.logout)
         route("/login", view_func=self.login, methods=["GET", "POST"])
-        route("/results", view_func=self.results_view, methods=["GET", "POST"])
+        route("/search/finalizer", view_func=self.finalizer_view, methods=["GET", "POST"])
+        route("/search/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
         route("/search/navigation", view_func=self.navigation, methods=["GET", "POST"])
         route("/search/suggestions", view_func=self.search_suggest, methods=["GET", "POST"])
@@ -139,36 +146,65 @@ class SearchApp(Flask):
 
         return json.dumps(result)
 
-    def results_view(self):
+    def finalizer_view(self):
         """Performs the actual search."""
         if "userid" not in session:
            return redirect(url_for('login'))
 
         userid = session.get("userid")
+        user = get_user_data(userid)
+        user.end_task()
+        save_user_data(user)
+
+        return redirect(url_for('index'))
+        
+    def test_results_dump_view(self):
+        """Performs the actual search."""
+        if "userid" not in session:
+           return redirect(url_for('login'))
+
+        def format_line(user, task, index):
+            line = []
+            line.append(user.userid)
+            line.append(index)
+            line.append(task.id)
+            line.append(task.text)
+            line.append(task.number_of_clicks())
+            line.append(task.time_elapsed())
+            line.append(task.success())
+            return ";\t".join(line)
+
+        output = []
+        users = get_all_users()
+        for user in users:
+            for index, task in enumerate(user.get_tasks()):
+                output.append(format_line(user, task, index))
+
+        return make_response("<br>".join(output))
+
+    def results_view(self):
+        """Performs the actual search."""
+        if "userid" not in session:
+           return redirect(url_for('login'))
+
         link = request.form.get("link", None)
-        desired = request.form.get("desired", None)
-        stats = request.form.get("stats", None)
-        stats = json.loads(stats)
+        stats = json.loads(request.form.get("stats", "[]"))
 
-        data = self.get_data()
-        tasks = data["tasks"]
-        current_task = data["current_task"]
-
-        time = stats[-1]["timestamp"] - stats[0]["timestamp"]
-        task = tasks[current_task]
-        task["stats"] = stats
-        task["aborted"] = False
-        task["finished"] = True
-        data["current_task"] = current_task + 1
-
-        self.set_data(data)
+        userid = session.get("userid")
+        user = get_user_data(userid)
+        task = user.get_task()
+        task.link_found = link
+        task.append_stats(stats)
+        save_user_data(user)
+        record = self.search_engine.select(link)
 
         context = {
-            "title": "Task {} complete".format(int(current_task)+1),
-            "index_view": url_for("index"),
+            "finalizer_view": url_for("finalizer_view"),
+            "test_view": url_for(task.view),
             "link": link,
-            "number_of_clicks": len(stats),
-            "time_spent": time
+            "number_of_clicks": task.number_of_clicks(),
+            "time_spent": task.time_elapsed(),
+            "record": record
         }
 
         return make_response(render_template("results.html", **context))
@@ -178,15 +214,14 @@ class SearchApp(Flask):
         if "userid" not in session:
            return redirect(url_for('login'))
         userid = session.get("userid")
-        data = self.get_data()
-        tasks = data["tasks"]
-        current_task = data["current_task"]
+        user = get_user_data(userid)
+        task = user.get_task()
 
         context = {
             "title": "Search-navigation",
             "results_view": url_for("results_view"),
             "categories": {},
-            "task": tasks[current_task],
+            "task": task,
         }
 
         context["categories"] = self.search_engine.category_tree()
@@ -196,14 +231,23 @@ class SearchApp(Flask):
         """Performs the actual search."""
         if "userid" not in session:
            return redirect(url_for('login'))
+
+        stats = json.loads(request.form.get("stats", "[]"))
         query = request.form.get("query", None)
         perform_search = query is not None
+
+        userid = session.get("userid")
+        user = get_user_data(userid)
+        task = user.get_task()
+        task.append_stats(stats)
+        save_user_data(user)
 
         context = {
             "title": "Search",
             "query": query,
             "results_view": url_for("results_view"),
             "autocomplete": True,
+            "task": task
         }
 
         if perform_search:
@@ -213,7 +257,7 @@ class SearchApp(Flask):
             for hits in self.search_engine.search(query):
                 for hit in hits:
                     score = hit.score
-                    url = "/doc/%s" % hit["link"]
+                    url = "%s" % hit["link"]
                     title = hit["name"]
                     description = hit["description"]
                     category = hit["category"]
@@ -228,12 +272,21 @@ class SearchApp(Flask):
         if "userid" not in session:
            return redirect(url_for('login'))
         query = request.form.get("query", None)
+        stats = json.loads(request.form.get("stats", "[]"))
         perform_search = query is not None
+
+        userid = session.get("userid")
+        user = get_user_data(userid)
+        task = user.get_task()
+        task.append_stats(stats)
+        save_user_data(user)
+
         context = {
             "title": "Search",
             "query": query,
             "results_view": url_for("results_view"),
             "autocomplete": False,
+            "task": task
         }
 
         if perform_search:
@@ -243,7 +296,7 @@ class SearchApp(Flask):
             for hits in self.search_engine.search(query):
                 for hit in hits:
                     score = hit.score
-                    url = "/doc/%s" % hit["link"]
+                    url = "%s" % hit["link"]
                     title = hit["name"]
                     description = hit["description"]
                     category = hit["category"]
@@ -258,7 +311,8 @@ class SearchApp(Flask):
         if "userid" not in session:
            return redirect(url_for('login'))
         userid = session.get("userid")
-        tasks = self.get_data()["tasks"]
+        user = get_user_data(userid)
+        tasks = user.get_tasks()
 
         context = {
                 "title": "NLP-VLE",
@@ -274,9 +328,11 @@ class SearchApp(Flask):
         """The site's landing page."""
         if request.method == 'POST':
             userid = request.form['userid']
+            
             if len(userid) > 3:
                 session['userid'] = userid
-                self.initialize_test()
+                user = get_user_data(userid)
+                save_user_data(user)
                 return redirect(url_for('index'))
 
         return make_response(render_template("login.html", title="NLP-VLE"))
@@ -287,165 +343,6 @@ class SearchApp(Flask):
         session.pop("userid", None)
         return redirect(url_for('login'))
 
-    # interrim persistence
-    def get_data(self):
-        userid = session.get("userid")
-        filename = "user_data/data_{}.db".format(session.get("userid"))
-        with open("user_data/data_{}.db".format(userid), "rb+") as f:
-            return pickle.load(f)
-
-    def set_data(self, data):
-        userid = session.get("userid")
-        filename = "user_data/data_{}.db".format(session.get("userid"))
-        with open("user_data/data_{}.db".format(userid), "wb+") as f:
-            pickle.dump(data, f)
-
-    def initialize_test(self):
-        filename = "user_data/data_{}.db".format(session.get("userid"))
-        if os.path.exists(filename):
-            return
-        test_data = {}
-        test_data['current_task'] = 0
-        test_data['tasks'] = [
-            {
-                "name": "Task 1 - Navigation",
-                "text": "Cambodia has what World Heritage Site?",
-                "desired": "http://www.wikidata.org/entity/Q45949",
-                "method": url_for("navigation"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 2 - Navigation",
-                "text": "The Great Wall of China is in which country's World Heritage Sites list?",
-                "desired": "http://www.wikidata.org/entity/Q12501",
-                "method": url_for("navigation"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 3 - Navigation",
-                "text": "Which American President won the Nobel Peace Prize in 2009?",
-                "desired": "http://www.wikidata.org/entity/Q76",
-                "method": url_for("navigation"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 4 - Navigation",
-                "text": "Who was the 3rd Pope of the Catholic Church?",
-                "desired": "http://www.wikidata.org/entity/Q80450",
-                "method": url_for("navigation"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 5 - Navigation",
-                "text": "Where is the Stave Church in Norway's list of World Heritage Sites?",
-                "desired": "http://www.wikidata.org/entity/Q210678",
-                "method": url_for("navigation"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 1 - Free text search",
-                "text": "Does Poland have a salt mine as a World Heritage site?",
-                "desired": "http://www.wikidata.org/entity/Q454019",
-                "method": url_for("search"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 2 - Free text search",
-                "text": "What U.S. state has the capital of Annapolis?",
-                "desired": "http://www.wikidata.org/entity/Q28271",
-                "method": url_for("search"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 3 - Free text search",
-                "text": "Who was the 43rd Prime Minister of the United Kingdom?",
-                "desired": "http://www.wikidata.org/entity/Q134982",
-                "method": url_for("search"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 4 - Free text search",
-                "text": "Kublai Khan was the Emperor of which Chinese Dynasty?",
-                "desired": "http://www.wikidata.org/entity/Q7523",
-                "method": url_for("search"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 5 - Free text search",
-                "text": "Was Hjalmar Branting a winner of the Nobel Peace Prize?",
-                "desired": "http://www.wikidata.org/entity/Q53620",
-                "method": url_for("search"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 1 - Suggestions for you!",
-                "text": "Who was the last Pople of the 20th century?",
-                "desired": "http://www.wikidata.org/entity/Q989",
-                "method": url_for("search_suggest"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 2 - Suggestions for you!",
-                "text": "Which Nobel Prize did Sully Prudhomme win?",
-                "desired": "http://www.wikidata.org/entity/Q42247",
-                "method": url_for("search_suggest"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 3 - Suggestions for you!",
-                "text": "What is the capital of Swaziland?",
-                "desired": "http://www.wikidata.org/entity/Q101418",
-                "method": url_for("search_suggest"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 4 - Suggestions for you!",
-                "text": "In which country is Ha Long Bay?",
-                "desired": "http://www.wikidata.org/entity/Q190128",
-                "method": url_for("search_suggest"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            },
-            {
-                "name": "Task 5 - Suggestions for you!",
-                "text": "Which President had 'Teddy' as his nickname?",
-                "desired": "http://www.wikidata.org/entity/Q33866",
-                "method": url_for("search_suggest"),
-                "clicks": None,
-                "aborted": None,
-                "finished": False,
-            }
-        ]
-
-        with open(filename, "wb+") as f:
-            pickle.dump(test_data, f)
 
     def licenses(self):
         if "userid" not in session:

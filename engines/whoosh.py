@@ -94,6 +94,14 @@ class WhooshSearchEngine():
 
         return sortOD(out)
 
+    def select(self, query):
+        qp = QueryParser("link", schema=self.ix.schema)
+
+        results = []
+        with self.ix.searcher() as s:
+            for r in s.search(qp.parse(query), limit=10):
+                return dict(r)
+
     def search(self, query, field="name", limit=200):
         qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
 

@@ -9,12 +9,14 @@
     <ul class="fa-ul">
       {% for value in tasks %}
       <li class="">
-          {% if value["finished"] %}
-            <span class="fa fa-li fa-check-square"></span> {{ value["name"] }} 
+          {% if value.finished %}
+            <span class="fa fa-li fa-check-square"></span> {{ value.name }} 
+          {% elif value.active %}
+            <a href="{{ url_for(value.view)  }}">
+              <span class="fa fa-li fa-square"></span> {{ value.name }} 
+            </a>
           {% else %}
-          <a href="{{ value["method"]  }}">
-            <span class="fa fa-li fa-square"></span> {{ value["name"] }} 
-          </a>
+            <span class="fa fa-li fa-square"></span> {{ value.name }} 
           {% endif %}
       </li>
       {% endfor %}

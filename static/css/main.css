@@ -9,3 +9,7 @@ a {
   color: blue;
   cursor: pointer;
 }
+.ui-menu-item a {
+  display: block;
+}
+

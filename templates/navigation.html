@@ -17,7 +17,7 @@
 {% block test_block %}
   <div class="search">
     <h1>{{ title }}</h1>
-    <h3>{{ task["text"] }}</h3>
+    <h3>{{ task.text }}</h3>
       <div class="">
         <ul id="navigation-menu">
         {% for key, value in categories.items() recursive %}

@@ -29,9 +29,13 @@
     search_events.push(event);
   });
 
+  var fill_form = function(link) {
+    $(".test_link").val(link)
+    $(".test_stats").val(JSON.stringify(search_events))
+  }
+
   var register_click = function(link) {
-    $("#surveyform #link").val(link)
-    $("#surveyform #stats").val(JSON.stringify(search_events))
+    fill_form(link)
     $("#surveyform").submit()
   };
   {% block test_javascript %}
@@ -40,8 +44,8 @@
 
 {% block body %}
   <form id="surveyform" method="post" action="{{ results_view }}">
-    <input type="hidden" id="link" name="link"/>
-    <input type="hidden" id="stats" name="stats"/>
+    <input type="hidden" id="link" class="test_link "name="link"/>
+    <input type="hidden" id="stats" class="test_stats" name="stats"/>
   </form>
   <div class="pure-g">
     <div class="pure-u-1-5"></div>
