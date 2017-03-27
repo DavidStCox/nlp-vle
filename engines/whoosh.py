@@ -48,22 +48,18 @@ class WhooshSearchEngine():
                     if line.startswith("#"):
                         continue
 
-                    try:
-                        fields = line.split(",")
+                    fields = line.split(",")
 
-                        name = fields[2]
-                        category = ",".join(fields[0].split(";"))
-                        link = fields[1]
-                        description = fields[3]
-                    except:
-                        print(fields)
+                    name = fields[2]
+                    category = ",".join(fields[0].split(";"))
+                    link = fields[1]
+                    description = fields[3]
 
                     writer.add_document(
                         name=name,
                         link=link,
                         category=category,
                         description=description)
-
         writer = ix.writer()
         index_directory(writer, root)
         writer.commit()
