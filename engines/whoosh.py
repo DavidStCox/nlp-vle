@@ -3,9 +3,9 @@ Defines the Whoosh search engine.
 """
 
 from collections import deque
-from whoosh.analysis import StemmingAnalyzer
+from whoosh.analysis import StemmingAnalyzer, NgramWordAnalyzer, KeywordAnalyzer
 from whoosh.fields import Schema, TEXT, KEYWORD
-from whoosh.qparser import QueryParser, MultifieldParser
+from whoosh.qparser import QueryParser, MultifieldParser, SequencePlugin
 import contextlib
 import os
 import whoosh
@@ -20,12 +20,12 @@ class WhooshSearchEngine():
         """
         self.path = path
         self.index = index
-
+        analyzer = NgramWordAnalyzer(2, 4)
         if not os.path.isdir(self.index):
             schema = Schema(
-                name = TEXT(stored=True),
+                name = TEXT(stored=True, analyzer=StemmingAnalyzer()),
                 link = TEXT(stored=True),
-                category = KEYWORD(stored=True, scorable=True, commas=True),
+                category = KEYWORD(stored=True, scorable=True, commas=True, analyzer=analyzer),
                 description = TEXT(stored=True),
             )
 
@@ -48,12 +48,15 @@ class WhooshSearchEngine():
                     if line.startswith("#"):
                         continue
 
-                    fields = line.split(",")
+                    try:
+                        fields = line.split(",")
 
-                    category = ",".join(fields[0].split(";"))
-                    link = fields[1]
-                    name = fields[2]
-                    description = fields[3]
+                        name = fields[2]
+                        category = ",".join(fields[0].split(";"))
+                        link = fields[1]
+                        description = fields[3]
+                    except:
+                        print(fields)
 
                     writer.add_document(
                         name=name,
@@ -111,19 +114,21 @@ class WhooshSearchEngine():
     def suggest(self, query, field="name", limit=20):
         """Returns search suggestions for the given query."""
         out = []
+        query = query.lower()
+        curr = query.split(" ").pop()
+
         with self.ix.reader() as s:
-            for hit in s.expand_prefix("name", query):
-                out.append(str(hit, encoding="utf-8"))
-            for hit in s.expand_prefix("category", query):
+            for i, hit in enumerate(s.expand_prefix("name", curr)):
+                break
                 out.append(str(hit, encoding="utf-8"))
 
-        qp = QueryParser("name", schema=self.ix.schema)
+            for i, hit in enumerate(s.expand_prefix("category", curr)):
+                break
+                out.append(str(hit, encoding="utf-8"))
+
+        qp = MultifieldParser(["name", "category", "description"], schema=self.ix.schema)
         with self.ix.searcher() as s:
             for r in s.search(qp.parse(query), limit=limit):
                 out.append(r["name"])
 
-        qp = QueryParser("category", schema=self.ix.schema)
-        with self.ix.searcher() as s:
-            for r in s.search(qp.parse(query), limit=limit):
-                out.append(r["category"])
         return out

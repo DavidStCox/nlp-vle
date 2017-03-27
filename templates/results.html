@@ -5,22 +5,25 @@
   <div class="pure-u-1-5"></div>
   <div class="pure-u-3-5">
     {% if record %}
-  <h1>{{ record.name }}</h1>
-  <ul>
-    <li>{{ record.description }}</li>
-    <li>{{ record.category }}</li>
-    <li>{{ record.link }}</li>
-    <li>{{ number_of_clicks }}</li>
-    <li>{{ time_spent }}</li>
-    <li>{{ link }}</li>
-  </ul>
+    <h1>
+      {% if task.link == task.link_found  %}
+        <i class="fa fa-check fa-ok"></i>
+        {% else %}
+        <i class="fa fa-times fa-error"></i>
+      {% endif %}
+      {{ record.name }}
+    </h1>
+    <h3>{{ record.description }}</h3>
+    <h3>{{ record.category }}</h3>
     {% endif %}
   </div>
 </div>
 <div class="pure-g">
   <div class="pure-u-1-5"></div>
   <div class="pure-u-3-5">
-  <a href="{{ test_view }}" class="pure-button pure-button-primary">Go back</a>
+  {% if task.link != task.link_found  %}
+    <a href="{{ test_view }}" class="pure-button pure-button-primary">Go back</a>
+  {% endif %}
   <a href="{{ finalizer_view }}" class="pure-button pure-button-primary">Finish exercise</a>
   </div>
 </div>

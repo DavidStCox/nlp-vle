@@ -13,3 +13,12 @@ a {
   display: block;
 }
 
+.fa-ok {
+ color: green;
+
+}
+
+fa-error {
+ color: red;
+
+}

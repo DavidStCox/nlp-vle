@@ -159,22 +159,37 @@ class SearchApp(Flask):
         return redirect(url_for('index'))
         
     def test_results_dump_view(self):
-        """Performs the actual search."""
+        """Dump all the test data to a csv file."""
         if "userid" not in session:
            return redirect(url_for('login'))
+
+        # template template template
+        def format_header():
+            line = []
+            line.append("userid")
+            line.append("index")
+            line.append("task id")
+            line.append("task text")
+            line.append("clicks")
+            line.append("time")
+            line.append("success")
+            line.append("completed")
+            return ";\t".join(line)
 
         def format_line(user, task, index):
             line = []
             line.append(user.userid)
-            line.append(index)
-            line.append(task.id)
+            line.append(str(index))
+            line.append(task.get_id())
             line.append(task.text)
             line.append(task.number_of_clicks())
             line.append(task.time_elapsed())
             line.append(task.success())
+            line.append(task.is_finished())
             return ";\t".join(line)
 
         output = []
+        output.append(format_header())
         users = get_all_users()
         for user in users:
             for index, task in enumerate(user.get_tasks()):
@@ -201,10 +216,8 @@ class SearchApp(Flask):
         context = {
             "finalizer_view": url_for("finalizer_view"),
             "test_view": url_for(task.view),
-            "link": link,
-            "number_of_clicks": task.number_of_clicks(),
-            "time_spent": task.time_elapsed(),
-            "record": record
+            "record": record,
+            "task": task,
         }
 
         return make_response(render_template("results.html", **context))

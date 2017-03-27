@@ -202,12 +202,18 @@ class Task:
         self.active = False
         self.finished = False
     
+    def get_id(self):
+        return str(self.id)
+
     def start(self):
         self.active = True
 
     def complete(self):
         self.active = False
         self.finished = True
+
+    def is_finished(self):
+        return str(self.finished)
 
     def append_stats(self, stats):
         self.stats.extend(stats)
