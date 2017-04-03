@@ -1,6 +1,9 @@
 *.pyc
 *.pyo
+.env
+__pycache__
 GPATH
 GRTAGS
 GTAGS
-__pycache__
+staticfiles
+venv
