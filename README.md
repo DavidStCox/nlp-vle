@@ -50,6 +50,9 @@ How to push a new version to Heroku
     * `export PATH=${PATH}:~/bin/heroku/bin`
     * You need to do some login. Search for "Heroku CLI installation" to learn
       more about it. It's linked from here https://devcenter.heroku.com/articles/deploying-python
+    * Create a new Heroku app (yours only, not shared with rest of team):
+      `heroku login` then `heroku create`. You can now `git push heroku master`
+      if you want to.
   * `git pull` to get the latest changes locally
   * `git clean -fdx` to clean out everything
   * `git push heroku master` to deploy a new version
