@@ -128,7 +128,7 @@ def get_test_tasks(userid):
         {
             "id": 11,
             "name": "Task 1 - Suggestions for you!",
-            "text": "Who was the last Pople of the 20th century?",
+            "text": "Who was the last Pope of the 20th century?",
             "link": "http://www.wikidata.org/entity/Q989",
             "view": "search_suggest",
             "clicks": None,
