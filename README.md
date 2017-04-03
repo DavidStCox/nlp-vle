@@ -53,11 +53,13 @@ How to push a new version to Heroku
     * Create a new Heroku app (yours only, not shared with rest of team):
       `heroku login` then `heroku create`. You can now `git push heroku master`
       if you want to.
-  * `git pull` to get the latest changes locally
-  * `git clean -fdx` to clean out everything
-  * `git push heroku master` to deploy a new version
-  * Log on to Heroku. In right hand, upper corner, select "view logs" and see
-    if there's an error (*after* you've tried the app on heroku).
-  * We need to store files off of Heroku, because it restarts processes all the
-    time. They have a free filestack addon we can probably use. This goes for
-    the user data.
+  * If you've already done the above steps, here's how to update and redeploy a
+    new version to Heroku:
+    * `git pull` to get the latest changes locally
+    * `git clean -fdx` to clean out everything
+    * `git push heroku master` to deploy a new version
+    * Log on to Heroku. In right hand, upper corner, select "view logs" and see
+      if there's an error (*after* you've tried the app on heroku).
+    * We need to store files off of Heroku, because it restarts processes all the
+      time. They have a free filestack addon we can probably use. This goes for
+      the user data.
