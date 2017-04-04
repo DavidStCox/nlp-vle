@@ -48,6 +48,7 @@
 }
 .fa-ul > li {
   position: relative;
+  padding-bottom: 1em;
 }
 .fa-li {
   position: absolute;

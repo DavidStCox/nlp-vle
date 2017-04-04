@@ -27,7 +27,7 @@ def get_test_tasks(userid):
     tasks = [
         {
             "id": 1,
-            "name": "Task 1 - Navigation",
+            "name": "Task 1 - Navigation by menu",
             "text": "Cambodia has what World Heritage Site?",
             "link": "http://www.wikidata.org/entity/Q45949",
             "view": "navigation",
@@ -37,7 +37,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 2,
-            "name": "Task 2 - Navigation",
+            "name": "Task 2 - Navigation by menu",
             "text": "The Great Wall of China is in which country's World Heritage Sites list?",
             "link": "http://www.wikidata.org/entity/Q12501",
             "view": "navigation",
@@ -47,7 +47,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 3,
-            "name": "Task 3 - Navigation",
+            "name": "Task 3 - Navigation by menu",
             "text": "Which American President won the Nobel Peace Prize in 2009?",
             "link": "http://www.wikidata.org/entity/Q76",
             "view": "navigation",
@@ -57,7 +57,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 4,
-            "name": "Task 4 - Navigation",
+            "name": "Task 4 - Navigation by menu",
             "text": "Who was the 3rd Pope of the Catholic Church?",
             "link": "http://www.wikidata.org/entity/Q80450",
             "view": "navigation",
@@ -67,7 +67,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 5,
-            "name": "Task 5 - Navigation",
+            "name": "Task 5 - Navigation by menu",
             "text": "Where is the Stave Church in Norway's list of World Heritage Sites?",
             "link": "http://www.wikidata.org/entity/Q210678",
             "view": "navigation",
@@ -118,7 +118,7 @@ def get_test_tasks(userid):
         {
             "id": 10,
             "name": "Task 5 - Free text search",
-            "text": "Was Hjalmar Branting a winner of the Nobel Peace Prize?",
+            "text": "Which type of Nobel Prize did Hjalmar Branting win?",
             "link": "http://www.wikidata.org/entity/Q53620",
             "view": "search",
             "clicks": None,
@@ -127,7 +127,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 11,
-            "name": "Task 1 - Suggestions for you!",
+            "name": "Task 1 - Suggestion-based search",
             "text": "Who was the last Pope of the 20th century?",
             "link": "http://www.wikidata.org/entity/Q989",
             "view": "search_suggest",
@@ -137,7 +137,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 12,
-            "name": "Task 2 - Suggestions for you!",
+            "name": "Task 2 - Suggestion-based search",
             "text": "Which Nobel Prize did Sully Prudhomme win?",
             "link": "http://www.wikidata.org/entity/Q42247",
             "view": "search_suggest",
@@ -147,7 +147,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 13,
-            "name": "Task 3 - Suggestions for you!",
+            "name": "Task 3 - Suggestion-based search",
             "text": "What is the capital of Swaziland?",
             "link": "http://www.wikidata.org/entity/Q101418",
             "view": "search_suggest",
@@ -157,7 +157,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 14,
-            "name": "Task 4 - Suggestions for you!",
+            "name": "Task 4 - Suggestion-based search",
             "text": "In which country is Ha Long Bay?",
             "link": "http://www.wikidata.org/entity/Q190128",
             "view": "search_suggest",
@@ -167,7 +167,7 @@ def get_test_tasks(userid):
         },
         {
             "id": 15,
-            "name": "Task 5 - Suggestions for you!",
+            "name": "Task 5 - Suggestion-based search",
             "text": "Which President had 'Teddy' as his nickname?",
             "link": "http://www.wikidata.org/entity/Q33866",
             "view": "search_suggest",
