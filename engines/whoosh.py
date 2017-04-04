@@ -51,6 +51,7 @@ class WhooshSearchEngine():
                         # Skip comments or header fields
                         continue
 
+                    line = line.rstrip() # removes trailiing CRLF
                     fields = line.split(",")
 
                     try:
@@ -58,8 +59,8 @@ class WhooshSearchEngine():
                         category = ",".join(fields[0].split(";"))
                         link = fields[1]
                     except IndexError as error:
-                        print("%s:%d: %s: %r" % (filename, line_number, error,
-                            line))
+                        print("%s:%d: %s: %r" % (os.path.basename(filename),
+                            line_number, error, line))
                         raise RuntimeError("The CSV file seems to be invalid."
                                 + " Check for proper use of separators.") from error
 
@@ -68,6 +69,9 @@ class WhooshSearchEngine():
                         # optional
                         description = fields[3]
                     except IndexError:
+                        print("%s:%d: warning: missing description: %r" %
+                                (os.path.basename(filename), line_number,
+                                    line))
                         description = ""
 
                     writer.add_document(
