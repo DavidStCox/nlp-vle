@@ -21,7 +21,15 @@ class WhooshSearchEngine():
         self.path = path
         self.index = index
         analyzer = NgramWordAnalyzer(2, 4)
-        if not os.path.isdir(self.index):
+
+        try:
+            ix = whoosh.index.open_dir(self.index)
+            ix.close()
+            create_index = False # index seems to be working fine
+        except whoosh.index.EmptyIndexError:
+            create_index = True
+
+        if create_index:
             schema = Schema(
                 name = TEXT(stored=True, analyzer=StemmingAnalyzer()),
                 link = TEXT(stored=True),
@@ -29,7 +37,8 @@ class WhooshSearchEngine():
                 description = TEXT(stored=True),
             )
 
-            os.mkdir(self.index)
+            if not os.path.isdir(self.index):
+                os.mkdir(self.index)
 
             print("Creating index %s" % os.path.relpath(self.index))
             with contextlib.closing(whoosh.index.create_in(self.index,

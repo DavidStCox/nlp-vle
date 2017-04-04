@@ -41,15 +41,8 @@ Usage: server.py
 How to reindex
 ==============
 
-Delete the *entire* index subdirectory, e.g.
-
-    $ cd indexes
-    $ rm -rf ontology
-
-Don't just delete the files in that directory. Then start the server again, and
-it should automatically reindex. Note that which separators are used in the CSV
-file is important (hardcoded, because there really is no other way to be sure
-which separators are being used).
+Either delete entire subdirectory (e.g. indexes/*ontology*) or *all* the files
+within that subdirectory. Then start the server again.
 
 How to push a new version to Heroku
 ===================================
