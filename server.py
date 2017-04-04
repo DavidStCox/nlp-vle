@@ -96,15 +96,16 @@ class SearchApp(Flask):
         route("/", view_func=self.index)
         route("/autocomplete", view_func=self.search_suggestions)
         route("/doc/<path:filename>", view_func=self.show_doc)
+        route("/dump", view_func=self.test_results_dump_view, methods=["GET", "POST"]) # alias: test_results_dump
         route("/licenses", view_func=self.licenses)
-        route("/test_results_dump", view_func=self.test_results_dump_view, methods=["GET", "POST"])
-        route("/logout", view_func=self.logout)
         route("/login", view_func=self.login, methods=["GET", "POST"])
+        route("/logout", view_func=self.logout)
         route("/search/finalizer", view_func=self.finalizer_view, methods=["GET", "POST"])
-        route("/search/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/freetext", view_func=self.search, methods=["GET", "POST"])
         route("/search/navigation", view_func=self.navigation, methods=["GET", "POST"])
+        route("/search/results", view_func=self.results_view, methods=["GET", "POST"])
         route("/search/suggestions", view_func=self.search_suggest, methods=["GET", "POST"])
+        route("/test_results_dump", view_func=self.test_results_dump_view, methods=["GET", "POST"])
 
     def show_doc(self, filename):
         """Renders a document in the current corpus."""
@@ -160,8 +161,9 @@ class SearchApp(Flask):
         
     def test_results_dump_view(self):
         """Dump all the test data to a csv file."""
-        if "userid" not in session:
-           return redirect(url_for('login'))
+        # Don't require user id for just dumping the data
+        #if "userid" not in session:
+           #return redirect(url_for('login'))
 
         # template template template
         def format_header():
