@@ -1,9 +1,18 @@
 import os
 import pickle
+import hashlib
 
 # poor man's sqlite. Fix this Christian :-)
+
+def sha1hex(s):
+    return hashlib.sha1(s).hexdigest()
+
+def get_filename(userid):
+    sanitized = sha1hex(userid.encode("utf-8")) # don't *ever* do otherwise
+    return os.path.join("user_data", "data_{}.db".format(sanitized))
+
 def get_user_data(userid):
-    filename = "user_data/data_{}.db".format(userid)
+    filename = get_filename(userid)
     if not os.path.exists(filename):
         return UserData(userid)
 
@@ -11,15 +20,15 @@ def get_user_data(userid):
         return pickle.load(f)
 
 def save_user_data(data):
-    filename = "user_data/data_{}.db".format(data.userid)
+    filename = get_filename(data.userid)
     with open(filename, "wb+") as f:
         pickle.dump(data, f)
 
 def get_all_users():
     users = []
     for n in os.listdir("user_data"):
+        # Ignore README.md and other files
         if not n.endswith(".db"):
-            # Ignore README.md and other files
             continue
         with open(os.path.join("user_data", n), "rb+") as f:
             users.append(pickle.load(f))
@@ -180,8 +189,7 @@ def get_test_tasks(userid):
     ]
 
     def get_hash(s, n=3):
-        import hashlib
-        return int(hashlib.sha1(s).hexdigest(), 16) % n
+        return int(sha1hex(s), 16) % n
 
     def shift(l, n):
         return l[n:] + l[:n]
