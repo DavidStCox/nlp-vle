@@ -42,6 +42,7 @@ class WhooshSearchEngine():
     def _index(self, ix, root):
         def index_directory(writer, path, depth_first=False):
             """A recursive indexer."""
+            # TODO: Use the "csv" module for reading these files
             subdirs = deque()
             filename = self.path + ".csv"
             with open(filename) as file:
@@ -50,18 +51,24 @@ class WhooshSearchEngine():
                         # Skip comments or header fields
                         continue
 
-                    fields = line.split(";")
+                    fields = line.split(",")
 
                     try:
                         name = fields[2]
                         category = ",".join(fields[0].split(";"))
                         link = fields[1]
-                        description = fields[3]
                     except IndexError as error:
                         print("%s:%d: %s: %r" % (filename, line_number, error,
                             line))
                         raise RuntimeError("The CSV file seems to be invalid."
                                 + " Check for proper use of separators.") from error
+
+                    try:
+                        # In the CSV file, it seems that the description is
+                        # optional
+                        description = fields[3]
+                    except IndexError:
+                        description = ""
 
                     writer.add_document(
                         name=name,
