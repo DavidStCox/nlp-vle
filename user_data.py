@@ -18,12 +18,14 @@ def save_user_data(data):
 def get_all_users():
     users = []
     for n in os.listdir("user_data"):
+        if not n.endswith(".db"):
+            # Ignore README.md and other files
+            continue
         with open(os.path.join("user_data", n), "rb+") as f:
             users.append(pickle.load(f))
     return users
 
 def get_test_tasks(userid):
-
     tasks = [
         {
             "id": 1,
