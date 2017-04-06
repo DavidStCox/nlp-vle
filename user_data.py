@@ -159,7 +159,7 @@ def get_test_tasks(userid):
         {
             "id": 13,
             "name": "Task 3 - Suggestion-based search",
-            "text": "What is the administrative capital of Swaziland?",
+            "text": "What is the Royal capital of Swaziland?",
             "link": "http://www.wikidata.org/entity/Q101418",
             "view": "search_suggest",
             "clicks": None,

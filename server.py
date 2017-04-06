@@ -233,7 +233,7 @@ class SearchApp(Flask):
         task = user.get_task()
 
         context = {
-            "title": "Search-navigation",
+            "title": "Search by menu navigation",
             "results_view": url_for("results_view"),
             "categories": {},
             "task": task,
