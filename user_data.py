@@ -99,7 +99,7 @@ def get_test_tasks(userid):
         {
             "id": 7,
             "name": "Task 2 - Free text search",
-            "text": "What U.S. state has the capital of Annapolis?",
+            "text": "Which U.S. state has the capital of Annapolis?",
             "link": "http://www.wikidata.org/entity/Q28271",
             "view": "search",
             "clicks": None,
@@ -159,7 +159,7 @@ def get_test_tasks(userid):
         {
             "id": 13,
             "name": "Task 3 - Suggestion-based search",
-            "text": "What is the capital of Swaziland?",
+            "text": "What is the administrative capital of Swaziland?",
             "link": "http://www.wikidata.org/entity/Q101418",
             "view": "search_suggest",
             "clicks": None,
@@ -179,7 +179,7 @@ def get_test_tasks(userid):
         {
             "id": 15,
             "name": "Task 5 - Suggestion-based search",
-            "text": "Which President had 'Teddy' as his nickname?",
+            "text": "Which U.S. President had 'Teddy' as his nickname?",
             "link": "http://www.wikidata.org/entity/Q33866",
             "view": "search_suggest",
             "clicks": None,
