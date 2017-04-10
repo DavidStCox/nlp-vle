@@ -15,10 +15,19 @@ a {
 
 .fa-ok {
  color: green;
-
 }
 
-fa-error {
- color: red;
+.fa-error {
+ color: grey;
+}
 
+.user-instructions {
+    margin-left: 0;
+    padding-top: 1em;
+    padding-left: 0;
+}
+
+.user-instructions li {
+    margin-left: 1em;
+    padding-bottom: 1em;
 }

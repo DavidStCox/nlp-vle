@@ -243,7 +243,7 @@ class SearchApp(Flask):
         return make_response(render_template("navigation.html", **context))
 
     def search_suggest(self):
-        """Performs the actual search."""
+        """Performs the actual suggestions-assisted search."""
         if "userid" not in session:
            return redirect(url_for('login'))
 
@@ -258,7 +258,7 @@ class SearchApp(Flask):
         save_user_data(user)
 
         context = {
-            "title": "Search",
+            "title": "Suggestion-based search",
             "query": query,
             "results_view": url_for("results_view"),
             "autocomplete": True,
@@ -283,7 +283,7 @@ class SearchApp(Flask):
         return make_response(render_template("search.html", **context))
 
     def search(self):
-        """Performs the actual search."""
+        """Performs the actual freetext search."""
         if "userid" not in session:
            return redirect(url_for('login'))
         query = request.form.get("query", None)
@@ -297,7 +297,7 @@ class SearchApp(Flask):
         save_user_data(user)
 
         context = {
-            "title": "Search",
+            "title": "Free text search",
             "query": query,
             "results_view": url_for("results_view"),
             "autocomplete": False,

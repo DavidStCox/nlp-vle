@@ -2,8 +2,6 @@ import os
 import pickle
 import hashlib
 
-# poor man's sqlite. Fix this Christian :-)
-
 def sha1hex(s):
     return hashlib.sha1(s).hexdigest()
 
@@ -79,7 +77,7 @@ def get_test_tasks(userid):
         {
             "id": 5,
             "name": "Task 5 - Navigation by menu",
-            "text": "Where is the Stave Church in Norway's list of World Heritage Sites?",
+            "text": "What Stave Church is in Norway's list of World Heritage Sites?",
             "link": "http://www.wikidata.org/entity/Q210678",
             "view": "navigation",
             "clicks": None,
@@ -149,7 +147,7 @@ def get_test_tasks(userid):
         {
             "id": 12,
             "name": "Task 2 - Suggestion-based search",
-            "text": "Which Nobel Prize did Sully Prudhomme win?",
+            "text": "Which French poet won the Nobel Literature Prize in 1901?",
             "link": "http://www.wikidata.org/entity/Q42247",
             "view": "search_suggest",
             "clicks": None,
@@ -159,7 +157,7 @@ def get_test_tasks(userid):
         {
             "id": 13,
             "name": "Task 3 - Suggestion-based search",
-            "text": "What is the Royal capital of Swaziland?",
+            "text": "Which city is the Royal capital of Swaziland?",
             "link": "http://www.wikidata.org/entity/Q101418",
             "view": "search_suggest",
             "clicks": None,
