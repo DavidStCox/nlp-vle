@@ -37,8 +37,8 @@ def get_test_tasks(userid):
         {
             "id": 1,
             "name": "Task 1 - Navigation by menu",
-            "text": "Cambodia has what World Heritage Site?",
-            "link": "http://www.wikidata.org/entity/Q45949",
+            "text": "Which World Heritage Site is in Cambodia?",
+            "link": "http://www.wikidata.org/entity/Q2397751",
             "view": "navigation",
             "clicks": None,
             "aborted": None,
@@ -47,8 +47,8 @@ def get_test_tasks(userid):
         {
             "id": 2,
             "name": "Task 2 - Navigation by menu",
-            "text": "The Great Wall of China is in which country's World Heritage Sites list?",
-            "link": "http://www.wikidata.org/entity/Q12501",
+            "text": "What is the capital city of Ecuador?",
+            "link": "http://www.wikidata.org/entity/Q2900",
             "view": "navigation",
             "clicks": None,
             "aborted": None,
@@ -77,8 +77,8 @@ def get_test_tasks(userid):
         {
             "id": 5,
             "name": "Task 5 - Navigation by menu",
-            "text": "What Stave Church is in Norway's list of World Heritage Sites?",
-            "link": "http://www.wikidata.org/entity/Q210678",
+            "text": "Which country has The Great Wall as a World Heritage Site?",
+            "link": "http://www.wikidata.org/entity/Q12501",
             "view": "navigation",
             "clicks": None,
             "aborted": None,
@@ -87,8 +87,8 @@ def get_test_tasks(userid):
         {
             "id": 6,
             "name": "Task 1 - Free text search",
-            "text": "Does Poland have a salt mine as a World Heritage site?",
-            "link": "http://www.wikidata.org/entity/Q454019",
+            "text": "Which World Heritage site was designed by Antoni Gaudi for Manuel Vicens?",
+            "link": "http://www.wikidata.org/entity/Q746333",
             "view": "search",
             "clicks": None,
             "aborted": None,
@@ -97,8 +97,8 @@ def get_test_tasks(userid):
         {
             "id": 7,
             "name": "Task 2 - Free text search",
-            "text": "Which U.S. state has the capital of Annapolis?",
-            "link": "http://www.wikidata.org/entity/Q28271",
+            "text": "What is the capital of the U.S. state nicknamed Big Sky Country?",
+            "link": "http://www.wikidata.org/entity/Q38733",
             "view": "search",
             "clicks": None,
             "aborted": None,
@@ -117,7 +117,7 @@ def get_test_tasks(userid):
         {
             "id": 9,
             "name": "Task 4 - Free text search",
-            "text": "Kublai Khan was the Emperor of which Chinese Dynasty?",
+            "text": "Which Chinese Emperor created the Yuan Dynasty?",
             "link": "http://www.wikidata.org/entity/Q7523",
             "view": "search",
             "clicks": None,
@@ -127,7 +127,7 @@ def get_test_tasks(userid):
         {
             "id": 10,
             "name": "Task 5 - Free text search",
-            "text": "Which type of Nobel Prize did Hjalmar Branting win?",
+            "text": "Which Swedish Prime Minister won the Nobel Peace Prize in 1921?",
             "link": "http://www.wikidata.org/entity/Q53620",
             "view": "search",
             "clicks": None,
@@ -137,7 +137,7 @@ def get_test_tasks(userid):
         {
             "id": 11,
             "name": "Task 1 - Suggestion-based search",
-            "text": "Who was the last Pope of the 20th century?",
+            "text": "Which Polish saint was the last elected Pope of the 20th century?",
             "link": "http://www.wikidata.org/entity/Q989",
             "view": "search_suggest",
             "clicks": None,
@@ -167,7 +167,7 @@ def get_test_tasks(userid):
         {
             "id": 14,
             "name": "Task 4 - Suggestion-based search",
-            "text": "In which country is Ha Long Bay?",
+            "text": "What World Heritage Site in Vietnam is composed of 1600 islands?",
             "link": "http://www.wikidata.org/entity/Q190128",
             "view": "search_suggest",
             "clicks": None,

@@ -330,7 +330,7 @@ class SearchApp(Flask):
         tasks = user.get_tasks()
 
         context = {
-                "title": "NLP-VLE",
+                "title": "VIRTUAL LEARNING ENVIRONMENT PROJECT",
                 "userid": userid,
                 "tasks": tasks,
                 "logout_view": url_for("logout"),
@@ -350,7 +350,7 @@ class SearchApp(Flask):
                 save_user_data(user)
                 return redirect(url_for('index'))
 
-        return make_response(render_template("login.html", title="NLP-VLE"))
+        return make_response(render_template("login.html", title="VIRTUAL LEARNING ENVIRONMENT PROJECT"))
 
 
     def logout(self):
